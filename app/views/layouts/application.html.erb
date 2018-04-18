@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css"/>
+    <link href="<%= '/application.css' %>" rel="stylesheet" type="text/css"/>
 
     <title>DentalCms</title>
     <%= csrf_meta_tags %>
@@ -30,6 +30,9 @@
     <% end %> -->
 
     <%= yield %>
+
+    <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete') %>
+
 
     <footer>
       <div class="row"> <!-- footer row -->
