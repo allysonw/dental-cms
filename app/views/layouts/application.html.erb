@@ -10,6 +10,16 @@
   </head>
 
   <body>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :section, msg, :id => "flash_#{name}", :class => "flash" %>
+  <% end %>
+
+  <!-- <% flash.keys.each do |type| %>
+    <div data-alert class="flash alert alert-<%= type %> alert-box radius">
+      <%= flash[type] %>
+    </div>
+  <% end %> -->
+
     <%= yield %>
   </body>
 </html>
