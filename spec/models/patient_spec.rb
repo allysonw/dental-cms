@@ -1,0 +1,50 @@
+require 'rails_helper'
+
+RSpec.describe Patient, :type => :model do
+  let(:andrew) {
+    User.create(
+      :name => "Doctor Andrew",
+      :password => "password",
+      :email => "awesman@icloud.com"
+    )
+  }
+
+  let(:allyson) {
+    User.create(
+      :name => "Doctor Allyson",
+      :password => "password",
+      :email => "allysonwesman@icloud.com"
+    )
+  }
+
+  let(:jim) {
+    Patient.create(
+      :name => "Jim Jones",
+      :dob => "12/15/1967",
+      :address => "Nowhere, MD",
+      :phone_number => "415-533-4034"
+    )
+  }
+
+  it "is valid with a name, dob, address, and phone_number" do
+    expect(jim).to be_valid
+  end
+
+  it "is not valid without a name" do
+    expect(Patient.new(:dob => "12/15/1967", :address => "Nowhere, MD", :phone_number => "415-533-4034")).not_to be_valid
+  end
+
+  it "has many user_patients" do
+    first_user = UserPatient.create(:user_id => andrew.id, :patient_id => jim.id)
+    second_user = UserPatient.create(:user_id => allyson.id, :patient_id => jim.id)
+    expect(jim.user_patients.first).to eq(first_user)
+    expect(jim.user_patients.last).to eq(second_user)
+  end
+
+  it "has many users through user_patients" do
+    jim.users << [allyson, andrew]
+    expect(jim.users.first).to eq(allyson)
+    expect(jim.users.last).to eq(andrew)
+  end
+
+end
