@@ -34,14 +34,14 @@ RSpec.describe Patient, :type => :model do
     expect(Patient.new(:dob => "12/15/1967", :address => "Nowhere, MD", :phone_number => "415-533-4034")).not_to be_valid
   end
 
-  it "has many user_patients" do
-    first_user = UserPatient.create(:user_id => andrew.id, :patient_id => jim.id)
-    second_user = UserPatient.create(:user_id => allyson.id, :patient_id => jim.id)
-    expect(jim.user_patients.first).to eq(first_user)
-    expect(jim.user_patients.last).to eq(second_user)
+  it "has many appointments" do
+    first_appointment = Appointment.create(:user_id => andrew.id, :patient_id => jim.id, :date => "05/12/2018", :time => "14:00", :location => "Room 4")
+    second_appointment = Appointment.create(:user_id => allyson.id, :patient_id => jim.id, :date => "04/03/2018", :time => "11:00", :location => "Room 5")
+    expect(jim.appointments.first).to eq(first_appointment)
+    expect(jim.appointments.last).to eq(second_appointment)
   end
 
-  it "has many users through user_patients" do
+  it "has many users through appointments" do
     jim.users << [allyson, andrew]
     expect(jim.users.first).to eq(allyson)
     expect(jim.users.last).to eq(andrew)
