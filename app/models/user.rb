@@ -5,5 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :users_patients
-  has_many :patients, through: :users_patients
+  has_many :patients, through: :user_patients
+
+  validates :name, presence: true
 end
