@@ -9,9 +9,12 @@ Specs:
   * The appointments table includes 3 user submittable attributes: date, time, and location
 - [ ] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
 - [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
-- [ ] Include signup (how e.g. Devise)
-- [ ] Include login (how e.g. Devise)
-- [ ] Include logout (how e.g. Devise)
+- [X] Include signup (how e.g. Devise)
+* Devise
+- [X] Include login (how e.g. Devise)
+* Devise
+- [X] Include logout (how e.g. Devise)
+* Devise
 - [ ] Include third party signup/login (how e.g. Devise/OmniAuth)
 - [ ] Include nested resource show or index (URL e.g. users/2/recipes)
 - [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients)

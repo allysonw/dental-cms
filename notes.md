@@ -35,9 +35,12 @@ Try multiple models - see what happens
 ## Build app for doctors-eyes only first
 - once that is working, add in patient login
 
-## STEP 1: Create basic models & set up authentication for Doctor model
+## STEP 1: Create basic models & set up authentication for User model
+DONE
 
 ## STEP 2: Build out app
+# 1) Implement omniauth for google and facebook
+# 2) Create CRUD for patients and appointments
 
 ## STEP 3: come back LATER and add in ability for patients to log in
 This means at first there are no user roles needed - only doctors ever log in
@@ -46,21 +49,3 @@ Could add some roles to user such as doctor, administrative assistant
 - both doc's and AA's can edit appts
 Patient model is still needed
 When I add in patient users, can look up their patient_id somehow...?
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Users can all log in
-Some users have role "doctor"
-join table between these users and their patients is called????
