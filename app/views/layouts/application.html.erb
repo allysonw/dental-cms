@@ -31,13 +31,13 @@
 
     <%= yield %>
 
-    <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete') %>
 
 
     <footer>
       <div class="row"> <!-- footer row -->
         <div class="col-sm-12 pt-3 footer">
           &copy; 2018 Allyson Wesman
+          <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete') %>
         </div>
       </div> <!-- end footer row -->
     </footer>
