@@ -9,8 +9,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def set_and_redirect_user
     @user = User.from_omniauth(request.env["omniauth.auth"])
-    binding.pry
-
     sign_in_and_redirect @user
   end
 end

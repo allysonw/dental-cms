@@ -39,8 +39,12 @@ Try multiple models - see what happens
 DONE
 
 ## STEP 2: Build out app
-# 1) Implement omniauth for google and facebook
-# 2) Create CRUD for patients and appointments
+# Implement omniauth for google
+DONE
+
+# Implement omniauth for facebook
+
+# Create CRUD for patients and appointments
 
 ## STEP 3: come back LATER and add in ability for patients to log in
 This means at first there are no user roles needed - only doctors ever log in
