@@ -1,10 +1,15 @@
 class PatientsController < ApplicationController
   def index
-    @patients = Patient.all
+    if params[:user_id]
+      @patients = User.find(params[:user_id]).patients
+    else
+      @patients = Patient.all
+    end
   end
 
   def show
     @patient = Patient.find_by(id: params[:id])
+
 
     if @patient.nil?
       flash[:notice] = "Patient not found"
