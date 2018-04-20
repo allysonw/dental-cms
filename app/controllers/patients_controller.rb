@@ -1,7 +1,7 @@
 class PatientsController < ApplicationController
   def index
     if params[:user_id]
-      @patients = User.find(params[:user_id]).patients
+      @patients = User.find(params[:user_id]).patients.uniq
     else
       @patients = Patient.all
     end
@@ -10,10 +10,11 @@ class PatientsController < ApplicationController
   def show
     @patient = Patient.find_by(id: params[:id])
 
-
     if @patient.nil?
       flash[:notice] = "Patient not found"
       redirect_to patients_path
+    else
+      @appointments = @patient.appointments
     end
   end
 

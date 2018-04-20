@@ -1,1 +1,9 @@
 <%= render partial: 'patient', locals: { patient: @patient } %>
+
+<h2>Appointments</h2>
+
+<% @appointments.each do |appointment| %>
+  <ul>
+    <%= render partial: 'appointments/appointment_li', locals: { appointment: appointment } %>
+  </ul>
+<% end %>
