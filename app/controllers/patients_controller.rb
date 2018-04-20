@@ -1,4 +1,6 @@
 class PatientsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     if params[:user_id]
       @patients = User.find(params[:user_id]).patients.uniq
