@@ -7,7 +7,8 @@ RSpec.feature "Sign in", type: :devise do
     :provider => 'google_oauth2',
     :uid => '123545',
     :info => {
-      :name => 'Andrew Wesman'
+      :name => 'Andrew Wesman',
+      :email => 'awesman@icloud.com'
     }
   })
 
@@ -19,6 +20,7 @@ RSpec.feature "Sign in", type: :devise do
   scenario "Sign in with Google account" do
     visit new_user_session_path
     expect(page).to have_content("Sign in with GoogleOauth2")
+
     click_link "Sign in with GoogleOauth2"
     expect(page).to have_content("Andrew Wesman")
   end
