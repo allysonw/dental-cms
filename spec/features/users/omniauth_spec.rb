@@ -40,7 +40,7 @@ RSpec.feature "Sign in", type: :devise do
     expect(page).to have_content("Andrew Wesman")
   end
 
-  scenario "Sign in with multiple providers using the same email", focus: true do
+  scenario "Sign in with multiple providers using the same email" do
 
     User.create(name: "Andrew Wesman", email: "awesman@icloud.com", password: "testpassword", uid: "googleuid234", provider: "google_oauth2")
 

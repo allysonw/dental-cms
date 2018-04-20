@@ -5,6 +5,11 @@ class PatientsController < ApplicationController
 
   def show
     @patient = Patient.find_by(id: params[:id])
+
+    if @patient.nil?
+      flash[:notice] = "Patient not found"
+      redirect_to patients_path
+    end
   end
 
   def new

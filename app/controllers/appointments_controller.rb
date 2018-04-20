@@ -5,6 +5,11 @@ class AppointmentsController < ApplicationController
 
   def show
     @appointment = Appointment.find_by(id: params[:id])
+
+    if @appointment.nil?
+      flash[:notice] = "Appointment not found"
+      redirect_to appointments_path
+    end
   end
 
   def new
