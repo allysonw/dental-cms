@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }, :path => 'accounts'
 
+  resources :users do
+    resources :patients
+  end
+
   root 'welcome#index'
   get '/dashboard', to: 'welcome#dashboard'
 
