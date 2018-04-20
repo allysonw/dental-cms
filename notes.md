@@ -43,8 +43,12 @@ DONE
 DONE
 
 # Implement omniauth for facebook
+DONE
 
 # Create CRUD for patients and appointments
+
+# Do some work on styling with bootstrap
+- get homepage, login/signup pages, and user dash in good shape
 
 ## STEP 3: come back LATER and add in ability for patients to log in
 This means at first there are no user roles needed - only doctors ever log in
@@ -53,3 +57,12 @@ Could add some roles to user such as doctor, administrative assistant
 - both doc's and AA's can edit appts
 Patient model is still needed
 When I add in patient users, can look up their patient_id somehow...?
+
+
+## Devise Methods
+
+* before_action :authenticate_user!           Set up a controller with user authentication:
+* user_signed_in?                             Verify a user is signed in
+* current_user                                Get current signed-in user
+
+* Override after_sign_in_path_for and after_sign_out_path_for to customize your redirect hooks.
