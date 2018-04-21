@@ -1,13 +1,12 @@
 class AppointmentsController < ApplicationController
-  before_action :authenticate_user!  
+  before_action :authenticate_user!
+  before_action :set_appointment, only: [:edit, :show]
 
   def index
     @appointments = Appointment.all
   end
 
   def show
-    @appointment = Appointment.find_by(id: params[:id])
-
     if @appointment.nil?
       flash[:notice] = "Appointment not found"
       redirect_to appointments_path
@@ -15,11 +14,19 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-
+    @appointment = Appointment.new
   end
 
   def create
+    raise params.inspect
+    @appointment = Appointment.new(appointment_params)
 
+    if @appointment.save
+      raise @appointment.inspect
+      redirect_to appointment_path(@appointment)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -35,7 +42,11 @@ class AppointmentsController < ApplicationController
   end
 
   private
-    def appointments_params
-      params.require(:appointment).permit(:date, :time, :location) # patient/user id??
+    def appointment_params
+      params.require(:appointment).permit(:date, :time, :location, :user_id, :patient_id)
+    end
+
+    def set_appointment
+      @appointment = Appointment.find_by(id: params[:id])
     end
 end
