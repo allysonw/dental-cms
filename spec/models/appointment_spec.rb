@@ -33,7 +33,6 @@ RSpec.describe Appointment, type: :model do
   end
 
   it "is valid with a date, time, and location" do
-
     expect(thursday).to be_valid
   end
 
