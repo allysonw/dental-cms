@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_appointment, only: [:edit, :show]
+  before_action :set_appointment, only: [:edit, :show, :update]
 
   def index
     @appointments = Appointment.all
@@ -21,8 +21,10 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
 
     if @appointment.save
+      flash[:message] = "Appointment successfully created!"
       redirect_to appointment_path(@appointment)
     else
+      flash[:notice] = "You have some errors."
       render :new
     end
   end
@@ -32,7 +34,13 @@ class AppointmentsController < ApplicationController
   end
 
   def update
-
+    if @appointment.save
+      flash[:message] = "Appointment successfully udpated!"
+      redirect_to appointment_path(@appointment)
+    else
+      flash[:notice] = "You have some errors."
+      render :edit
+    end
   end
 
   def destroy
