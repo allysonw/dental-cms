@@ -48,7 +48,7 @@ carol_appt_allyson = Appointment.create(
 )
 
 carol_appt_andrew2 = Appointment.create(
-  :time => Time.new(2018, 6, 14, 08, 00),
+  :time => Time.new(2018, 6, 14, 8, 00),
   :location => "Operatory 2",
   :patient_id => carol.id,
   :user_id => drandrew.id

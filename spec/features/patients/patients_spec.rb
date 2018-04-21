@@ -5,7 +5,7 @@ RSpec.feature "Patients", type: :feature do
   let (:carol) { FactoryBot.create(:patient) }
   let (:drandrew) { FactoryBot.create(:user) }
   let (:carol_appt_andrew) { Appointment.create(
-    :time => Time.new(2018, 07, 24, 11, 00),
+    :time => Time.new(2018, 7, 24, 11, 00),
     :location => "Operatory 2",
     :patient_id => carol.id,
     :user_id => drandrew.id
