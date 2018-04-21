@@ -1,6 +1,7 @@
 class PatientsController < ApplicationController
   before_action :authenticate_user!
-  
+  before_action :set_patient, only: [:edit, :show, :update]
+
   def index
     if params[:user_id]
       @patients = User.find(params[:user_id]).patients.uniq
@@ -10,8 +11,6 @@ class PatientsController < ApplicationController
   end
 
   def show
-    @patient = Patient.find_by(id: params[:id])
-
     if @patient.nil?
       flash[:notice] = "Patient not found"
       redirect_to patients_path
@@ -21,11 +20,18 @@ class PatientsController < ApplicationController
   end
 
   def new
-
+    @patient = Patient.new
   end
 
   def create
+    @patient = Patient.new(patient_params)
 
+    if @patient.save
+      flash[:message] = "Patient successfully created!"
+      redirect_to patient_path(@patient)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -41,6 +47,11 @@ class PatientsController < ApplicationController
   end
 
   private
-    def patients_params
+    def patient_params
+      params.require(:patient).permit(:name, :dob, :address, :phone_number)
+    end
+
+    def set_patient
+      @patient = Patient.find_by(id: params[:id])
     end
 end

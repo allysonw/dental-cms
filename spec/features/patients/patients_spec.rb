@@ -28,7 +28,7 @@ RSpec.feature "Patients", type: :feature do
   scenario "creates a new patient with valid attributes" do
     visit(new_patient_path)
     fill_in "patient_name", with: "Bob Jones"
-    select('1965', from: 'patient[dob(1i)]')
+    select('2018', from: 'patient[dob(1i)]')
     select('June', from: 'patient[dob(2i)]')
     select('25', from: 'patient[dob(3i)]')
     fill_in "patient_address", with: "1932 Mott Street"

@@ -47,6 +47,7 @@ DONE
 
 # Create CRUD for patients and appointments
 In progress - created Show, Index for both
+Next: build New form and create actions
 
 # Do some work on styling with bootstrap
 - get homepage, login/signup pages, and user dash in good shape
