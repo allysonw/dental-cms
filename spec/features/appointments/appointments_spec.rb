@@ -55,7 +55,7 @@ RSpec.feature "Appointments", type: :feature do
     select('Carol Jones', from: 'appointment_patient_id')
     click_button('Create Appointment')
 
-    expect(page).to have_current_path(new_appointment_path)
+    expect(page).to have_css("div.field_with_errors")
   end
 
   scenario "redirects to appointment show page upon successful creation" do
@@ -70,7 +70,7 @@ RSpec.feature "Appointments", type: :feature do
     select('Carol Jones', from: 'appointment_patient_id')
     click_button('Create Appointment')
 
-    expect(page).to have_text("Appointment successfully created!")
+    expect(page).to have_current_path(appointment_path(Appointment.last))
   end
 
   scenario "redirects to appointment show page upon successful edit" do

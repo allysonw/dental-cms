@@ -24,7 +24,6 @@ class AppointmentsController < ApplicationController
       flash[:message] = "Appointment successfully created!"
       redirect_to appointment_path(@appointment)
     else
-      flash[:notice] = "You have some errors."
       render :new
     end
   end
@@ -38,7 +37,6 @@ class AppointmentsController < ApplicationController
       flash[:message] = "Appointment successfully udpated!"
       redirect_to appointment_path(@appointment)
     else
-      flash[:notice] = "You have some errors."
       render :edit
     end
   end
