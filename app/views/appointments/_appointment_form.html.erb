@@ -1,19 +1,19 @@
 <%= form_for @appointment do |f| %>
   <p>
     <%= f.label :time %>
-    <%= f.datetime_select :time %>
+    <%= f.datetime_select :time, :required => true %>
   </p>
   <p>
     <%= f.label :location %>
-    <%= f.text_field :location %>
+    <%= f.text_field :location, :required => true %>
   </p>
   <p>
     <%= f.label :user %>
-    <%= f.collection_select(:user_id, User.all, :id, :name) %>
+    <%= f.collection_select(:user_id, User.all, :id, :name), :required => true %>
   </p>
   <p>
     <%= f.label :patient %>
-    <%= f.collection_select(:patient_id, Patient.all, :id, :name) %>
+    <%= f.collection_select(:patient_id, Patient.all, :id, :name), :required => true %>
   </p>
   <%= f.submit %>
 <% end %>
