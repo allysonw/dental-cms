@@ -44,7 +44,18 @@ RSpec.feature "Appointments", type: :feature do
   end
 
   scenario "does not create a new appointment without all required attributes" do
+    visit(new_appointment_path)
+    select('2019', from: 'appointment[time(1i)]')
+    select('June', from: 'appointment[time(2i)]')
+    select('25', from: 'appointment[time(3i)]')
+    select('03', from: 'appointment[time(4i)]')
+    select('15', from: 'appointment[time(5i)]')
+    # No location specified
+    select('Dr. Allyson Wesman', from: 'appointment_user_id')
+    select('Carol Jones', from: 'appointment_patient_id')
+    click_button('Create Appointment')
 
+    expect(page).to have_current_path(new_appointment_path)
   end
 
   scenario "redirects to appointment show page upon successful creation" do
