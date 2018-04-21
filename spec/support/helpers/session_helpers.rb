@@ -5,14 +5,14 @@ module Features
       fill_in 'user[email]', with: email
       fill_in 'user[password]', with: password
       fill_in 'user[password_confirmation]', :with => confirmation
-      click_button 'Sign up'
+      click_button 'Sign Up'
     end
 
     def signin(email, password)
       visit new_user_session_path
       fill_in 'user[email]', with: email
       fill_in 'user[password]', with: password
-      click_button 'Log in'
+      click_button 'Sign In'
     end
   end
 end

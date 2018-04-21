@@ -20,7 +20,7 @@ RSpec.feature "Omniauth sign in", type: :devise do
     })
 
     visit new_user_session_path
-    click_link "Sign in with GoogleOauth2"
+    click_link "Sign in with Google"
     expect(page).to have_content("Andrew Wesman")
   end
 
