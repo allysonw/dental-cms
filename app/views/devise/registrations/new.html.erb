@@ -28,9 +28,9 @@
 
   <div class="actions">
     <%= f.submit "Sign Up", class: "btn signin-btn btn-primary btn-md right-margin-btn"  %>
-    <%= link_to "Sign In", new_user_session_path, class: "btn signin-btn btn-primary btn-md" %>
   </div>
-<% end %>
+<% end %><br>
 
+<%= link_to "Sign In", new_user_session_path %><br>
 <%= link_to "Sign in with Facebook", omniauth_authorize_path(resource_name, :facebook) %><br>
 <%= link_to "Sign in with Google", omniauth_authorize_path(resource_name, :google_oauth2) %>
