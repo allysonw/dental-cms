@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, :type => :model do
-  let(:user) {
+  let!(:user) {
     User.create(
       :name => "Doctor Andrew",
       :password => "password",
@@ -9,7 +9,7 @@ RSpec.describe User, :type => :model do
     )
   }
 
-  let(:jim) {
+  let!(:jim) {
     Patient.create(
       :name => "Jim Jones",
       :dob => "12/15/1967",
@@ -18,7 +18,7 @@ RSpec.describe User, :type => :model do
     )
   }
 
-  let(:nancy) {
+  let!(:nancy) {
     Patient.create(
       :name => "Nancy Jones",
       :dob => "12/15/1957",
@@ -26,6 +26,20 @@ RSpec.describe User, :type => :model do
       :phone_number => "415-344-4034"
     )
   }
+
+  let!(:appt1) { Appointment.create(
+    :time => Time.new(2018, 7, 24, 11, 00),
+    :location => "Operatory 2",
+    :patient_id => jim.id,
+    :user_id => user.id
+  )}
+
+  let!(:appt2) { Appointment.create(
+    :time => Time.new(2019, 12, 24, 13, 00),
+    :location => "Operatory 4",
+    :patient_id => nancy.id,
+    :user_id => user.id
+  )}
 
   it "is valid with a name, email, and password" do
     expect(user).to be_valid
@@ -44,14 +58,11 @@ RSpec.describe User, :type => :model do
   end
 
   it "has many appointments" do
-    first_appointment = Appointment.create(:user_id => user.id, :patient_id => jim.id, :time => Time.new(2018, 7, 28, 11, 00), :location => "Room 4")
-    second_appointment = Appointment.create(:user_id => user.id, :patient_id => nancy.id, :time => Time.new(2018, 7, 15, 11, 00), :location => "Room 5")
-    expect(user.appointments.first).to eq(first_appointment)
-    expect(user.appointments.last).to eq(second_appointment)
+    expect(user.appointments.first).to eq(appt1)
+    expect(user.appointments.last).to eq(appt2)
   end
 
   it "has many patients through appointments" do
-    user.patients << [jim, nancy]
     expect(user.patients.first).to eq(jim)
     expect(user.patients.last).to eq(nancy)
   end

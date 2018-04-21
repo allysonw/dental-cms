@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Patient, :type => :model do
-  let(:andrew) {
+  let!(:andrew) {
     User.create(
       :name => "Doctor Andrew",
       :password => "password",
@@ -9,7 +9,7 @@ RSpec.describe Patient, :type => :model do
     )
   }
 
-  let(:allyson) {
+  let!(:allyson) {
     User.create(
       :name => "Doctor Allyson",
       :password => "password",
@@ -17,7 +17,7 @@ RSpec.describe Patient, :type => :model do
     )
   }
 
-  let(:jim) {
+  let!(:jim) {
     Patient.create(
       :name => "Jim Jones",
       :dob => "12/15/1967",
@@ -25,6 +25,20 @@ RSpec.describe Patient, :type => :model do
       :phone_number => "415-533-4034"
     )
   }
+
+  let!(:appt1) { Appointment.create(
+    :time => Time.new(2018, 7, 24, 11, 00),
+    :location => "Operatory 2",
+    :patient_id => jim.id,
+    :user_id => andrew.id
+  )}
+
+  let!(:appt2) { Appointment.create(
+    :time => Time.new(2019, 12, 24, 13, 00),
+    :location => "Operatory 4",
+    :patient_id => jim.id,
+    :user_id => allyson.id
+  )}
 
   it "is valid with a name, dob, address, and phone_number" do
     expect(jim).to be_valid
@@ -35,16 +49,13 @@ RSpec.describe Patient, :type => :model do
   end
 
   it "has many appointments" do
-    first_appointment = Appointment.create(:user_id => andrew.id, :patient_id => jim.id, :time => Time.new(2018, 7, 24, 11, 00), :location => "Room 4")
-    second_appointment = Appointment.create(:user_id => allyson.id, :patient_id => jim.id, :time => Time.new(2018, 7, 28, 11, 00), :location => "Room 5")
-    expect(jim.appointments.first).to eq(first_appointment)
-    expect(jim.appointments.last).to eq(second_appointment)
+    expect(jim.appointments.first).to eq(appt1)
+    expect(jim.appointments.last).to eq(appt2)
   end
 
   it "has many users through appointments" do
-    jim.users << [allyson, andrew]
-    expect(jim.users.first).to eq(allyson)
-    expect(jim.users.last).to eq(andrew)
+    expect(jim.users.first).to eq(andrew)
+    expect(jim.users.last).to eq(allyson)
   end
 
 end
