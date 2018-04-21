@@ -46,6 +46,7 @@ DONE
 DONE
 
 # Create CRUD for patients and appointments
+In progress - created Show, Index for both
 
 # Do some work on styling with bootstrap
 - get homepage, login/signup pages, and user dash in good shape

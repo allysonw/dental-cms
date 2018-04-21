@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Sign in", type: :devise do
+RSpec.feature "Omniauth sign in", type: :devise do
   OmniAuth.config.test_mode = true
 
   before do

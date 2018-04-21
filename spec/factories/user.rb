@@ -3,6 +3,6 @@ FactoryBot.define do
     # confirmed_at Time.now
     email "test@example.com"
     password "please123"
-    name "Allyson Wesman"
+    name "Dr. Allyson Wesman"
   end
 end
