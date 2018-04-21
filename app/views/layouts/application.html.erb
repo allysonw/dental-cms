@@ -20,28 +20,77 @@
 
   <body>
     <% flash.each do |name, msg| %>
-      <%= content_tag :section, msg, :id => "flash_#{name}", :class => "flash" %>
+      <% if name == 'notice' then name = 'success' end %>
+      <% if name == 'alert' then name = 'danger' end %>
+      <%= content_tag :div, msg, :id => "alert_#{name}", :class => "flash alert alert-#{name} alert-box radius", :role => "alert" %>
       <% end %>
 
-    <!-- <% flash.keys.each do |type| %>
-      <div data-alert class="flash alert alert-<%= type %> alert-box radius">
-        <%= flash[type] %>
-      </div>
-    <% end %> -->
+      <div class="container">
+        <div class="row"> <!-- start nav bar & FP row -->
+          <div class="col-sm-12"> <!-- nav bar -->
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+               <a class="navbar-brand" href="/">Dental CMS</a>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span>
+               </button>
 
-    <%= yield %>
+               <div class="collapse navbar-collapse" id="navbarsExample03">
+                 <ul class="navbar-nav ml-auto">
 
+                   <% if user_signed_in? %>
+                     <li class="nav-item pr-2">
+                       <a class="btn pink-signin-btn btn-md" href="/appointments/new">New Appointment</a>
+                     </li>
+                     <li class="nav-item pr-2">
+                       <a class="btn pink-signin-btn btn-md" href="/appointments/new">New Patient</a>
+                     </li>
 
+                     <li class="nav-item">
+                       <a class="nav-link" href="/patients">Patients</a>
+                     </li>
+                     <li class="nav-item">
+                       <a class="nav-link" href="/appointments">Appointments</a>
+                     </li>
+                    <% end %>
 
-    <footer>
-      <div class="row"> <!-- footer row -->
-        <div class="col-sm-12 pt-3 footer">
-          &copy; 2018 Allyson Wesman
-          <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete') %>
-        </div>
-      </div> <!-- end footer row -->
-    </footer>
+                   <% if user_signed_in?  %>
+                     <li class="nav-item dropdown">
+                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <%= current_user.name %>
+                       </a>
+                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
+                         <div class="dropdown-divider"></div>
+                          <div class="dropdown-item">
+                            <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete') %>
+                          </div>
+                         </div>
+                     </li>
+                   <% else %>
+                     <li class="nav-item">
+                       <a class="nav-link" href="/accounts/sign_in">Sign In</a>
+                     </li>
+
+                     <li class="nav-item">
+                       <a class="nav-link" href="/accounts/sign_up">Sign Up</a>
+                     </li>
+                   <% end %>
+                 </ul>
+               </div>
+            </nav>
+          </div> <!-- end nav bar -->
+        </div> <!-- end navbar row -->
+
+      <%= yield %>
+
+      <footer>
+        <div class="row"> <!-- footer row -->
+          <div class="col-sm-12 pt-3 footer">
+            &copy; 2018 Allyson Wesman
+          </div>
+        </div> <!-- end footer row -->
+      </footer>
+    </div> <!-- end main container -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

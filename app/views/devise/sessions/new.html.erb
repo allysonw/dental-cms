@@ -1,4 +1,4 @@
-<h2>Log in</h2>
+<h2>Sign In</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
@@ -19,9 +19,12 @@
     </div>
   <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div>
+    <%= f.button "Sign In", class: "btn signin-btn btn-primary btn-md right-margin-btn" %>
+    <%= link_to "Sign Up", new_registration_path(resource_name), class: "btn signin-btn btn-primary btn-md" %>
   </div>
-<% end %>
+<% end %><br>
 
-<%= render "devise/shared/links" %>
+<%= link_to "Sign in with Facebook", omniauth_authorize_path(resource_name, :facebook) %><br>
+<%= link_to "Sign in with Google", omniauth_authorize_path(resource_name, :google_oauth2) %>
+<!-- <%= render "devise/shared/links" %> -->

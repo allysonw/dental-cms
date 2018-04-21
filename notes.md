@@ -45,12 +45,12 @@ DONE
 # Implement omniauth for facebook
 DONE
 
-# Create CRUD for patients and appointments
-In progress - created Show, Index for both
-Next: build New form and create actions
+# Create CRU for patients and appointments
+In progress - created Show, Index, New, Create, update
 
 # Do some work on styling with bootstrap
 - get homepage, login/signup pages, and user dash in good shape
+- figure out where to put new, delete, and edit buttons
 
 ## STEP 3: come back LATER and add in ability for patients to log in
 This means at first there are no user roles needed - only doctors ever log in

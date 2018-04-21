@@ -4,6 +4,7 @@ class  WelcomeController < ApplicationController
   end
 
   def dashboard
+    authenticate_user!
     @user = current_user
   end
 end
