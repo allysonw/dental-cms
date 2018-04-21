@@ -40,18 +40,15 @@ RSpec.feature "Patients", type: :feature do
   end
 
   scenario "does not create a new patient without all required attributes" do
-    # visit(new_patient_path)
-    # select('2019', from: 'appointment[time(1i)]')
-    # select('June', from: 'appointment[time(2i)]')
-    # select('25', from: 'appointment[time(3i)]')
-    # select('03', from: 'appointment[time(4i)]')
-    # select('15', from: 'appointment[time(5i)]')
-    # # No location specified
-    # select('Dr. Allyson Wesman', from: 'appointment_user_id')
-    # select('Carol Jones', from: 'appointment_patient_id')
-    # click_button('Create Patient')
-    #
-    # expect(page).to have_css("div.field_with_errors")
+    visit(new_patient_path)
+    fill_in "patient_name", with: "Bob Jones"
+    select('2018', from: 'patient[dob(1i)]')
+    select('June', from: 'patient[dob(2i)]')
+    select('25', from: 'patient[dob(3i)]')
+    # did not fill in address
+    fill_in "patient_phone_number", with: "123-456-7899"
+
+    expect(page).to have_css("div.field_with_errors")
   end
 
   scenario "redirects to appointment show page upon successful creation" do

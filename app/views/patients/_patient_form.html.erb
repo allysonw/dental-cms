@@ -1,7 +1,7 @@
 <%= form_for @patient do |f| %>
   <p>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, required: true %>
   </p>
   <p>
     <%= f.label :dob %>
@@ -13,7 +13,7 @@
   </p>
   <p>
     <%= f.label :phone_number %>
-    <%= f.text_field :phone_number %>
+    <%= f.text_field :phone_number, required: true %>
   </p>
   <%= f.submit %>
 <% end %>

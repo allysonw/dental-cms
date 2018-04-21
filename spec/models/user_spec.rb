@@ -12,7 +12,7 @@ RSpec.describe User, :type => :model do
   let!(:jim) {
     Patient.create(
       :name => "Jim Jones",
-      :dob => "12/15/1967",
+      :dob => Time.new(1967, 11, 19, 00, 00),
       :address => "Nowhere, MD",
       :phone_number => "415-533-4034"
     )
@@ -21,7 +21,7 @@ RSpec.describe User, :type => :model do
   let!(:nancy) {
     Patient.create(
       :name => "Nancy Jones",
-      :dob => "12/15/1957",
+      :dob => Time.new(1964, 12, 24, 00, 00),
       :address => "Somewhere, MD",
       :phone_number => "415-344-4034"
     )

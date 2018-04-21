@@ -12,7 +12,7 @@ RSpec.describe Appointment, type: :model do
   let(:jim) {
     Patient.create(
       :name => "Jim Jones",
-      :dob => "12/15/1967",
+      :dob => Time.new(1964, 12, 24, 00, 00),
       :address => "Nowhere, MD",
       :phone_number => "415-533-4034"
     )
