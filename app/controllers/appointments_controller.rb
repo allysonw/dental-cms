@@ -18,11 +18,9 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    raise params.inspect
     @appointment = Appointment.new(appointment_params)
 
     if @appointment.save
-      raise @appointment.inspect
       redirect_to appointment_path(@appointment)
     else
       render :new
