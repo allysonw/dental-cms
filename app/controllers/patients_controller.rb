@@ -39,7 +39,12 @@ class PatientsController < ApplicationController
   end
 
   def update
-
+    if @patient.save
+      flash[:message] = "Patient successfully udpated!"
+      redirect_to patient_path(@patient)
+    else
+      render :edit
+    end
   end
 
   def destroy
