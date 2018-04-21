@@ -34,35 +34,35 @@ carol = Patient.create(
 )
 
 carol_appt_andrew = Appointment.create(
-  :time => Time.new(2018, 07, 24, 11, 00),
+  :time => Time.new(2018, 7, 24, 11, 00),
   :location => "Operatory 2",
   :patient_id => carol.id,
   :user_id => drandrew.id
 )
 
 carol_appt_allyson = Appointment.create(
-  :time => Time.new(2018, 09, 24, 14, 00),
+  :time => Time.new(2018, 9, 24, 14, 00),
   :location => "Operatory 7",
   :patient_id => carol.id,
   :user_id => drallyson.id
 )
 
 carol_appt_andrew2 = Appointment.create(
-  :time => Time.new(2018, 06, 14, 08, 00),
+  :time => Time.new(2018, 6, 14, 08, 00),
   :location => "Operatory 2",
   :patient_id => carol.id,
   :user_id => drandrew.id
 )
 
 jim_appt1 = Appointment.create(
-  :time => Time.new(2018, 04, 18, 10, 30),
+  :time => Time.new(2018, 4, 18, 10, 30),
   :location => "Operatory 1",
   :patient_id => jim.id,
   :user_id => drandrew.id
 )
 
 jim_appt2 = Appointment.create(
-  :time => Time.new(2019, 05, 01, 17, 15),
+  :time => Time.new(2019, 5, 1, 17, 15),
   :location => "Operatory 8",
   :patient_id => jim.id,
   :user_id => drandrew.id

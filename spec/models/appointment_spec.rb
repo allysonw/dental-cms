@@ -20,7 +20,7 @@ RSpec.describe Appointment, type: :model do
 
   let(:thursday) {
     Appointment.create(
-      :time => Time.new(2018, 01, 15, 14, 00),
+      :time => Time.new(2018, 1, 15, 14, 00),
       :location => "Operatory 4"
     )
   }
@@ -36,7 +36,7 @@ RSpec.describe Appointment, type: :model do
   end
 
   it "is not valid without a location" do
-    expect(Appointment.new(:time => Time.new(2018, 01, 15, 14, 00))).not_to be_valid
+    expect(Appointment.new(:time => Time.new(2018, 1, 15, 14, 00))).not_to be_valid
   end
 
   it "belongs to a user" do

@@ -35,8 +35,8 @@ RSpec.describe Patient, :type => :model do
   end
 
   it "has many appointments" do
-    first_appointment = Appointment.create(:user_id => andrew.id, :patient_id => jim.id, :time => Time.new(2018, 07, 24, 11, 00), :location => "Room 4")
-    second_appointment = Appointment.create(:user_id => allyson.id, :patient_id => jim.id, :time => Time.new(2018, 07, 28, 11, 00), :location => "Room 5")
+    first_appointment = Appointment.create(:user_id => andrew.id, :patient_id => jim.id, :time => Time.new(2018, 7, 24, 11, 00), :location => "Room 4")
+    second_appointment = Appointment.create(:user_id => allyson.id, :patient_id => jim.id, :time => Time.new(2018, 7, 28, 11, 00), :location => "Room 5")
     expect(jim.appointments.first).to eq(first_appointment)
     expect(jim.appointments.last).to eq(second_appointment)
   end
