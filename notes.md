@@ -50,9 +50,10 @@ In progress - created Show, Index, New, Create, update
 
 # Do some work on styling with bootstrap
 - get homepage, login/signup pages, and user dash in good shape[DONE]
-- figure out where to put new, delete, and edit buttons
-- Create destroy action
-- Style forms for new patient and appointment
+- figure out where to put new, delete, and edit buttons[DONE]
+- Create destroy action[DONE]
+
+# Create ability to add new appt from patient page (nested resource)
 
 ## STEP 3: come back LATER and add in ability for patients to log in
 This means at first there are no user roles needed - only doctors ever log in

@@ -2,26 +2,51 @@
 
 Specs:
 - [x] Using Ruby on Rails for the project
-- [ ] Include at least one has_many relationship (x has_many y e.g. User has_many Recipes)
-- [ ] Include at least one belongs_to relationship (x belongs_to y e.g. Post belongs_to User)
-- [ ] Include at least one has_many through relationship (x has_many y through z e.g. Recipe has_many Items through Ingredients)
+
+- [X] Include at least one has_many relationship (x has_many y e.g. User has_many Recipes)
+  * User has many appointments
+  * Patient has many appointments
+
+- [X] Include at least one belongs_to relationship (x belongs_to y e.g. Post belongs_to User)
+  * Appointment belongs to a user
+  * Appointment belongs to a patient
+
+- [X] Include at least one has_many through relationship (x has_many y through z e.g. Recipe has_many Items through Ingredients)
+  * User has many patients through appointments
+  * Patient has many users through appointments
+
 - [ ] The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity)
   * The appointments table includes 3 user submittable attributes: date, time, and location
+
 - [ ] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
+  * User -validates :name, presence: true
+      - Devise validates the presence of the email and password
+  * Patient - validates :name, :dob, :address, :phone_number, presence: true
+  * Appointment - validates :time, :location, :user_id, :patient_id, presence: true
+
 - [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+  * User.appoinments_this_week --> /dashboard
+
 - [X] Include signup (how e.g. Devise)
-* Devise
+  * Devise
+
 - [X] Include login (how e.g. Devise)
-* Devise
+
+  * Devise
 - [X] Include logout (how e.g. Devise)
-* Devise
+
+  * Devise
 - [ ] Include third party signup/login (how e.g. Devise/OmniAuth)
-* Devise/Omniauth
+  * Devise/Omniauth
+
 - [ ] Include nested resource show or index (URL e.g. users/2/recipes)
-* users/2/patients
+  * patients/1/treatment_plans
+
 - [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients)
-* patients/1/treatment-plans/new
+  * patients/1/treatment_plans/new
+
 - [ ] Include form display of validation errors (form URL e.g. /recipes/new)
+  * Form validations in view, ActiveRecord validations in DB
 
 Confirm:
 - [ ] The application is pretty DRY
