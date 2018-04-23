@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_21_212628) do
+ActiveRecord::Schema.define(version: 2018_04_23_231305) do
+
+  create_table "appointment_notes", force: :cascade do |t|
+    t.string "content"
+    t.integer "appointment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["appointment_id"], name: "index_appointment_notes_on_appointment_id"
+  end
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "time"
