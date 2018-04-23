@@ -14,7 +14,7 @@
     <% patients.each do |patient| %>
       <tr>
         <td><a href="/patients/<%= patient.id %>"><%= patient.name %></a></td>
-        <td><%= patient.dob %></td>
+        <td><%= date_of_birth(patient) %></td>
         <td><%= patient.phone_number %></td>
         <td>
           <% patient.users.each do |user| %>
