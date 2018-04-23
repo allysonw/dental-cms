@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.feature "Appointments", type: :feature do
 
-  let! (:carol) { FactoryBot.create(:patient) } # lazy evaluation!
+  let! (:carol) { FactoryBot.create(:patient) }
   let! (:drallyson) { FactoryBot.create(:user) }
-  let (:carol_appt_allyson) { Appointment.create(
+  let! (:carol_appt_allyson) { Appointment.create(
     :time => Time.new(2018, 7, 24, 11, 00),
     :location => "Operatory 2",
     # :patient_id => carol.id,
@@ -15,23 +15,20 @@ RSpec.feature "Appointments", type: :feature do
     carol_appt_allyson.patient = carol
     carol_appt_allyson.user = drallyson
     carol_appt_allyson.save
-    signin(drallyson.email, drallyson.password) # drallyson gets evaluated.. carol does not
+    signin(drallyson.email, drallyson.password)
   end
 
   scenario "show page displays appointment's info" do
-    visit appointment_path(carol_appt_allyson) # now appt is evaluated, carol is still not!
+    visit appointment_path(carol_appt_allyson)
     expect(page).to have_text("July 24")
   end
 
   scenario "redirects with message if appointment not found" do
-
     visit appointment_path(12345)
     expect(page).to have_text("Appointment not found")
   end
 
   scenario "creates a new appointment with valid attributes" do
-    #FactoryBot.create(:patient) # have to have carol be evaluated before this test will work...
-
     visit(new_appointment_path)
     select('2018', from: 'appointment[time(1i)]')
     select('May', from: 'appointment[time(2i)]')
