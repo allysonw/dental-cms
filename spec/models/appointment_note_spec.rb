@@ -43,7 +43,7 @@ RSpec.describe AppointmentNote, type: :model do
   end
 
   it "is not valid without content" do
-    expect(AppointmentNote.new).not_to be_valid
+    expect(AppointmentNote.create(appointment_id: thursday.id)).not_to be_valid
   end
 
   it "belongs to an appointment" do
