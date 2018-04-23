@@ -12,8 +12,7 @@ class PatientsController < ApplicationController
 
   def show
     if @patient.nil?
-      flash[:notice] = "Patient not found"
-      redirect_to patients_path
+      patient_not_found
     else
       @appointments = @patient.appointments
     end
@@ -35,13 +34,15 @@ class PatientsController < ApplicationController
   end
 
   def edit
-
+    if @patient.nil?
+      patient_not_found
+    end
   end
 
   def update
     @patient.update(patient_params)
     if @patient.save
-      flash[:message] = "Patient successfully udpated!"
+      flash[:message] = "Patient successfully updated!"
       redirect_to patient_path(@patient)
     else
       render :edit
@@ -49,8 +50,12 @@ class PatientsController < ApplicationController
   end
 
   def destroy
-    @patient.destroy
-    redirect_to patients_path
+    if @patient.destroy
+      flash[:message] = "Patient successfully deleted!"
+      redirect_to patients_path
+    else
+      patient_not_found
+    end
   end
 
   private
@@ -60,5 +65,10 @@ class PatientsController < ApplicationController
 
     def set_patient
       @patient = Patient.find_by(id: params[:id])
+    end
+
+    def patient_not_found
+      flash[:notice] = "Patient not found"
+      redirect_to patients_path
     end
 end

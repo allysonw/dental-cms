@@ -69,15 +69,14 @@ RSpec.feature "Patients", type: :feature do
     select('1965', from: 'patient[dob(1i)]')
     click_button('Update Patient')
 
-    expect(page).to have_text("Patient successfully udpated!")
+    expect(page).to have_text("Patient successfully updated!")
   end
 
   scenario "deletes a patient successfully" do
-    # visit(edit_patient_path(carol))
-    # select('1965', from: 'patient[dob(1i)]')
-    # click_button('Update Patient')
-    #
-    # expect(page).to have_text("Patient successfully udpated!")
+    visit(patient_path(carol))
+    click_on(class: 'delete-patient')
+    expect(Patient.count).to eq(0)
+    expect(page).to have_text("Patient successfully deleted!")
   end
 
 end

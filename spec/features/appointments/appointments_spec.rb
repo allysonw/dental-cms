@@ -79,16 +79,14 @@ RSpec.feature "Appointments", type: :feature do
     fill_in "appointment_location", with: "Operatory 56"
     click_button('Update Appointment')
 
-    expect(page).to have_text("Appointment successfully udpated!")
+    expect(page).to have_text("Appointment successfully updated!")
   end
 
   scenario "deletes an appointment successfully" do
-    # visit(edit_appointment_path(carol_appt_allyson))
-    # select('2020', from: 'appointment[time(1i)]')
-    # fill_in "appointment_location", with: "Operatory 56"
-    # click_button('Update Appointment')
-    #
-    # expect(page).to have_text("Appointment successfully udpated!")
+    visit(appointment_path(carol_appt_allyson))
+    click_on(class: 'delete-appointment')
+    expect(Appointment.count).to eq(0)
+    expect(page).to have_text("Appointment successfully deleted!")
   end
 
 end

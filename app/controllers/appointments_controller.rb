@@ -35,7 +35,7 @@ class AppointmentsController < ApplicationController
   def update
     @appointment.update(appointment_params)
     if @appointment.save
-      flash[:message] = "Appointment successfully udpated!"
+      flash[:message] = "Appointment successfully updated!"
       redirect_to appointment_path(@appointment)
     else
       render :edit
@@ -44,6 +44,7 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment.destroy
+    flash[:message] = "Appointment successfully deleted!"
     redirect_to appointments_path
   end
 
