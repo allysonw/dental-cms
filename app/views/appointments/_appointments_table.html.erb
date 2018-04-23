@@ -12,7 +12,7 @@
   <tbody>
     <% @appointments.each do |appointment| %>
       <tr>
-        <td><a href="/appointments/<%= appointment.id %>"><%= appointment.time %></a></td>
+        <td><a href="/appointments/<%= appointment.id %>"><%= date_and_time(appointment) %></a></td>
         <td><%= appointment.location %></td>
         <td><%= appointment.patient.name %></td>
         <td><%= appointment.user.name %></td>
