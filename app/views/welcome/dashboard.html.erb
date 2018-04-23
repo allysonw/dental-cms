@@ -1,4 +1,7 @@
 <h1>Welcome <%= @user.name %></h1>
 
-<h2>Upcoming Appointments</h2>
-<h2>New Patients</h2>
+<h3>Upcoming Appointments</h3>
+<h3>New Patients</h3>
+
+<%= link_to "New Patient", new_patient_path %><br>
+<%= link_to "New Appointment", new_appointment_path %>

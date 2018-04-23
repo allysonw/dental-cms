@@ -1,4 +1,39 @@
-<h1>Patients</h1>
+<h2>Patients</h2>
 
-<!-- <%= render(partial: 'patient', collection: @patients) || "No patients" %> -->
-<%= render(@patients) || "No patients" %>
+<% if @patients.empty? %>
+  No patients have been created.
+<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <!-- <th scope="col">ID</th> -->
+      <th scope="col">Name</th>
+      <th scope="col">Birthdate</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Doctors</th>
+      <th scope="col">Actions</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><a href="/patients/<%= patient.id %>"><%= patient.name %></a></td>
+        <td><%= patient.dob %></td>
+        <td><%= patient.phone_number %></td>
+        <td>
+          <% patient.users.each do |user| %>
+            <%= user.name %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to "Edit", edit_patient_path(patient), class: "right-margin-btn btn btn-primary btn-sm" %>
+        </td>
+        <td>
+          <%= link_to "Delete", patient, method: :delete, data: { confirm: "Are you sure you would like to delete this patient?" }, class: "right-margin-btn btn btn-primary btn-sm" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

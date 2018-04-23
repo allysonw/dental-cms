@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_patient, only: [:edit, :show, :update]
+  before_action :set_patient, only: [:edit, :show, :update, :destroy]
 
   def index
     if params[:user_id]
@@ -48,7 +48,8 @@ class PatientsController < ApplicationController
   end
 
   def destroy
-
+    @patient.destroy
+    redirect_to patients_path
   end
 
   private
