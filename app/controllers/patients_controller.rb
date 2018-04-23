@@ -3,11 +3,7 @@ class PatientsController < ApplicationController
   before_action :set_patient, only: [:edit, :show, :update, :destroy]
 
   def index
-    if params[:user_id]
-      @patients = User.find(params[:user_id]).patients.uniq
-    else
-      @patients = Patient.all
-    end
+    @patients = Patient.all
   end
 
   def show

@@ -1,6 +1,6 @@
 <%= render partial: 'patient', locals: { patient: @patient } %>
 
-<h3>This Patient's Appointments</h3> <!-- show the patient's appointments -->
+<h3>Appointments for <%= @patient.name %></h3> <!-- show the patient's appointments -->
 
 <% if @appointments.empty? %>
   No appointments have been created.
