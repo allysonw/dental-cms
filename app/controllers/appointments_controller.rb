@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_appointment, only: [:edit, :show, :update]
+  before_action :set_appointment, only: [:edit, :show, :update, :destroy]
 
   def index
     @appointments = Appointment.all
@@ -42,7 +42,8 @@ class AppointmentsController < ApplicationController
   end
 
   def destroy
-
+    @appointment.destroy
+    redirect_to appointments_path
   end
 
   private
