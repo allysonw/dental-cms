@@ -7,17 +7,20 @@ RSpec.feature "Appointments", type: :feature do
   let (:carol_appt_allyson) { Appointment.create(
     :time => Time.new(2018, 7, 24, 11, 00),
     :location => "Operatory 2",
-    :patient_id => carol.id,
-    :user_id => drallyson.id
+    # :patient_id => carol.id,
+    # :user_id => drallyson.id
   )}
 
   before do
+    carol_appt_allyson.patient = carol
+    carol_appt_allyson.user = drallyson
+    carol_appt_allyson.save
     signin(drallyson.email, drallyson.password) # drallyson gets evaluated.. carol does not
   end
 
   scenario "show page displays appointment's info" do
     visit appointment_path(carol_appt_allyson) # now appt is evaluated, carol is still not!
-    expect(page).to have_text("2018-07-24")
+    expect(page).to have_text("July 24")
   end
 
   scenario "redirects with message if appointment not found" do
@@ -40,7 +43,7 @@ RSpec.feature "Appointments", type: :feature do
     select('Carol Jones', from: 'appointment_patient_id')
     click_button('Create Appointment')
 
-    expect(Appointment.count).to eq(1)
+    expect(Appointment.count).to eq(2)
   end
 
   scenario "does not create a new appointment without all required attributes" do

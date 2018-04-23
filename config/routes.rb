@@ -5,7 +5,11 @@ Rails.application.routes.draw do
     resources :treatment_plans
     resources :appointments, only: :new
   end
-  resources :appointments
+
+  resources :appointments do
+    # nested resources for appointment_notes
+    resources :appointment_notes, :path => 'notes', only: [:new, :create, :show, :index]
+  end
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }, :path => 'accounts'
 
