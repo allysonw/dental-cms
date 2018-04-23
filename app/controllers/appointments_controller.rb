@@ -8,8 +8,7 @@ class AppointmentsController < ApplicationController
 
   def show
     if @appointment.nil?
-      flash[:notice] = "Appointment not found"
-      redirect_to appointments_path
+      appointment_not_found
     end
   end
 
@@ -29,7 +28,9 @@ class AppointmentsController < ApplicationController
   end
 
   def edit
-
+    if @appointment.nil?
+      appointment_not_found
+    end
   end
 
   def update
@@ -43,9 +44,12 @@ class AppointmentsController < ApplicationController
   end
 
   def destroy
-    @appointment.destroy
-    flash[:message] = "Appointment successfully deleted!"
-    redirect_to appointments_path
+    if @appointment.destroy
+      flash[:message] = "Appointment successfully deleted!"
+      redirect_to appointments_path
+    else
+      appointment_not_found
+    end
   end
 
   private
@@ -55,5 +59,10 @@ class AppointmentsController < ApplicationController
 
     def set_appointment
       @appointment = Appointment.find_by(id: params[:id])
+    end
+
+    def appointment_not_found
+      flash[:notice] = "Appointment not found"
+      redirect_to appointments_path
     end
 end
