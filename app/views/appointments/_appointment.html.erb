@@ -1,0 +1,11 @@
+<%= appointment.time %><br>
+<%= appointment.location %><br>
+<%= appointment.patient.name %><br>
+<%= appointment.user.name %><br><br>
+
+<td>
+  <%= link_to "Edit", edit_appointment_path(appointment), class: "right-margin-btn btn btn-primary btn-sm" %>
+</td>
+<td>
+  <%= link_to "Delete", appointment, method: :delete, data: { confirm: "Are you sure you would like to delete this appointment?" }, class: "delete-appointment right-margin-btn btn btn-primary btn-sm" %>
+</td>

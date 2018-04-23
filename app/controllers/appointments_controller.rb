@@ -20,7 +20,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
 
     if @appointment.save
-      flash[:message] = "Appointment successfully created!"
+      flash[:success] = "Appointment successfully created!"
       redirect_to appointment_path(@appointment)
     else
       render :new
@@ -36,7 +36,7 @@ class AppointmentsController < ApplicationController
   def update
     @appointment.update(appointment_params)
     if @appointment.save
-      flash[:message] = "Appointment successfully updated!"
+      flash[:success] = "Appointment successfully updated!"
       redirect_to appointment_path(@appointment)
     else
       render :edit
@@ -44,11 +44,12 @@ class AppointmentsController < ApplicationController
   end
 
   def destroy
-    if @appointment.destroy
-      flash[:message] = "Appointment successfully deleted!"
-      redirect_to appointments_path
-    else
+    if @appointment.nil?
       appointment_not_found
+    else
+      @appointment.destroy
+      flash[:success] = "Appointment successfully deleted!"
+      redirect_to appointments_path
     end
   end
 
@@ -62,7 +63,7 @@ class AppointmentsController < ApplicationController
     end
 
     def appointment_not_found
-      flash[:notice] = "Appointment not found"
+      flash[:alert] = "Appointment not found"
       redirect_to appointments_path
     end
 end

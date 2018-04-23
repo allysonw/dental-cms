@@ -8,7 +8,7 @@
     <%= f.text_field :location, required: true %>
   </p>
   <p>
-    <%= f.label :user %>
+    <%= f.label :user, "Doctor" %>
     <%= f.collection_select(:user_id, User.all, :id, :name) %>
   </p>
   <p>

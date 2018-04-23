@@ -7,7 +7,9 @@ class User < ApplicationRecord
   devise :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
 
   has_many :appointments
-  has_many :patients, through: :appointments
+  has_many :patients, through: :appointments, dependent: :destroy
+  # TODO currently all appointments for a user are detroyed if the user is deleted
+  # Fix so a user can be deleted but we can maintain their appointment records
 
   validates :name, presence: true
 

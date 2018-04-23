@@ -26,7 +26,7 @@ class PatientsController < ApplicationController
     @patient = Patient.new(patient_params)
 
     if @patient.save
-      flash[:message] = "Patient successfully created!"
+      flash[:success] = "Patient successfully created!"
       redirect_to patient_path(@patient)
     else
       render :new
@@ -42,7 +42,7 @@ class PatientsController < ApplicationController
   def update
     @patient.update(patient_params)
     if @patient.save
-      flash[:message] = "Patient successfully updated!"
+      flash[:success] = "Patient successfully updated!"
       redirect_to patient_path(@patient)
     else
       render :edit
@@ -50,11 +50,12 @@ class PatientsController < ApplicationController
   end
 
   def destroy
-    if @patient.destroy
-      flash[:message] = "Patient successfully deleted!"
-      redirect_to patients_path
-    else
+    if @patient.nil?
       patient_not_found
+    else
+      @patient.destroy
+      flash[:success] = "Patient successfully deleted!"
+      redirect_to patients_path
     end
   end
 
@@ -68,7 +69,7 @@ class PatientsController < ApplicationController
     end
 
     def patient_not_found
-      flash[:notice] = "Patient not found"
+      flash[:alert] = "Patient not found"
       redirect_to patients_path
     end
 end

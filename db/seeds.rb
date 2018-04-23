@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 drandrew = User.create(
   :name => "Doctor Andrew",
   :password => "password",
@@ -21,14 +20,14 @@ drallyson = User.create(
 
 jim = Patient.create(
   :name => "Jim Jones",
-  :dob => "12/15/1967",
+  :dob => Time.new(1954, 10, 12, 00, 00),
   :address => "Nowhere, MD",
   :phone_number => "415-533-4034"
 )
 
 carol = Patient.create(
   :name => "Carol Jones",
-  :dob => "12/15/1943",
+  :dob => Time.new(1977, 11, 13, 00, 00),
   :address => "Sandwich, AL",
   :phone_number => "342-433-3345"
 )
