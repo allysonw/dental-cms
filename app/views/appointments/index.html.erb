@@ -1,7 +1,7 @@
-<h1>All Appts List</h1>
+<h2>Appointments</h2>
 
-<% @appointments.each do |appointment| %>
-  <ul>
-    <%= render partial: 'appointment_li', locals: { appointment: appointment } %>
-  </ul>
+<% if @appointments.empty? %>
+  No appointments have been created.
+<% else %>
+  <%= render partial: 'appointments_table', locals: { appointments: @appointments } %>
 <% end %>

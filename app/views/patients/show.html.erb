@@ -1,9 +1,9 @@
 <%= render partial: 'patient', locals: { patient: @patient } %>
 
-<h2>Appointments</h2> <!-- show the patient's appointments -->
+<h3>This Patient's Appointments</h3> <!-- show the patient's appointments -->
 
-<% @appointments.each do |appointment| %>
-  <ul>
-    <%= render partial: 'appointments/appointment_li', locals: { appointment: appointment } %>
-  </ul>
+<% if @appointments.empty? %>
+  No appointments have been created.
+<% else %>
+  <%= render partial: 'appointments/appointments_table', locals: { appointments: @appointments } %>
 <% end %>
