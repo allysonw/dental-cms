@@ -34,24 +34,20 @@ RSpec.describe AppointmentNote, type: :model do
   before do
     thursday.patient = jim
     thursday.user = andrew
-    thursday.notes << thursday_note
+    thursday.appointment_notes << thursday_note
     thursday.save
   end
 
-  # it "is valid with a date, time, and location" do
-  #   expect(thursday).to be_valid
-  # end
-  #
-  # it "is not valid without a location" do
-  #   expect(Appointment.new(:time => Time.new(2018, 1, 15, 14, 00))).not_to be_valid
-  # end
-  #
-  # it "belongs to a user" do
-  #   expect(thursday.user).to eq(andrew)
-  # end
-  #
-  # it "belongs to a patient" do
-  #   expect(thursday.patient).to eq(jim)
-  # end
+  it "is valid with content" do
+    expect(thursday_note).to be_valid
+  end
+
+  it "is not valid without content" do
+    expect(AppointmentNote.new).not_to be_valid
+  end
+
+  it "belongs to an appointment" do
+    expect(thursday_note.appointment).to eq(thursday)
+  end
 
 end
