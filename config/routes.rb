@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :patients do
     # nested resources for treatment plans
     resources :treatment_plans
+    resources :appointments, only: :new
   end
   resources :appointments
 

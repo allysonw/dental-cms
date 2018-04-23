@@ -53,7 +53,7 @@ In progress - created Show, Index, New, Create, update
 - figure out where to put new, delete, and edit buttons[DONE]
 - Create destroy action[DONE]
 
-# Create ability to add new appt from patient page (nested resource)
+# Create ability to add new appt from patient page
 
 ## STEP 3: come back LATER and add in ability for patients to log in
 This means at first there are no user roles needed - only doctors ever log in

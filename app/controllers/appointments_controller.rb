@@ -13,7 +13,13 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    @appointment = Appointment.new
+    if params[:patient_id] && !Patient.exists?(params[:patient_id])
+      redirect_to patients_path, alert: "Patient not found."
+    elsif params[:patient_id]
+      @appointment = Appointment.new(patient_id: params[:patient_id])
+    else
+      @appointment = Appointment.new
+    end
   end
 
   def create
