@@ -39,6 +39,7 @@ class PatientsController < ApplicationController
   end
 
   def update
+    @patient.update(patient_params)
     if @patient.save
       flash[:message] = "Patient successfully udpated!"
       redirect_to patient_path(@patient)

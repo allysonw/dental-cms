@@ -33,6 +33,7 @@ class AppointmentsController < ApplicationController
   end
 
   def update
+    @appointment.update(appointment_params)
     if @appointment.save
       flash[:message] = "Appointment successfully udpated!"
       redirect_to appointment_path(@appointment)
