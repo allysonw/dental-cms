@@ -26,7 +26,7 @@ RSpec.feature "Appointment_Notes", type: :feature do
 
   scenario "show page displays appointment note content" do
     visit appointment_path(carol_appt_allyson)
-
+    binding.pry
     expect(page).to have_text(thursday_note.content)
   end
 
