@@ -15,6 +15,9 @@ class TreatmentPlansController < ApplicationController
   def show
     if @treatment_plan.nil?
       treatment_plan_not_found
+    else
+      @patient = @treatment_plan.patient
+      @treatments = @treatment_plan.treatments
     end
   end
 
