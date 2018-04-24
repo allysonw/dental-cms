@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :treatments
   resources :appointment_notes
   resources :patients do
     # nested resources for treatment plans
