@@ -12,14 +12,14 @@
   <tbody>
     <% @appointments.each do |appointment| %>
       <tr>
-        <td><a href="/appointments/<%= appointment.id %>"><%= date_and_time(appointment) %></a></td>
+        <td><%= link_to date_and_time(appointment), appointment_path(appointment) %></a></td>
         <td><%= appointment.location %></td>
-        <td><%= appointment.patient.name %></td>
-        <td><%= appointment.user.name %></td>
+        <td><%= link_to appointment.patient.name, patient_path(appointment.patient) %></td>
+        <td>appointment.user.name</td>
 
         <td>
           <%= link_to "Edit", edit_appointment_path(appointment), class: "right-margin-btn btn btn-primary btn-sm" %>
-          
+
           <%= link_to "Delete", appointment, method: :delete, data: { confirm: "Are you sure you would like to delete this appointment?" }, class: "right-margin-btn btn btn-primary btn-sm" %>
         </td>
       </tr>
