@@ -1,1 +1,7 @@
-Treatment Plan
+<h2>Treatment Plan</h2>
+
+<h4>Name: <%= @treatment_plan.name %></h4>
+
+<%= render partial: "treatments/treatments_table", locals: { treatments: @treatment_plan.treatments } %>
+
+<%= link_to "Back to Patient Info", patient_path(@treatment_plan.patient) %>
