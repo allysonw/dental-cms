@@ -1,8 +1,10 @@
+<h3>Patient Info</h3>
+
 <%= render partial: 'patient', locals: { patient: @patient } %>
 
 <h3>Appointments for <%= @patient.name %></h3> <!-- show the patient's appointments -->
 
-<% if @appointments.nil? %>
+<% if @appointments.blank? %>
   No appointments have been created.
 <% else %>
   <%= render partial: 'appointments/appointments_table', locals: { appointments: @appointments } %>
@@ -12,7 +14,7 @@
 
 <h3>Treatment Plans for <%= @patient.name %> </h3>
 
-<% if @treatment_plans.nil? %>
+<% if @treatment_plans.blank? %>
   No treatment plans have been created.
 <% else %>
   <%= render partial: 'treatment_plans/treatment_plans_table', locals: { treatment_plans: @treatment_plans } %>

@@ -1,3 +1,18 @@
 <h2>Appointment Detail</h2>
 
 <%= render partial: 'appointments/appointment', locals: { appointment: @appointment } %>
+
+<h3>Notes</h3>
+
+Create a new note
+<%= form_for @appointment_note do |f| %>
+  Content: <%= f.text_field :content %>
+  <%= f.hidden_field :appointment_id, value: @appointment.id %>
+  <%= f.submit "Create Note "%>
+<% end %>
+
+<div>
+  <% @appointment.appointment_notes.each do |note| %>
+    <%= note.content %> - Created at: <%= note.created_at%><br>
+  <% end %>
+</div>
