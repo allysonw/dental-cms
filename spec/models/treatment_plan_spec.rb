@@ -20,6 +20,7 @@ RSpec.describe TreatmentPlan, type: :model do
     :name => "D3442 - Titanium Implant",
     :location => "18",
     :price => 995,
+    :complete => false,
     :treatment_plan_id => implants.id
   )}
 

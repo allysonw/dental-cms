@@ -1,7 +1,7 @@
 <h1>Welcome <%= @user.name %></h1>
 
 <h4>Upcoming Appointments</h4>
-<% if @appointments.empty? %>
+<% if @appointments.nil? %>
   No appointments have been created.
 <% else %>
   <%= render partial: 'appointments/appointments_table', locals: { appointments: @appointments } %>

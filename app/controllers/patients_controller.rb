@@ -11,6 +11,7 @@ class PatientsController < ApplicationController
       patient_not_found
     else
       @appointments = @patient.appointments
+      @treatment_plans = @patient.treatment_plans
     end
   end
 

@@ -1,0 +1,5 @@
+<h2>Treatment Plans</h2>
+
+Patient: <%= treatment_plan.patient.name %>
+
+ <%= render partial: 'treatment_plans/treatment_plans_table', locals: { treatment_plans: @treatment_plans } %>

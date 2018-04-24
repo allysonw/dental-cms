@@ -2,10 +2,20 @@
 
 <h3>Appointments for <%= @patient.name %></h3> <!-- show the patient's appointments -->
 
-<% if @appointments.empty? %>
+<% if @appointments.nil? %>
   No appointments have been created.
 <% else %>
   <%= render partial: 'appointments/appointments_table', locals: { appointments: @appointments } %>
 <% end %>
 
-<%= link_to "Create an appointment for this patient", new_patient_appointment_path(@patient) %>
+<p><%= link_to "Create an appointment for this patient", new_patient_appointment_path(@patient) %></p>
+
+<h3>Treatment Plans for <%= @patient.name %> </h3>
+
+<% if @treatment_plans.nil? %>
+  No treatment plans have been created.
+<% else %>
+  <%= render partial: 'treatment_plans/treatment_plans_table', locals: { treatment_plans: @treatment_plans } %>
+<% end %>
+
+<p><%= link_to "Create a treatment plan for this patient", new_patient_treatment_plan_path(@patient) %></p>

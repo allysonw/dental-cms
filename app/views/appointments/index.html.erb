@@ -8,7 +8,7 @@
   <%= submit_tag "Filter" %>
 <% end %><br>
 
-<% if @appointments.empty? %>
+<% if @appointments.nil? %>
   No appointments have been created.
 <% else %>
   Filtered for:
