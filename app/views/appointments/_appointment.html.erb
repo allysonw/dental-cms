@@ -20,7 +20,7 @@ Create a new note
 <% end %>
 
 <div>
-  <% appointment.appointment_notes.each do |note| %>
-    <%= note.content %> - Created at: <%= %>
+  <% @appointment.appointment_notes.each do |note| %>
+    <%= note.content %> - Created at: <%= note.created_at%><br>
   <% end %>
 </div>

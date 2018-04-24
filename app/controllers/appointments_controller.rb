@@ -10,7 +10,7 @@ class AppointmentsController < ApplicationController
     if @appointment.nil?
       appointment_not_found
     else
-      @appointment_note = @appointment.appointment_notes.build
+      @appointment_note = AppointmentNote.new
     end
   end
 
