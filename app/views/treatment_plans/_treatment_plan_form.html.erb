@@ -1,0 +1,10 @@
+<%= form_for(@treatment_plan, url: patient_treatment_plans_path) do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true %>
+  </p>
+
+  <%= f.hidden_field :patient_id, value: @treatment_plan.patient.id %>
+
+  <%= f.submit %>
+<% end %>
