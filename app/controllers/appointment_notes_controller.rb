@@ -6,7 +6,7 @@ class AppointmentNotesController < ApplicationController
 
     if @appointment_note.save && @appointment
       flash[:success] = "Appointment note successfully created!"
-      redirect_to appointment_path(@appointment_note.appointment)
+      redirect_to appointment_path(@appointment)
     elsif @appointment
       render "appointments/show"
     else
