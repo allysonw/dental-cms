@@ -29,14 +29,14 @@ class TreatmentPlansController < ApplicationController
   end
 
   def create
-    # @appointment = Appointment.new(appointment_params)
-    #
-    # if @appointment.save
-    #   flash[:success] = "Appointment successfully created!"
-    #   redirect_to appointment_path(@appointment)
-    # else
-    #   render :new
-    # end
+    @treatment_plan = TreatmentPlan.new(treatment_plan_params)
+
+    if @treatment_plan.save
+      flash[:success] = "Treatment plan successfully created!"
+      redirect_to patient_treatment_plan_path(@treatment_plan.patient.id, @treatment_plan)
+    else
+      render :new
+    end
   end
 
   def edit
