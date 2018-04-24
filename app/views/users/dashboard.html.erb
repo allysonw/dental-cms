@@ -1,7 +1,14 @@
 <h1>Welcome <%= @user.name %></h1>
 
-<h3>Upcoming Appointments</h3>
-<h3>New Patients</h3>
+<h4>Upcoming Appointments</h4>
+<% if @appointments.empty? %>
+  No appointments have been created.
+<% else %>
+  <%= render partial: 'appointments/appointments_table', locals: { appointments: @appointments } %>
+<% end %>
+
+
+<h4>New Patients</h4>
 
 <%= link_to "New Patient", new_patient_path %><br>
 <%= link_to "New Appointment", new_appointment_path %>

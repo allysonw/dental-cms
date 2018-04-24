@@ -3,7 +3,28 @@ class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:edit, :show, :update, :destroy]
 
   def index
-    @appointments = Appointment.all
+    # provide lists of users and patients to the view for the filter controls
+    @users = User.all
+    @patients = Patient.all
+
+    # filter the @appointments list based on user input
+    if !params[:user].blank? && !params[:patient].blank?
+      @appointments = Appointment.for_user_and_patient(params[:user], params[:patient])
+      set_appointments_user
+      set_appointments_patient
+
+    elsif !params[:user].blank?
+      @appointments = Appointment.for_user(params[:user])
+      set_appointments_user
+
+    elsif !params[:patient].blank?
+      @appointments = Appointment.for_patient(params[:patient])
+      set_appointments_patient
+
+    else
+      @appointments = Appointment.all
+    end
+
   end
 
   def show
@@ -58,6 +79,7 @@ class AppointmentsController < ApplicationController
       @appointment.destroy
       flash[:success] = "Appointment successfully deleted!"
       redirect_to appointments_path
+      # TODO fix to redirect to page user was on before deleting
     end
   end
 
@@ -73,5 +95,23 @@ class AppointmentsController < ApplicationController
     def appointment_not_found
       flash[:alert] = "Appointment not found"
       redirect_to appointments_path
+    end
+
+    def set_appointments_user
+      @user = User.find_by(id: params[:user])
+      if @user
+        @user_id = @user.id
+      else
+        @user_id = nil
+      end
+    end
+
+    def set_appointments_patient
+      @patient = Patient.find_by(id: params[:patient])
+      if @patient
+        @patient_id = @patient.id
+      else
+        @patient_id = nil
+      end
     end
 end

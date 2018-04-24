@@ -24,8 +24,8 @@ Specs:
   * Patient - validates :name, :dob, :address, :phone_number, presence: true
   * Appointment - validates :time, :location, :user_id, :patient_id, presence: true
 
-- [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
-  * User.appoinments_this_week --> /dashboard
+- [X] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+  * Appointments.for_user URL: /appointments
 
 - [X] Include signup (how e.g. Devise)
   * Devise
@@ -36,7 +36,7 @@ Specs:
 - [X] Include logout (how e.g. Devise)
 
   * Devise
-- [ ] Include third party signup/login (how e.g. Devise/OmniAuth)
+- [X] Include third party signup/login (how e.g. Devise/OmniAuth)
   * Devise/Omniauth
 
 - [ ] Include nested resource show or index (URL e.g. users/2/recipes)
@@ -45,7 +45,7 @@ Specs:
 - [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients)
   * patients/1/treatment_plans/new
 
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
+- [X] Include form display of validation errors (form URL e.g. /recipes/new)
   * Form validations in view, ActiveRecord validations in DB
 
 Confirm:

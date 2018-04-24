@@ -1,7 +1,18 @@
-<h2>Appointments</h2>
+<h2>Appointments</h2><br>
+
+<%= form_tag(appointments_path, method: "get") do %>
+  Doctor: <%= select_tag "user", options_from_collection_for_select(@users, "id", "name", @user_id), include_blank: true %>
+
+  Patient: <%= select_tag "patient", options_from_collection_for_select(@patients, "id", "name", @patient_id), include_blank: true%>
+
+  <%= submit_tag "Filter" %>
+<% end %><br>
 
 <% if @appointments.empty? %>
   No appointments have been created.
 <% else %>
+  Filtered for:
+  <%= @user? @user.name : "all doctors" %> -
+  <%= @patient? @patient.name : "all patients" %>
   <%= render partial: 'appointments_table', locals: { appointments: @appointments } %>
 <% end %>

@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = current_user
+    @appointments = current_user.appointments
   end
 
   def index

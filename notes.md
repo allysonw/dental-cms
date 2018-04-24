@@ -56,7 +56,10 @@ In progress - created Show, Index, New, Create, update
 # Create ability to add new appt from patient page
 DONE
 
+# create model class method for appts
+[DONE]
 
+# build out additional models related to patient class
 
 ## STEP 3: come back LATER and add in ability for patients to log in
 This means at first there are no user roles needed - only doctors ever log in
