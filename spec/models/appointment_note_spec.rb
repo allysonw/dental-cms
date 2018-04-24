@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe AppointmentNote, type: :model do
-  let(:andrew) {
+  let!(:andrew) {
     User.create(
       :name => "Doctor Andrew",
       :password => "password",
@@ -9,7 +9,7 @@ RSpec.describe AppointmentNote, type: :model do
     )
   }
 
-  let(:jim) {
+  let!(:jim) {
     Patient.create(
       :name => "Jim Jones",
       :dob => Time.new(1964, 12, 24, 00, 00),
@@ -18,7 +18,7 @@ RSpec.describe AppointmentNote, type: :model do
     )
   }
 
-  let(:thursday) {
+  let!(:thursday) {
     Appointment.create(
       :time => Time.new(2018, 1, 15, 14, 00),
       :location => "Operatory 4"
@@ -27,14 +27,14 @@ RSpec.describe AppointmentNote, type: :model do
 
   let(:thursday_note) {
     AppointmentNote.create(
-      :content => "This is a new note."
+      :content => "This is a new note.",
+      :appointment_id => thursday.id
     )
   }
 
   before do
     thursday.patient = jim
     thursday.user = andrew
-    thursday.appointment_notes << thursday_note
     thursday.save
   end
 

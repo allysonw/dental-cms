@@ -7,8 +7,6 @@ RSpec.feature "Appointments", type: :feature do
   let! (:carol_appt_allyson) { Appointment.create(
     :time => Time.new(2018, 7, 24, 11, 00),
     :location => "Operatory 2",
-    # :patient_id => carol.id,
-    # :user_id => drallyson.id
   )}
 
   before do

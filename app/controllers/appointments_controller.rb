@@ -9,6 +9,8 @@ class AppointmentsController < ApplicationController
   def show
     if @appointment.nil?
       appointment_not_found
+    else
+      @appointment_note = @appointment.appointment_notes.build
     end
   end
 

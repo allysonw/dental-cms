@@ -1,5 +1,6 @@
 class AppointmentNote < ApplicationRecord
   belongs_to :appointment
 
-  validates :content, presence: true
+  validates :content, :appointment_id, presence: true
+
 end
