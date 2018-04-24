@@ -7,12 +7,21 @@ RSpec.describe TreatmentPlan, type: :model do
       :dob => Time.new(1964, 12, 24, 00, 00),
       :address => "Nowhere, MD",
       :phone_number => "415-533-4034"
-    )
-  }
+  )}
 
   let!(:implants) {
-    :name => "Jim Jones Treatment Plan 10/12/2017"
-  }
+    TreatmentPlan.create(
+      :name => "Jim Jones Treatment Plan 10/12/2017",
+      :patient_id => jim.id
+  )}
+
+  let!(:implant) {
+    Treatment.create(
+    :name => "D3442 - Titanium Implant",
+    :location => "18",
+    :price => 995,
+    :treatment_plan_id => implants.id
+  )}
 
   it "is valid with a name" do
     expect(implants).to be_valid
@@ -22,8 +31,7 @@ RSpec.describe TreatmentPlan, type: :model do
     expect(TreatmentPlan.new).not_to be_valid
   end
 
-  # it "has many treatments" do
-  #   expect(jim.appointments.first).to eq(appt1)
-  #   expect(jim.appointments.last).to eq(appt2)
-  # end
+  it "has many treatments" do
+    expect(implants.treatments.first).to eq(implant)
+  end
 end

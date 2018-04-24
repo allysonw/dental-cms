@@ -4,5 +4,7 @@ class Patient < ApplicationRecord
   # TODO currently all appointment's for a patient are detroyed if the patient is deleted
   # Fix so a patient can be deleted but we can maintain their appointment records
 
+  has_many :treatment_plans
+
   validates :name, :dob, :address, :phone_number, presence: true
 end
