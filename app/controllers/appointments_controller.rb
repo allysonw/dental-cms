@@ -97,6 +97,7 @@ class AppointmentsController < ApplicationController
       redirect_to appointments_path
     end
 
+    # Helper for filtered display
     def set_appointments_user
       @user = User.find_by(id: params[:user])
       if @user
@@ -106,6 +107,7 @@ class AppointmentsController < ApplicationController
       end
     end
 
+    # Helper for filtered display
     def set_appointments_patient
       @patient = Patient.find_by(id: params[:patient])
       if @patient
