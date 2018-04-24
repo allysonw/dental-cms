@@ -46,6 +46,4 @@ RSpec.describe Appointment, type: :model do
   it "belongs to a patient" do
     expect(thursday.patient).to eq(jim)
   end
-
-
 end
