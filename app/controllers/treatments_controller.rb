@@ -8,7 +8,7 @@ class TreatmentsController < ApplicationController
 
     if @treatment.save && @treatment_plan
       flash[:success] = "Treatment successfully created!"
-      redirect_to treatment_plan_path(@treatment_plan)
+      redirect_to patient_treatment_plan_path(@treatment_plan.patient.id, @treatment_plan.id)
     elsif @treatment_plan
       render "treatment_plans/show"
     else

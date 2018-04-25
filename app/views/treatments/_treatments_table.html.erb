@@ -12,8 +12,8 @@
       <tr>
         <td><%= treatment.name %></td>
         <td><%= treatment.location %></td>
-        <td><%= treatment.price %></td>
-        <td><%= treatment.complete %></td>
+        <td><%= display_price(treatment.price) %></td>
+        <td><%= complete?(treatment) %></td>
       </tr>
     <% end %>
   </tbody>

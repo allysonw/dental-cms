@@ -15,9 +15,13 @@ class TreatmentPlansController < ApplicationController
   def show
     if @treatment_plan.nil?
       treatment_plan_not_found
+    elsif params[:patient_id].blank? || (params[:patient_id] && !Patient.exists?(params[:patient_id]))
+      redirect_to patients_path, alert: "Patient not found."
     else
       @patient = @treatment_plan.patient
       @treatments = @treatment_plan.treatments
+      @total_cost = @treatment_plan.total_cost
+      @treatment = Treatment.new
     end
   end
 

@@ -6,7 +6,17 @@
   No treatments have been added.
 <% else %>
   <%= render partial: "treatments/treatments_table", locals: { treatments: @treatments } %>
+<% end %>
+
+<h4>Total Cost: <%= display_price(@total_cost) %></h4><br>
+
+<p>Add a new treatment</p>
+<%= form_for @treatment, url: treatment_plan_treatments_path(@treatment_plan.id) do |f| %>
+  Name: <%= f.text_field :name %>
+  Location: <%= f.text_field :location %>
+  Price: <%= f.text_field :price %>
+  <%= f.hidden_field :treatment_plan_id, value: @treatment_plan.id %>
+  <%= f.submit "Add Treatment"%>
 <% end %><br><br>
 
-<%= link_to "Add a new treatment", new_treatment_plan_treatment_path(@treatment_plan) %><br>
 <%= link_to "Back to patient info", patient_path(@patient) %>
