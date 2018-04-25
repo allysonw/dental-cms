@@ -8,7 +8,12 @@
 <% end %>
 
 
-<h4>New Patients</h4>
+<h4>Your Patients</h4>
+<% if @patients.blank? %>
+  You don't have any patients.
+<% else %>
+  <%= render partial: 'patients/patients_table', locals: { patients: @patients } %>
+<% end %>
 
 <%= link_to "New Patient", new_patient_path %><br>
 <%= link_to "New Appointment", new_appointment_path %>

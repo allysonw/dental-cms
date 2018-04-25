@@ -3,7 +3,7 @@
     <tr>
       <!-- <th scope="col">ID</th> -->
       <th scope="col">Name</th>
-      <th scope="col">Birthdate</th>
+      <th scope="col">Date of Birth</th>
       <th scope="col">Phone Number</th>
       <th scope="col">Doctors</th>
       <th scope="col">Actions</th>
@@ -23,7 +23,7 @@
         </td>
         <td>
           <%= link_to "Edit", edit_patient_path(patient), class: "right-margin-btn btn btn-primary btn-sm" %>
-  
+
           <%= link_to "Delete", patient, method: :delete, data: { confirm: "Are you sure you would like to delete this patient? This will also delete the patient's appointments." }, class: "right-margin-btn btn btn-primary btn-sm" %>
         </td>
       </tr>

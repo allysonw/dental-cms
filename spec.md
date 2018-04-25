@@ -18,11 +18,12 @@ Specs:
 - [ ] The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity)
   * The appointments table includes 3 user submittable attributes: date, time, and location
 
-- [ ] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
+- [X] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
   * User -validates :name, presence: true
       - Devise validates the presence of the email and password
   * Patient - validates :name, :dob, :address, :phone_number, presence: true
   * Appointment - validates :time, :location, :user_id, :patient_id, presence: true
+  * Validations also in views by marking fields required
 
 - [X] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
   * Appointments.for_user URL: /appointments
@@ -39,14 +40,14 @@ Specs:
 - [X] Include third party signup/login (how e.g. Devise/OmniAuth)
   * Devise/Omniauth
 
-- [ ] Include nested resource show or index (URL e.g. users/2/recipes)
+- [X] Include nested resource show or index (URL e.g. users/2/recipes)
   * patients/1/treatment_plans
 
-- [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients)
+- [X] Include nested resource "new" form (URL e.g. recipes/1/ingredients)
   * patients/1/treatment_plans/new
 
 - [X] Include form display of validation errors (form URL e.g. /recipes/new)
-  * Form validations in view, ActiveRecord validations in DB
+  * /patients/new
 
 Confirm:
 - [ ] The application is pretty DRY
