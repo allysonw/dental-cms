@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get '/dashboard', to: 'users#dashboard'
 
-  resources :appointment_notes
+  #resources :appointment_notes
+
   resources :patients do
     # nested resources for treatment plans & appointments
     resources :treatment_plans
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :treatment_plans do
-    resources :treatments
+    resources :treatments, only: [:create, :edit, :update, :destroy]
   end
 
 end
