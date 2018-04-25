@@ -1,5 +1,5 @@
 module AppointmentNotesHelper
-  def note_created_at(note)
-    note.created_at.strftime("%A, %B %e, at %l:%M %p")
+  def created_at(note)
+    note.created_at.strftime("%b %e, %Y - %l:%M %p")
   end
 end

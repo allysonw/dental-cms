@@ -5,6 +5,7 @@
       <th scope="col">Location</th>
       <th scope="col">Price</th>
       <th scope="col">Complete?</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -14,6 +15,10 @@
         <td><%= treatment.location %></td>
         <td><%= display_price(treatment.price) %></td>
         <td><%= complete?(treatment) %></td>
+
+        <td><%= link_to "Delete", treatment_plan_treatment_path(treatment.treatment_plan, treatment), method: :delete, data: { confirm: "Are you sure you would like to delete this treatment?" }, class: "right-margin-btn btn btn-primary btn-sm" %>
+
+        <%= link_to "Complete", "/treatments/#{treatment.id}/complete", method: :post, class: "right-margin-btn btn btn-primary btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>

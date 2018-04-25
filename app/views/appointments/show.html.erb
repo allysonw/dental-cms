@@ -13,6 +13,6 @@ Create a new note
 
 <div>
   <% @appointment.appointment_notes.each do |note| %>
-    <%= note.content %> - Created at: <%= note.created_at%><br>
+    <%= note.content %> - Created at: <%= created_at(note) %><br>
   <% end %>
 </div>

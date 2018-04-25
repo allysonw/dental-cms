@@ -22,4 +22,8 @@ Rails.application.routes.draw do
     resources :treatments, only: [:create, :edit, :update, :destroy]
   end
 
+  post '/treatments/:id/complete', to: 'treatments#complete'
+
+
+
 end

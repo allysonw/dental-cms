@@ -1,6 +1,6 @@
 class TreatmentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_treatment, only: [:edit, :update, :destroy]
+  before_action :set_treatment, only: [:edit, :update, :destroy, :complete]
 
   def create
     @treatment_plan = TreatmentPlan.find_by(id: treatment_params[:treatment_plan_id])
@@ -8,7 +8,7 @@ class TreatmentsController < ApplicationController
 
     if @treatment.save && @treatment_plan
       flash[:success] = "Treatment successfully created!"
-      redirect_to patient_treatment_plan_path(@treatment_plan.patient.id, @treatment_plan.id)
+      return_to_treatment_plan
     elsif @treatment_plan
       render "treatment_plans/show"
     else
@@ -31,16 +31,30 @@ class TreatmentsController < ApplicationController
   #     render :edit
   #   end
   # end
-  #
-  # def destroy
-  #   if @treatment_plan.nil?
-  #     treatment_plan_not_found
-  #   else
-  #     @treatment_plan.destroy
-  #     flash[:success] = "Treatment plan successfully deleted!"
-  #     redirect_to patient_path(@treatment_plan.patient)
-  #   end
-  # end
+
+  def complete
+    if @treatment.nil?
+      treatment_not_found
+    else
+      @treatment.complete = true
+      if @treatment.save
+        flash[:success] = "Treatment successfully completed!"
+      else
+        flash[:alert] = "Unable to complete treatment."
+      end
+      return_to_treatment_plan
+    end
+  end
+
+  def destroy
+    if @treatment.nil?
+      treatment_not_found
+    else
+      @treatment.destroy
+      flash[:success] = "Treatment successfully deleted!"
+      return_to_treatment_plan
+    end
+  end
 
   private
     def treatment_params
@@ -54,5 +68,12 @@ class TreatmentsController < ApplicationController
     def treatment_not_found
       flash[:alert] = "Treatment not found"
       redirect_to patients_path
+    end
+
+    def return_to_treatment_plan
+      @treatment_plan = @treatment.treatment_plan
+      @patient = @treatment_plan.patient
+
+      redirect_to patient_treatment_plan_path(@patient, @treatment_plan)
     end
 end
