@@ -59,14 +59,13 @@ class TreatmentPlansController < ApplicationController
   end
 
   def destroy
-    # if @appointment.nil?
-    #   appointment_not_found
-    # else
-    #   @appointment.destroy
-    #   flash[:success] = "Appointment successfully deleted!"
-    #   redirect_to appointments_path
-    #   # TODO fix to redirect to page user was on before deleting
-    # end
+    if @treatment_plan.nil?
+      treatment_plan_not_found
+    else
+      @treatment_plan.destroy
+      flash[:success] = "Treatment plan successfully deleted!"
+      redirect_to patient_path(@treatment_plan.patient)
+    end
   end
 
   private
