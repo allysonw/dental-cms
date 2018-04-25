@@ -8,5 +8,5 @@
   <%= render partial: "treatments/treatments_table", locals: { treatments: @treatments } %>
 <% end %><br><br>
 
-<%= link_to "Add a new treatment", new_treatment_path %><br>
+<%= link_to "Add a new treatment", new_treatment_plan_treatment_path(@treatment_plan) %><br>
 <%= link_to "Back to patient info", patient_path(@patient) %>

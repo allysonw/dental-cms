@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :treatments
+
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }, :path => 'accounts'
+
+  root 'welcome#index'
+  get '/dashboard', to: 'users#dashboard'
+
   resources :appointment_notes
   resources :patients do
     # nested resources for treatment plans & appointments
@@ -12,13 +17,8 @@ Rails.application.routes.draw do
     resources :appointment_notes, :path => 'notes', only: [:create]
   end
 
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }, :path => 'accounts'
-
-  # resources :patients do
-  #   resources :appointments
-  # end
-
-  root 'welcome#index'
-  get '/dashboard', to: 'users#dashboard'
+  resources :treatment_plans do
+    resources :treatments
+  end
 
 end

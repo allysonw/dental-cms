@@ -1,6 +1,6 @@
 <%= date_and_time(appointment) %><br>
 <%= appointment.location %><br>
-<%= appointment.patient.name %><br>
+<%= link_to appointment.patient.name, patient_path(appointment.patient) %><br>
 <%= appointment.user.name %><br><br>
 
 <td>

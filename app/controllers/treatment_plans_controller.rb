@@ -43,19 +43,19 @@ class TreatmentPlansController < ApplicationController
   end
 
   def edit
-    # if @appointment.nil?
-    #   appointment_not_found
-    # end
+    if @treatment_plan.nil?
+      treatment_plan_not_found
+    end
   end
 
   def update
-    # @appointment.update(appointment_params)
-    # if @appointment.save
-    #   flash[:success] = "Appointment successfully updated!"
-    #   redirect_to appointment_path(@appointment)
-    # else
-    #   render :edit
-    # end
+    @treatment_plan.update(treatment_plan_params)
+    if @treatment_plan.save
+      flash[:success] = "Treatment plan successfully updated!"
+      redirect_to patient_treatment_plan_path(@treatment_plan.patient, @treatment_plan)
+    else
+      render :edit
+    end
   end
 
   def destroy

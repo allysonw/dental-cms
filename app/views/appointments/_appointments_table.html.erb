@@ -15,7 +15,7 @@
         <td><%= link_to date_and_time(appointment), appointment_path(appointment) %></a></td>
         <td><%= appointment.location %></td>
         <td><%= link_to appointment.patient.name, patient_path(appointment.patient) %></td>
-        <td>appointment.user.name</td>
+        <td><%= appointment.user.name %></td>
 
         <td>
           <%= link_to "Edit", edit_appointment_path(appointment), class: "right-margin-btn btn btn-primary btn-sm" %>
