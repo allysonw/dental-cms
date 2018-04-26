@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link href="<%= '/application.css' %>" rel="stylesheet" type="text/css"/>
 
     <style>
@@ -24,19 +26,20 @@
   </head>
 
   <body class = 'w3-light-grey'>
+
     <% flash.each do |name, msg| %>
-      <% if name == 'notice' then name = 'success' end %>
-      <% if name == 'alert' then name = 'danger' end %>
-      <%= content_tag :div, msg, :id => "alert_#{name}", :class => "flash alert alert-#{name} alert-box radius", :role => "alert" %>
+      <% if name == 'notice' then color = 'pale-green' end %>
+      <% if name == 'alert' then color = 'pale-red' end %>
+      <%= content_tag :div, msg, :id => "alert_#{name}", :class => "w3-container w3-padding-16 w3-#{color}", :role => "alert" %>
       <% end %>
 
+    <% if user_signed_in? %>
     <!-- Top container -->
     <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
       <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
       <span class="w3-bar-item w3-right">Dental Office Manager</span>
     </div>
 
-    <% if user_signed_in? %>
       <!-- Sidebar/menu -->
       <nav class="w3-sidebar w3-collapse w3-white" style="z-index:3;width:200px;" id="mySidebar"><br>
         <div class="w3-container w3-row">
@@ -65,17 +68,25 @@
 
       <!-- Overlay effect when opening sidebar on small screens -->
       <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+
+      <!-- !PAGE CONTENT! -->
+      <div class="w3-main" style="margin-left:200px;margin-top:43px;">
+        <%= yield %>
+      </div>
+
+    <% else %>
+      <div class="w3-main">
+        <img src="/girl-smiling.jpg" style="width:100%;min-width:1000px;">
+        <div class="w3-display-middle">
+          <%= yield %>
+        </div>
+    </div>
     <% end %>
 
-    <!-- !PAGE CONTENT! -->
-    <div class="w3-main" style="margin-left:200px;margin-top:43px;">
-      <%= yield %>
-
-      <footer class="w3-container w3-padding-16 w3-light-grey">
-        <p>&copy; 2018 Allyson Wesman</p>
-      </footer>
-      <!-- END !PAGE CONTENT! -->
-    </div>
+    <footer class="w3-container w3-padding-16 w3-light-grey">
+      <p>&copy; 2018 Allyson Wesman</p>
+    </footer>
 
     <!--  W3 CSS SCRIPTS -->
     <script>
@@ -102,7 +113,5 @@
           overlayBg.style.display = "none";
       }
     </script>
-
-
   </body>
 </html>

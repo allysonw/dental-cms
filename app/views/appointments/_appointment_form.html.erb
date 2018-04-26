@@ -1,19 +1,34 @@
-<%= form_for @appointment do |f| %>
-  <p>
-    <%= f.label :time %>
-    <%= f.datetime_select :time %>
-  </p>
-  <p>
-    <%= f.label :location %>
-    <%= f.text_field :location, required: true %>
-  </p>
-  <p>
-    <%= f.label :user, "Doctor" %>
-    <%= f.collection_select(:user_id, User.all, :id, :name) %>
-  </p>
-  <p>
-    <%= f.label :patient %>
+<div class="w3-container w3-twothirds">
+  <%= form_for @appointment do |f| %>
+
+  <div class="w3-row w3-section">
+    <div class="w3-col" style="width:50px"><i class="material-icons" style="font-size: 30px">access_time</i></div>
+    <div class="w3-rest">
+      <%= f.datetime_select :time, class: "w3-input w3-select", include_blank: true %>
+    </div>
+  </div>
+
+  <div class="w3-row w3-section">
+    <div class="w3-col" style="width:50px"><i class="material-icons" style="font-size: 30px">location_on</i></div>
+    <div class="w3-rest">
+      <%= f.text_field :location, placeholder: "Location", required: true %>
+    </div>
+  </div>
+
+  <div class="w3-row w3-section">
+    <div class="w3-col" style="width:50px"><i class="material-icons" style="font-size: 30px">healing</i></div>
+    <div class="w3-rest">
+      <%= f.collection_select(:user_id, User.all, :id, :name) %>
+    </div>
+  </div>
+
+
+  <div class="w3-row w3-section">
+    <div class="w3-col" style="width:50px"><i class="material-icons" style="font-size: 30px">person</i></div>
+    <div class="w3-rest">
     <%= f.collection_select(:patient_id, Patient.all, :id, :name) %>
-  </p>
-  <%= f.submit %>
+    </div>
+  </div>
+
+  <%= f.submit  "Create Appointment", class: "w3-button w3-medium w3-black w3-hover-pink w3-round-large w3-padding-medium" %>
 <% end %>

@@ -1,19 +1,35 @@
-<%= form_for @patient do |f| %>
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name, required: true %>
-  </p>
-  <p>
-    <%= f.label :dob %>
-    <%= f.date_select :dob %>
-  </p>
-  <p>
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-  </p>
-  <p>
-    <%= f.label :phone_number %>
-    <%= f.text_field :phone_number, required: true %>
-  </p>
-  <%= f.submit %>
-<% end %>
+<div class="w3-container w3-third">
+  <%= form_for @patient do |f| %>
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:50px"><i class="material-icons" style="font-size: 30px">account_circle</i></div>
+      <div class="w3-rest">
+        <%= f.text_field :name, class: "w3-input", placeholder: "Name", required: true %>
+      </div>
+    </div>
+
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:50px">
+        <i class="material-icons" style="font-size: 30px">date_range</i></div>
+      <div class="w3-rest">
+        <%= f.label "Date of Birth" %><br>
+        <%= f.date_select :dob, class: "w3-input w3-select", include_blank: true %>
+      </div>
+    </div>
+
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:50px"><i class="material-icons" style="font-size: 30px">location_on</i></div>
+      <div class="w3-rest">
+        <%= f.text_field :address, class: "w3-input", placeholder: "Address", required: true %>
+      </div>
+    </div>
+
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:50px"><i class="material-icons" style="font-size: 30px">phone</i></div>
+      <div class="w3-rest">
+        <%= f.text_field :phone_number, class: "w3-input", placeholder: "Phone Number", required: true %>
+      </div>
+    </div>
+
+    <%= f.submit "Create Patient", class: "w3-button w3-medium w3-black w3-hover-pink w3-round-large w3-padding-medium" %>
+  <% end %>
+</div>

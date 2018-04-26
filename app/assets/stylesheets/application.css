@@ -48,3 +48,8 @@
  .table-no-padding td {
    padding: 0px;
  }
+
+ .new-button-div {
+  padding-top: 10px;
+  padding-left: 10px;
+ }

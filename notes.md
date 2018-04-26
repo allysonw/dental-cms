@@ -68,6 +68,8 @@ treatment_plan - DONE
 2) nested form for creation of address at same time as patient
 3) build identities table and refactor authentication
 4) Set up simple custom CSS template
+5) fix bug where you can't delete appts
+- write tests for deletion for all models
 5) Blog post
 
 
