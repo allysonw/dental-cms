@@ -60,6 +60,27 @@ DONE
 [DONE]
 
 # build out additional models related to patient class
+treatment_plan - DONE
+
+
+# Before turning in:
+1) watch rest of TODOmvc vids
+2) nested form for creation of address at same time as patient
+3) build identities table and refactor authentication
+4) Set up simple custom CSS template
+5) Blog post
+
+
+After graduation
+treatments - still need to build edit
+
+# add filters to patients page
+- patients with appts today
+- patients with appts in next week
+
+# build date-based filters for appointments
+
+# deploy to heroku
 
 ## STEP 3: come back LATER and add in ability for patients to log in
 This means at first there are no user roles needed - only doctors ever log in
