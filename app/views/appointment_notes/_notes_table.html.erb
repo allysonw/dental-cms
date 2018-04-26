@@ -1,0 +1,16 @@
+<table class="w3-table w3-striped w3-white">
+  <thead class='w3-grey w3-text-white'>
+    <th></th>
+    <th>Note</th>
+    <th>Created At</th>
+  </thead>
+  <tbody>
+  <% @appointment.appointment_notes.each do |note| %>
+    <tr>
+      <td><i class="material-icons" style="font-size: 24px;">description</i></td>
+      <td><%= note.content %></td>
+      <td><%= created_at(note) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
