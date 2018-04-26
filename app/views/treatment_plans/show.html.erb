@@ -1,22 +1,29 @@
-<h2>Treatment Plan</h2>
+<div class="w3-panel">
+  <h2>Treatment Plan</h2>
 
-<h4>Name: <%= @treatment_plan.name %></h4>
+  <h4>Plan Name: <%= @treatment_plan.name %></h4>
 
-<% if @treatments.blank? %>
-  No treatments have been added.
-<% else %>
-  <%= render partial: "treatments/treatments_table", locals: { treatments: @treatments } %>
+  <% if @treatments.blank? %>
+    <h6>No treatments have been added.</h6>
+  <% else %>
+    <%= render partial: "treatments/treatments_table", locals: { treatments: @treatments } %>
 
-  <h4>Total Cost: <%= display_price(@total_cost) %></h4><br>
-<% end %><br><br>
+    <div class="w3-container w3-pale-red w3-quarter w3-margin-top w3-margin-left">
+      <h5>Total Cost: <%= display_price(@total_cost) %></h5>
+    </div>
 
-<p>Add a new treatment</p>
-<%= form_for @treatment, url: treatment_plan_treatments_path(@treatment_plan.id) do |f| %>
-  Name: <%= f.text_field :name %>
-  Location: <%= f.text_field :location %>
-  Price: <%= f.text_field :price %>
-  <%= f.hidden_field :treatment_plan_id, value: @treatment_plan.id %>
-  <%= f.submit "Add Treatment"%>
-<% end %><br><br>
+  <% end %>
 
-<%= link_to "Back to patient info", patient_path(@patient) %>
+  <div class="w3-panel">
+    <h3>Add a new treatment</h3>
+    <%= form_for @treatment, url: treatment_plan_treatments_path(@treatment_plan.id) do |f| %>
+      <%= f.text_field :name, class: 'w3-input w3-quarter w3-margin-right w3-margin-top', placeholder: "Name" %>
+      <%= f.text_field :location, class: 'w3-input w3-quarter w3-margin-right w3-margin-top', placeholder: "Tooth Number"  %>
+      <%= f.text_field :price, class: 'w3-input w3-quarter w3-margin-top', placeholder: "Price"  %>
+      <%= f.hidden_field :treatment_plan_id, value: @treatment_plan.id %>
+      <%= f.submit "Add Treatment", class: "w3-margin-left  w3-margin-top w3-button w3-medium w3-black w3-hover-pink w3-round-large w3-padding-medium"%>
+    <% end %><br><br>
+
+    <%= link_to "Back to patient info", patient_path(@patient) %>
+  </div>
+</div>

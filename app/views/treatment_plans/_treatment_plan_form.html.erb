@@ -1,14 +1,11 @@
+<div class="w3-container w3-third">
+    <%= form_for @treatment_plan,  treatment_plan_form_options(@treatment_plan) do |f| %>
+    <p>
+      <%= f.text_field :name, required: true, class: "w3-input", placeholder: "Treatment Plan Name" %>
+    </p>
 
-<%= form_for @treatment_plan,  treatment_plan_form_options(@treatment_plan) do |f| %>
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name, required: true %>
-  </p>
+    <%= f.hidden_field :patient_id, value: @treatment_plan.patient.id %>
 
-  <%= f.hidden_field :patient_id, value: @treatment_plan.patient.id %>
-
-  <%= f.submit %>
-<% end %>
-
-
-<!-- , url: patient_treatment_plans_path)  -->
+    <%= f.submit "Submit", class: "w3-button w3-medium w3-black w3-hover-pink w3-round-large w3-padding-medium" %>
+  <% end %>
+</div>

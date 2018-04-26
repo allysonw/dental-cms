@@ -1,11 +1,11 @@
 <div>
   <div class="w3-responsive">
-    <h5>Treatment Plans</h5>
     <table class="w3-table w3-striped w3-white">
       <thead class='w3-grey w3-text-white'>
         <tr>
           <th></th>
             <th>Name</th>
+            <th>Total Cost</th>
             <th>Actions</th>
         </tr>
       </thead>
@@ -14,7 +14,7 @@
           <tr>
             <td><i class="fa fa-bookmark w3-text-blue w3-large"></i>
             <td><%= link_to treatment_plan.name, patient_treatment_plan_path(treatment_plan.patient, treatment_plan) %></a></td>
-
+            <td><%= display_price(treatment_plan.total_cost) %></td>
             <td>
               <%= link_to "Edit", edit_patient_treatment_plan_path(treatment_plan.patient, treatment_plan), class: "right-margin-btn btn btn-primary btn-sm" %>
 

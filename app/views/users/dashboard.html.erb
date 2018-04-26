@@ -4,7 +4,7 @@
 <div class="w3-panel">
   <h5>Upcoming Appointments</h5>
   <% if @appointments.blank? %>
-    No appointments have been created.
+    <h6>No appointments have been created.</h6>
   <% else %>
     <%= render partial: 'appointments/appointments_table', locals: { appointments: @appointments } %>
   <% end %>

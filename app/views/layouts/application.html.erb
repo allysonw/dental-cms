@@ -27,11 +27,11 @@
 
   <body class = 'w3-light-grey'>
 
-    <% flash.each do |name, msg| %>
+    <!-- <% flash.each do |name, msg| %>
       <% if name == 'notice' then color = 'pale-green' end %>
       <% if name == 'alert' then color = 'pale-red' end %>
       <%= content_tag :div, msg, :id => "alert_#{name}", :class => "w3-container w3-padding-16 w3-#{color}", :role => "alert" %>
-      <% end %>
+      <% end %> -->
 
     <% if user_signed_in? %>
     <!-- Top container -->
