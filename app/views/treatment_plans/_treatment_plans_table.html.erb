@@ -1,21 +1,28 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% treatment_plans.each do |treatment_plan| %>
-      <tr>
-        <td><%= link_to treatment_plan.name, patient_treatment_plan_path(treatment_plan.patient, treatment_plan) %></a></td>
+<div>
+  <div>
+    <h5>Treatment Plans</h5>
+    <table class="w3-table w3-striped w3-white">
+      <thead class='w3-grey w3-text-white'>
+        <tr>
+          <th></th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% treatment_plans.each do |treatment_plan| %>
+          <tr>
+            <td><i class="fa fa-bookmark w3-text-blue w3-large"></i>
+            <td><%= link_to treatment_plan.name, patient_treatment_plan_path(treatment_plan.patient, treatment_plan) %></a></td>
 
-        <td>
-          <%= link_to "Edit", edit_patient_treatment_plan_path(treatment_plan.patient, treatment_plan), class: "right-margin-btn btn btn-primary btn-sm" %>
+            <td>
+              <%= link_to "Edit", edit_patient_treatment_plan_path(treatment_plan.patient, treatment_plan), class: "right-margin-btn btn btn-primary btn-sm" %>
 
-          <%= link_to "Delete", patient_treatment_plan_path(treatment_plan.patient, treatment_plan), method: :delete, data: { confirm: "Are you sure you would like to delete this treatment_plan?" }, class: "right-margin-btn btn btn-primary btn-sm" %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+              <%= link_to "Delete", patient_treatment_plan_path(treatment_plan.patient, treatment_plan), method: :delete, data: { confirm: "Are you sure you would like to delete this treatment_plan?" }, class: "right-margin-btn btn btn-primary btn-sm" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,23 +1,32 @@
-<h3>Patient Info</h3>
+<div class="w3-panel">
+  <div class="w3-row-padding w3-margin-bottom" style="margin:0 -16px">
+    <div class="w3-third">
+      <h3>Patient Info</h3>
+      <%= render partial: 'patient', locals: { patient: @patient } %>
+    </div>
+    <div class="w3-twothird">
+      <h3>Treatment Plans for <%= @patient.name %> </h3>
+      <% if @treatment_plans.blank? %>
+        No treatment plans have been created.
+      <% else %>
+        <%= render partial: 'treatment_plans/treatment_plans_table', locals: { treatment_plans: @treatment_plans } %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<%= render partial: 'patient', locals: { patient: @patient } %>
+<div class="w3-container">
+  <h3>Appointments for <%= @patient.name %></h3> <!-- show the patient's appointments -->
+  <% if @appointments.blank? %>
+    No appointments have been created.
+  <% else %>
+    <%= render partial: 'appointments/appointments_table', locals: { appointments: @appointments } %>
+  <% end %>
 
-<h3>Appointments for <%= @patient.name %></h3> <!-- show the patient's appointments -->
+  <p><%= link_to "Create an appointment for this patient", new_patient_appointment_path(@patient) %></p>
 
-<% if @appointments.blank? %>
-  No appointments have been created.
-<% else %>
-  <%= render partial: 'appointments/appointments_table', locals: { appointments: @appointments } %>
-<% end %>
 
-<p><%= link_to "Create an appointment for this patient", new_patient_appointment_path(@patient) %></p>
 
-<h3>Treatment Plans for <%= @patient.name %> </h3>
 
-<% if @treatment_plans.blank? %>
-  No treatment plans have been created.
-<% else %>
-  <%= render partial: 'treatment_plans/treatment_plans_table', locals: { treatment_plans: @treatment_plans } %>
-<% end %>
-
-<p><%= link_to "Create a treatment plan for this patient", new_patient_treatment_plan_path(@patient) %></p>
+  <p><%= link_to "Create a treatment plan for this patient", new_patient_treatment_plan_path(@patient) %></p>
+</div>

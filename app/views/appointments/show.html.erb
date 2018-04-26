@@ -1,18 +1,20 @@
-<h2>Appointment Detail</h2>
+<div class="w3-container">
+  <h2>Appointment Detail</h2>
 
-<%= render partial: 'appointments/appointment', locals: { appointment: @appointment } %>
+  <%= render partial: 'appointments/appointment', locals: { appointment: @appointment } %>
 
-<h3>Notes</h3>
+  <h3>Notes</h3>
 
-Create a new note
-<%= form_for @appointment_note, url: appointment_appointment_notes_path(@appointment.id) do |f| %>
-  Content: <%= f.text_field :content %>
-  <%= f.hidden_field :appointment_id, value: @appointment.id %>
-  <%= f.submit "Create Note "%>
-<% end %>
-
-<div>
-  <% @appointment.appointment_notes.each do |note| %>
-    <%= note.content %> - Created at: <%= created_at(note) %><br>
+  Create a new note
+  <%= form_for @appointment_note, url: appointment_appointment_notes_path(@appointment.id) do |f| %>
+    Content: <%= f.text_field :content %>
+    <%= f.hidden_field :appointment_id, value: @appointment.id %>
+    <%= f.submit "Create Note "%>
   <% end %>
+
+  <div>
+    <% @appointment.appointment_notes.each do |note| %>
+      <%= note.content %> - Created at: <%= created_at(note) %><br>
+    <% end %>
+  </div>
 </div>

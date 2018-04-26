@@ -1,7 +1,9 @@
-<h2>Patients</h2>
+<div class="w3-container">
+  <h2>Patients</h2>
 
-<% if @patients.blank? %>
-  No patients have been created.
-<% else %>
-  <%= render partial: 'patients_table', locals: { patients: @patients } %>
-<% end %>
+  <% if @patients.blank? %>
+    No patients have been created.
+  <% else %>
+    <%= render partial: 'patients_table', locals: { patients: @patients } %>
+  <% end %>
+</div>
