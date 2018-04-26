@@ -1,8 +1,19 @@
-<%= patient.name %><br>
-<%= date_of_birth(patient) %><br>
-<%= patient.phone_number %><br>
-<%= patient.address %><br><br>
-
+<table class="w3-table">
+<tr>
+  <td>Name</td>
+  <td><%= patient.name %></td>
+</tr>
+<tr>
+  <td>DOB</td>
+  <td><%= date_of_birth(patient) %></td>
+</tr>
+<tr>
+  <td>Phone</td>
+  <td><%= patient.phone_number %></td>
+</tr>
+<tr>
+  <td>Address</td>
+  <td><%= patient.address %></td>
+</tr>
+</table>
 <%= link_to "Edit", edit_patient_path(patient), class: "right-margin-btn btn btn-primary btn-sm" %>
-
-<%= link_to "Delete", patient, method: :delete, data: { confirm: "Are you sure you would like to delete this patient? This will also delete the patient's appointments." }, class: "delete-patient right-margin-btn btn btn-primary btn-sm" %><br><br>

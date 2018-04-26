@@ -44,3 +44,7 @@
  .footer {
    font-size: 0.75em;
  }
+
+ .table-no-padding td {
+   padding: 0px;
+ }

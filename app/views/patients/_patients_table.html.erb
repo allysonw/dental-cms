@@ -1,32 +1,36 @@
-<table class="table">
-  <thead>
-    <tr>
-      <!-- <th scope="col">ID</th> -->
-      <th scope="col">Name</th>
-      <th scope="col">Date of Birth</th>
-      <th scope="col">Phone Number</th>
-      <th scope="col">Doctors</th>
-      <th scope="col">Actions</th>
+<div class="w3-row-padding w3-responsive">
+  <div>
+    <table class="w3-table w3-striped w3-white">
+      <thead class='w3-grey w3-text-white'>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Date of Birth</th>
+          <th>Phone Number</th>
+          <th>Doctors</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% patients.each do |patient| %>
+          <tr>
+            <td><i class="fa fa-user w3-text-blue w3-large"></i>
+            <td><a href="/patients/<%= patient.id %>"><%= patient.name %></a></td>
+            <td><%= date_of_birth(patient) %></td>
+            <td><%= patient.phone_number %></td>
+            <td>
+              <% patient.users.uniq.each do |user| %>
+                <%= user.name %><br>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to "Edit", edit_patient_path(patient), class: "right-margin-btn btn btn-primary btn-sm" %>
 
-    </tr>
-  </thead>
-  <tbody>
-    <% patients.each do |patient| %>
-      <tr>
-        <td><a href="/patients/<%= patient.id %>"><%= patient.name %></a></td>
-        <td><%= date_of_birth(patient) %></td>
-        <td><%= patient.phone_number %></td>
-        <td>
-          <% patient.users.uniq.each do |user| %>
-            <%= user.name %><br>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to "Edit", edit_patient_path(patient), class: "right-margin-btn btn btn-primary btn-sm" %>
-
-          <%= link_to "Delete", patient, method: :delete, data: { confirm: "Are you sure you would like to delete this patient? This will also delete the patient's appointments." }, class: "right-margin-btn btn btn-primary btn-sm" %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+              <%= link_to "Delete", patient, method: :delete, data: { confirm: "Are you sure you would like to delete this patient? This will also delete the patient's appointments." }, class: "right-margin-btn btn btn-primary btn-sm" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

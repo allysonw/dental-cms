@@ -1,11 +1,12 @@
 <div class="w3-panel">
   <div class="w3-row-padding w3-margin-bottom" style="margin:0 -16px">
     <div class="w3-third">
-      <h3>Patient Info</h3>
-      <%= render partial: 'patient', locals: { patient: @patient } %>
+      <div class="w3-container w3-red w3-padding-16">
+        <h3>Patient Info</h3>
+        <%= render partial: 'patient', locals: { patient: @patient } %>
+      </div>
     </div>
     <div class="w3-twothird">
-      <h3>Treatment Plans for <%= @patient.name %> </h3>
       <% if @treatment_plans.blank? %>
         No treatment plans have been created.
       <% else %>
@@ -15,8 +16,7 @@
   </div>
 </div>
 
-<div class="w3-container">
-  <h3>Appointments for <%= @patient.name %></h3> <!-- show the patient's appointments -->
+<div class="w3-container w3-responsive">
   <% if @appointments.blank? %>
     No appointments have been created.
   <% else %>
@@ -25,8 +25,7 @@
 
   <p><%= link_to "Create an appointment for this patient", new_patient_appointment_path(@patient) %></p>
 
-
-
-
   <p><%= link_to "Create a treatment plan for this patient", new_patient_treatment_plan_path(@patient) %></p>
+
+  <%= link_to "Delete This Patient", @patient, method: :delete, data: { confirm: "Are you sure you would like to delete this patient? This will also delete the patient's appointments." }, class: "delete-patient right-margin-btn btn btn-primary btn-sm" %>
 </div>
