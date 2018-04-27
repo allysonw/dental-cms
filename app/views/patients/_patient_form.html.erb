@@ -12,7 +12,7 @@
         <i class="material-icons" style="font-size: 30px">date_range</i></div>
       <div class="w3-rest">
         <%= f.label "Date of Birth" %><br>
-        <%= f.date_select :dob, class: "w3-input w3-select", include_blank: true %>
+        <%= f.date_select :dob, start_year: Time.now.year - 100, end_year: Time.now.year, class: "w3-input w3-select", include_blank: true %>
       </div>
     </div>
 
