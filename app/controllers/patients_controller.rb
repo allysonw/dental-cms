@@ -54,7 +54,7 @@ class PatientsController < ApplicationController
     else
       @patient.destroy
       flash[:success] = "Patient successfully deleted!"
-      redirect_back(fallback_location: patients_path)
+      redirect_to patients_path
     end
   end
 

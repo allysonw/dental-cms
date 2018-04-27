@@ -62,7 +62,7 @@ DONE
 treatment_plan - DONE
 
 # Before turning in:
-- [ ] redirect user back to page they were on during deletion of resources
+- [X] redirect user back to page they were on during deletion of resources
 - [ ] watch rest of TODOmvc vids
 - [X] build address model
 - [X] nested form for creation of address at same time as patient
