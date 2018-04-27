@@ -1,5 +1,5 @@
-<div class="w3-panel">
-  <div class="w3-row-padding w3-margin-bottom" style="margin:0 -16px">
+<header class="w3-container" style="padding-top:22px">
+  <div class="w3-margin-bottom">
     <div class="w3-third">
       <div class="w3-container w3-red w3-padding-16">
         <h3>Appointment Detail</h3>
@@ -7,13 +7,13 @@
       </div>
     </div>
   </div>
-</div>
+</header>
 
-<div class="w3-panel w3-twothird w3-responsive" style="margin-top: 0px;">
+<div class="w3-panel w3-twothird" style="margin-top: 0px;">
   <h3 style="margin-bottom: 0px;">Notes</h3>
-    <div class="w3-twothird">
-      <%= render partial: 'appointment_notes/note_form', locals: { appointment: @appointment, appointment_note: @appointment_note } %>
-    </div>
+
+    <%= render partial: 'appointment_notes/note_form', locals: { appointment: @appointment, appointment_note: @appointment_note } %>
 
     <%= render partial: 'appointment_notes/notes_table', locals: { appointment: @appointment } %>
+
 </div>
