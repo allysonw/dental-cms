@@ -82,6 +82,7 @@ Fix flash messages[DONE]
 - Treatments - still need to build edit
 - Phone number Validations
 - Create location model and populate with defaults
+- Change color of flash message based on content
 
 ### Add filters to patients page
 - patients with appts today
@@ -89,7 +90,7 @@ Fix flash messages[DONE]
 
 ### Build date-based filters for appointments
 
-### Implenent calendar date selectors for appointments
+### Implement nice calendar date selectors for appointments
 
 ### DEPLOY
 - Deploy to heroku

@@ -79,7 +79,13 @@ class AppointmentsController < ApplicationController
     else
       @appointment.destroy
       flash[:success] = "Appointment successfully deleted!"
-      redirect_back(fallback_location: appointments_path)
+
+      if request.referrer.include?("/appointments/#{@appointment.id}")
+        # if we were on the appointments show page
+        redirect_to appointments_path
+      else
+        redirect_back(fallback_location: appointments_path)
+      end
     end
   end
 
