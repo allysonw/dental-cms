@@ -79,7 +79,8 @@ class AppointmentsController < ApplicationController
     else
       @appointment.destroy
       flash[:success] = "Appointment successfully deleted!"
-      redirect_to appointments_path
+      redirect_back(fallback_location: appointments_path)
+      #redirect_to appointments_path
       # TODO fix to redirect to page user was on before deleting
     end
   end

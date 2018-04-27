@@ -62,6 +62,7 @@ DONE
 treatment_plan - DONE
 
 # Before turning in:
+- [ ] redirect user back to page they were on during deletion of resources
 - [ ] watch rest of TODOmvc vids
 - [ ] build address model
 - [ ] nested form for creation of address at same time as patient
@@ -78,6 +79,8 @@ Fix flash messages[DONE]
 ## AFTER GRADUATION
 ### POLISH AND ADD SMALL FEATURES
 - Treatments - still need to build edit
+- Phone number Validations
+- Create location model and populate with defaults
 
 ### Add filters to patients page
 - patients with appts today
