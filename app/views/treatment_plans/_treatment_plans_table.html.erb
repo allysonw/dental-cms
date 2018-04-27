@@ -18,7 +18,7 @@
             <td>
               <%= link_to "Edit", edit_patient_treatment_plan_path(treatment_plan.patient, treatment_plan), class: "right-margin-btn btn btn-primary btn-sm" %>
 
-              <%= link_to "Delete", patient_treatment_plan_path(treatment_plan.patient, treatment_plan), method: :delete, data: { confirm: "Are you sure you would like to delete this treatment_plan?" }, class: "right-margin-btn btn btn-primary btn-sm" %>
+              <%= link_to "Delete", patient_treatment_plan_path(treatment_plan.patient, treatment_plan), method: :delete, data: { confirm: treatment_plan_confirm_text }, class: "right-margin-btn btn btn-primary btn-sm" %>
             </td>
           </tr>
         <% end %>

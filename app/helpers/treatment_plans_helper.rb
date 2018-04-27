@@ -8,4 +8,8 @@ module TreatmentPlansHelper
       { url: patient_treatment_plans_path }
     end
   end
+
+  def treatment_plan_confirm_text
+     "Are you sure you would like to delete this treatment plan? This will also delete the associated treatments!"
+  end
 end

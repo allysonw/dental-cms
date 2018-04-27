@@ -8,14 +8,20 @@
   <td><%= patient.phone_number %></td>
 </tr>
 <tr>
-  <td>Address</td>
-  <td>
-    <%= patient.address.street_1 %><br>
-    <%= patient.address.street_2 %><br>
-    <%= patient.address.city %>,
-    <%= patient.address.state %><br>
-    <%= patient.address.zip_code %>
-  </td>
+  <% if !patient.address.blank? %>
+    <td>Address</td>
+    <td>
+      <%= patient.address.street_1 %><br>
+
+      <% if !patient.address.street_2.blank? %>
+        <%= patient.address.street_2 %><br>
+      <% end %>
+
+      <%= patient.address.city %>,
+      <%= patient.address.state %><br>
+      <%= patient.address.zip_code %>
+    </td>
+  <% end %>
 </tr>
 <tr>
   <td><%= link_to "Edit", edit_patient_path(patient) %></td>

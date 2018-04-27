@@ -31,6 +31,6 @@
 
   <div class="new-button-div w3-margin-top" style="padding-left: 0px;">
 
-    <%= link_to "Delete This Patient", @patient, method: :delete, data: { confirm: "Are you sure you would like to delete this patient? This will also delete the patient's appointments." }, class: "delete-patient w3-margin-top w3-button w3-medium w3-orange w3-hover-black w3-round-large w3-padding-medium" %>
+    <%= link_to "Delete This Patient", @patient, method: :delete, data: { confirm: patient_confirm_text }, class: "delete-patient w3-margin-top w3-button w3-medium w3-orange w3-hover-black w3-round-large w3-padding-medium" %>
   </div>
 </div>
