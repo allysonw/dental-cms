@@ -17,11 +17,11 @@
     </div>
 
     <div class="w3-row w3-section">
-      <div class="w3-col" style="width:50px"><i class="material-icons" style="font-size: 30px">location_on</i></div>
+      <!-- <div class="w3-col" style="width:50px"><i class="material-icons" style="font-size: 30px">location_on</i></div>
       <div class="w3-rest">
         <%= f.text_field :address, class: "w3-input", placeholder: "Address", required: true %>
       </div>
-    </div>
+    </div> -->
 
     <div class="w3-row w3-section">
       <div class="w3-col" style="width:50px"><i class="material-icons" style="font-size: 30px">phone</i></div>
@@ -30,6 +30,20 @@
       </div>
     </div>
 
-    <%= f.submit form_submit_button_text(@patient), class: "w3-button w3-medium w3-black w3-hover-pink w3-round-large w3-padding-medium" %>
+    <div class="w3-row w3-section">
+      <div class="w3-col" style="width:50px"><i class="material-icons" style="font-size: 30px">location_on</i></div>
+      <div class="w3-rest">
+        <%= f.fields_for :address do |a| %>
+          <%= a.text_field :street_1, class: "w3-input", placeholder: "Street Address Line 1", required: true %>
+          <%= a.text_field :street_2, class: "w3-input w3-margin-top", placeholder: "Street Address Line 2" %>
+          <%= a.text_field :city, class: "w3-input w3-margin-top", placeholder: "City", required: true %>
+          <%= a.text_field :street_2, class: "w3-input w3-margin-top", placeholder: "State", required: true %>
+          <%= a.text_field :zip_code, class: "w3-input w3-margin-top", placeholder: "Zip Code", required: true %>
+        <% end %>
+      </div>
+
+    </div>
+
+    <%= f.submit form_submit_button_text(@patient), class: "w3-button w3-medium w3-black w3-hover-pink w3-round-large w3-padding-medium", style:"margin-left: 50px;" %>
   <% end %>
 </div>

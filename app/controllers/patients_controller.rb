@@ -17,6 +17,7 @@ class PatientsController < ApplicationController
 
   def new
     @patient = Patient.new
+    @patient.build_address
   end
 
   def create
@@ -59,7 +60,7 @@ class PatientsController < ApplicationController
 
   private
     def patient_params
-      params.require(:patient).permit(:name, :dob, :address, :phone_number)
+      params.require(:patient).permit(:name, :dob, :address_attributes: [:street_1, :street_2, :city, :state, :zip_code], :phone_number)
     end
 
     def set_patient

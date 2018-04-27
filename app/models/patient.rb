@@ -7,5 +7,7 @@ class Patient < ApplicationRecord
   has_many :treatment_plans, dependent: :destroy
   has_one :address, dependent: :destroy
 
-  validates :name, :dob, :address, :phone_number, presence: true
+  validates :name, :dob, :phone_number, presence: true
+
+  accepts_nested_attributes_for :address
 end
