@@ -1,7 +1,7 @@
 <header class="w3-container" style="padding-top:22px">
   <div class="w3-margin-bottom">
     <div class="w3-third">
-      <div class="w3-container w3-red w3-padding-16">
+      <div class="w3-container w3-red w3-padding-16 w3-margin-bottom">
         <h3><%= @patient.name %></h3>
         <%= render partial: 'patient', locals: { patient: @patient } %>
       </div>
@@ -10,11 +10,11 @@
       <% if @treatment_plans.blank? %>
         <h6>No treatment plans have been created.<h6>
       <% else %>
-        <h5 style="margin-top: 0px;">Treatment Plans</h5>
+        <h5 style="margin-top: 0px;">Treatment Plans <%= link_to "New treatment plan", new_patient_treatment_plan_path(@patient), class: "w3-button w3-small w3-black w3-hover-pink w3-round-large w3-padding-small w3-margin-left" %></h5>
 
         <%= render partial: 'treatment_plans/treatment_plans_table', locals: { treatment_plans: @treatment_plans } %>
       <% end %>
-      <%= link_to "New treatment plan", new_patient_treatment_plan_path(@patient), class: "w3-button w3-medium w3-black w3-hover-pink w3-round-large w3-padding-medium w3-margin-top" %><br>
+
     </div>
   </div>
 </header>
@@ -25,13 +25,13 @@
   <% if @appointments.blank? %>
     No appointments have been created.
   <% else %>
-    <h4 style="margin-top: 0px;">Appointments</h4>
+    <h4 style="margin-top: 0px;">Appointments <%= link_to "New appointment", new_patient_appointment_path(@patient), class: "w3-button w3-small w3-black w3-hover-pink w3-round-large w3-padding-small w3-margin-left" %><br>
+</h4>
     <%= render partial: 'appointments/appointments_table', locals: { appointments: @appointments } %>
   <% end %>
 
 
   <div class="new-button-div w3-margin-top" style="padding-left: 0px;">
-    <%= link_to "New appointment", new_patient_appointment_path(@patient), class: "w3-button w3-medium w3-black w3-hover-pink w3-round-large w3-padding-medium" %><br>
 
     <%= link_to "Delete This Patient", @patient, method: :delete, data: { confirm: "Are you sure you would like to delete this patient? This will also delete the patient's appointments." }, class: "delete-patient w3-margin-top w3-button w3-medium w3-orange w3-hover-black w3-round-large w3-padding-medium" %>
   </div>
