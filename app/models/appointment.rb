@@ -2,8 +2,8 @@ class Appointment < ApplicationRecord
   belongs_to :user
   belongs_to :patient
 
-  has_many :appointment_notes
-
+  has_many :appointment_notes, dependent: :destroy
+  
   validates :time, :location, :user_id, :patient_id, presence: true
 
   def self.for_user(user_id)

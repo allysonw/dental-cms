@@ -46,4 +46,9 @@ RSpec.describe Appointment, type: :model do
   it "belongs to a patient" do
     expect(thursday.patient).to eq(jim)
   end
+
+  it "can be deleted" do
+    thursday.destroy
+    expect(Appointment.all.size).to eq(0)
+  end
 end

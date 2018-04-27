@@ -21,7 +21,7 @@ RSpec.feature "Omniauth sign in", type: :devise do
 
     visit new_user_session_path
     click_link "Sign in with Google"
-    expect(page).to have_content("Andrew Wesman")
+    expect(page).to have_content("Andrew")
   end
 
   scenario "Sign in with Facebook account" do
@@ -37,7 +37,7 @@ RSpec.feature "Omniauth sign in", type: :devise do
 
     visit new_user_session_path
     click_link "Sign in with Facebook"
-    expect(page).to have_content("Andrew Wesman")
+    expect(page).to have_content("Andrew")
   end
 
   # TODO - make this test pass
