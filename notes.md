@@ -1,4 +1,4 @@
-## Questions Where to start?
+## Where to start?
 
 - install ruby
 - install gems
@@ -19,14 +19,12 @@ Views for everyone
 - treatment plan (only dr can change)
 
 Doctor-only
-List of patients
-List of appointments
-New appointment, edit appt
-New MR, edit
-New tx plan, edit
-New tx, edit
-
-Try multiple models - see what happens
+- List of patients
+- List of appointments
+- New appointment, edit appt
+- New MR, edit
+- New tx plan, edit
+- New tx, edit
 
 1) patient
 2) doctor
@@ -39,14 +37,15 @@ Try multiple models - see what happens
 DONE
 
 ## STEP 2: Build out app
-# Implement omniauth for google
+
+## Implement omniauth for google
 DONE
 
-# Implement omniauth for facebook
+## Implement omniauth for facebook
 DONE
 
-# Create CRU for patients and appointments
-In progress - created Show, Index, New, Create, update
+## Create CRU for patients and appointments
+DONE
 
 # Do some work on styling with bootstrap
 - get homepage, login/signup pages, and user dash in good shape[DONE]
@@ -62,43 +61,42 @@ DONE
 # build out additional models related to patient class
 treatment_plan - DONE
 
-
 # Before turning in:
-Fix patient show page to show button when no tx plans or appts
-1) watch rest of TODOmvc vids
-2) nested form for creation of address at same time as patient
-3) build identities table and refactor authentication
-4) Set up simple custom CSS template[DONE]
+- [ ] watch rest of TODOmvc vids
+- [ ] build address model
+- [ ] nested form for creation of address at same time as patient
+- [ ] build identities table and refactor authentication
+- [ ] Blog post
+- [ ] Create Giphy for demo video
 
+## DONE:
+Set up simple custom CSS template[DONE]
+Fix bug where you can't delete appts[DONE]
+Fix patient show page to show button when no tx plans or appts[DONE]
+Fix flash messages[DONE]
 
-BUGS
-- fix bug where you can't delete appts[DONE]
+## AFTER GRADUATION
+### POLISH AND ADD SMALL FEATURES
+- Treatments - still need to build edit
 
-
-CSS
-- Fix flash messages[DONE]
-5) Blog post
-Create Giphy for demo video
-
-After graduation
-treatments - still need to build edit
-
-# add filters to patients page
+### Add filters to patients page
 - patients with appts today
 - patients with appts in next week
 
-# build date-based filters for appointments
+### Build date-based filters for appointments
 
-# deploy to heroku
+### Implenent calendar date selectors for appointments
 
-## STEP 3: come back LATER and add in ability for patients to log in
-This means at first there are no user roles needed - only doctors ever log in
-Could add some roles to user such as doctor, administrative assistant
-- only doc's can edit appt notes, medical records, treatment plans, treatments
-- both doc's and AA's can edit appts
+### DEPLOY
+- Deploy to heroku
+
+## Ability for patients to log in
 Patient model is still needed
 When I add in patient users, can look up their patient_id somehow...?
 
+## Add roles to user such as doctor, administrative assistant
+- only doc's can edit appt notes, medical records, treatment plans, treatments
+- both doc's and AA's can edit appts
 
 ## Devise Methods
 
