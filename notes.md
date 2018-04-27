@@ -63,10 +63,9 @@ treatment_plan - DONE
 
 # Before turning in:
 - [X] redirect user back to page they were on during deletion of resources
-- [ ] watch rest of TODOmvc vids
 - [X] build address model
 - [X] nested form for creation of address at same time as patient
-- [ ] build identities table and refactor authentication
+- [ ] watch rest of TODOmvc vids
 - [ ] Blog post
 - [ ] README
 - [ ] Create Giphy for demo video

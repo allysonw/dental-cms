@@ -17,13 +17,6 @@
     </div>
 
     <div class="w3-row w3-section">
-      <!-- <div class="w3-col" style="width:50px"><i class="material-icons" style="font-size: 30px">location_on</i></div>
-      <div class="w3-rest">
-        <%= f.text_field :address, class: "w3-input", placeholder: "Address", required: true %>
-      </div>
-    </div> -->
-
-    <div class="w3-row w3-section">
       <div class="w3-col" style="width:50px"><i class="material-icons" style="font-size: 30px">phone</i></div>
       <div class="w3-rest">
         <%= f.text_field :phone_number, class: "w3-input", placeholder: "Phone Number", required: true %>
@@ -41,7 +34,6 @@
           <%= a.text_field :zip_code, class: "w3-input w3-margin-top", placeholder: "Zip Code", required: true %>
         <% end %>
       </div>
-
     </div>
 
     <%= f.submit form_submit_button_text(@patient), class: "w3-button w3-medium w3-black w3-hover-pink w3-round-large w3-padding-medium", style:"margin-left: 50px;" %>
