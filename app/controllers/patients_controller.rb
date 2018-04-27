@@ -60,7 +60,7 @@ class PatientsController < ApplicationController
 
   private
     def patient_params
-      params.require(:patient).permit(:name, :dob, :address_attributes: [:street_1, :street_2, :city, :state, :zip_code], :phone_number)
+      params.require(:patient).permit(:name, :dob, :phone_number, address_attributes: [:street_1, :street_2, :city, :state, :zip_code])
     end
 
     def set_patient

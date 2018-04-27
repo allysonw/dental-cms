@@ -9,7 +9,13 @@
 </tr>
 <tr>
   <td>Address</td>
-  <td></td>
+  <td>
+    <%= patient.address.street_1 %><br>
+    <%= patient.address.street_2 %><br>
+    <%= patient.address.city %>,
+    <%= patient.address.state %><br>
+    <%= patient.address.zip_code %>
+  </td>
 </tr>
 <tr>
   <td><%= link_to "Edit", edit_patient_path(patient) %></td>
