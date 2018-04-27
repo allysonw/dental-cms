@@ -1,12 +1,12 @@
 <header class="w3-container" style="padding-top:22px">
-  <div class="w3-row-padding w3-margin-bottom" style="">
+  <div class="w3-margin-bottom" style="">
     <div class="w3-third">
       <div class="w3-container w3-red w3-padding-16">
         <h3><%= @patient.name %></h3>
         <%= render partial: 'patient', locals: { patient: @patient } %>
       </div>
     </div>
-    <div class="w3-twothird">
+    <div class="w3-twothird" style="padding-left: 16px;">
       <% if @treatment_plans.blank? %>
         <h6>No treatment plans have been created.<h6>
       <% else %>
@@ -30,7 +30,7 @@
   <% end %>
 
 
-  <div class="new-button-div w3-margin-top">
+  <div class="new-button-div w3-margin-top" style="padding-left: 0px;">
     <%= link_to "New appointment", new_patient_appointment_path(@patient), class: "w3-button w3-medium w3-black w3-hover-pink w3-round-large w3-padding-medium" %><br>
 
     <%= link_to "Delete This Patient", @patient, method: :delete, data: { confirm: "Are you sure you would like to delete this patient? This will also delete the patient's appointments." }, class: "delete-patient w3-margin-top w3-button w3-medium w3-orange w3-hover-black w3-round-large w3-padding-medium" %>
