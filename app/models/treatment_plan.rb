@@ -1,7 +1,7 @@
 class TreatmentPlan < ApplicationRecord
   belongs_to :patient
 
-  has_many :treatments
+  has_many :treatments, dependent: :destroy
 
   validates :name, presence: true
 
