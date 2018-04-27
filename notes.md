@@ -64,17 +64,19 @@ treatment_plan - DONE
 
 
 # Before turning in:
+Fix patient show page to show button when no tx plans or appts
 1) watch rest of TODOmvc vids
 2) nested form for creation of address at same time as patient
 3) build identities table and refactor authentication
 4) Set up simple custom CSS template[DONE]
+
 
 BUGS
 - fix bug where you can't delete appts[DONE]
 
 
 CSS
-- Fix flash messages
+- Fix flash messages[DONE]
 5) Blog post
 Create Giphy for demo video
 

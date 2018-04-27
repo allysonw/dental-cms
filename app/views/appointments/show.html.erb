@@ -14,6 +14,8 @@
 
     <%= render partial: 'appointment_notes/note_form', locals: { appointment: @appointment, appointment_note: @appointment_note } %>
 
-    <%= render partial: 'appointment_notes/notes_table', locals: { appointment: @appointment } %>
+    <% if !@appointment.appointment_notes.blank? %>
+      <%= render partial: 'appointment_notes/notes_table', locals: { appointment: @appointment } %>
+    <% end %>
 
 </div>
