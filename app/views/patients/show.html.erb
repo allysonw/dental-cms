@@ -1,4 +1,4 @@
-<div class="w3-panel">
+<header class="w3-container" style="padding-top:22px">
   <div class="w3-row-padding w3-margin-bottom" style="">
     <div class="w3-third">
       <div class="w3-container w3-red w3-padding-16">
@@ -10,20 +10,22 @@
       <% if @treatment_plans.blank? %>
         <h6>No treatment plans have been created.<h6>
       <% else %>
-        <h5>Treatment Plans</h5>
+        <h5 style="margin-top: 0px;">Treatment Plans</h5>
 
         <%= render partial: 'treatment_plans/treatment_plans_table', locals: { treatment_plans: @treatment_plans } %>
       <% end %>
       <%= link_to "New treatment plan", new_patient_treatment_plan_path(@patient), class: "w3-button w3-medium w3-black w3-hover-pink w3-round-large w3-padding-medium w3-margin-top" %><br>
     </div>
   </div>
-</div>
+</header>
+
+
 
 <div class="w3-panel">
   <% if @appointments.blank? %>
     No appointments have been created.
   <% else %>
-    <h4>Appointments</h4>
+    <h4 style="margin-top: 0px;">Appointments</h4>
     <%= render partial: 'appointments/appointments_table', locals: { appointments: @appointments } %>
   <% end %>
 

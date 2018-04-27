@@ -6,14 +6,14 @@
         <%= render partial: 'appointments/appointment', locals: { appointment: @appointment } %>
       </div>
     </div>
-    <div class="w3-panel">
-      <div class="w3-twothird">
-        <%= render partial: 'appointment_notes/note_form', locals: { appointment: @appointment, appointment_note: @appointment_note } %>
-      </div>
+  </div>
+</div>
+
+<div class="w3-panel w3-twothird w3-responsive" style="margin-top: 0px;">
+  <h3 style="margin-bottom: 0px;">Notes</h3>
+    <div class="w3-twothird">
+      <%= render partial: 'appointment_notes/note_form', locals: { appointment: @appointment, appointment_note: @appointment_note } %>
     </div>
 
-    <div class="w3-panel w3-twothird w3-responsive">
-      <%= render partial: 'appointment_notes/notes_table', locals: { appointment: @appointment } %>
-    </div>
-  </div>
+    <%= render partial: 'appointment_notes/notes_table', locals: { appointment: @appointment } %>
 </div>

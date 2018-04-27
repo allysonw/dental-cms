@@ -1,9 +1,5 @@
 <table class="w3-table">
 <tr>
-  <td>Name</td>
-  <td><%= patient.name %></td>
-</tr>
-<tr>
   <td>DOB</td>
   <td><%= date_of_birth(patient) %></td>
 </tr>
@@ -15,5 +11,7 @@
   <td>Address</td>
   <td><%= patient.address %></td>
 </tr>
+<tr>
+  <td><%= link_to "Edit", edit_patient_path(patient) %></td>
+</tr>
 </table>
-<%= link_to "Edit", edit_patient_path(patient) %>

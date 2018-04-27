@@ -1,4 +1,3 @@
-<h3>Notes</h3>
 <%= form_for appointment_note, url: appointment_appointment_notes_path(appointment.id) do |f| %>
   <%= f.text_field :content, class: "w3-input w3-threequarter w3-margin-top", placeholder: "Note Content" %>
   <%= f.hidden_field :appointment_id, value: appointment.id %>
