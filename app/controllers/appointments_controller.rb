@@ -52,6 +52,7 @@ class AppointmentsController < ApplicationController
       flash[:success] = "Appointment successfully created!"
       redirect_to appointment_path(@appointment)
     else
+      flash[:notice] = "Please fill out all fields."
       render :new
     end
   end

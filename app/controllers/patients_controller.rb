@@ -26,6 +26,7 @@ class PatientsController < ApplicationController
       flash[:success] = "Patient successfully created!"
       redirect_to patient_path(@patient)
     else
+      flash[:notice] = "Please fill out all fields."
       render :new
     end
   end

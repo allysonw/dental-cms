@@ -7,12 +7,11 @@
       </div>
     </div>
     <div class="w3-twothird" style="padding-left: 16px;">
+      <h5 style="margin-top: 0px;">Treatment Plans <%= link_to "New treatment plan", new_patient_treatment_plan_path(@patient), class: "w3-button w3-small w3-black w3-hover-pink w3-round-large w3-padding-small w3-margin-left" %></h5>
       <% if @treatment_plans.blank? %>
         <h6>No treatment plans have been created.<h6>
       <% else %>
-        <h5 style="margin-top: 0px;">Treatment Plans <%= link_to "New treatment plan", new_patient_treatment_plan_path(@patient), class: "w3-button w3-small w3-black w3-hover-pink w3-round-large w3-padding-small w3-margin-left" %></h5>
-
-        <%= render partial: 'treatment_plans/treatment_plans_table', locals: { treatment_plans: @treatment_plans } %>
+          <%= render partial: 'treatment_plans/treatment_plans_table', locals: { treatment_plans: @treatment_plans } %>
       <% end %>
 
     </div>
@@ -22,11 +21,10 @@
 
 
 <div class="w3-panel">
+  <h4 style="margin-top: 0px;">Appointments <%= link_to "New appointment", new_patient_appointment_path(@patient), class: "w3-button w3-small w3-black w3-hover-pink w3-round-large w3-padding-small w3-margin-left" %></h4>
   <% if @appointments.blank? %>
     No appointments have been created.
   <% else %>
-    <h4 style="margin-top: 0px;">Appointments <%= link_to "New appointment", new_patient_appointment_path(@patient), class: "w3-button w3-small w3-black w3-hover-pink w3-round-large w3-padding-small w3-margin-left" %><br>
-</h4>
     <%= render partial: 'appointments/appointments_table', locals: { appointments: @appointments } %>
   <% end %>
 

@@ -53,3 +53,9 @@
   padding-top: 10px;
   padding-left: 10px;
  }
+
+ .field_with_errors {
+   background-color: pink;
+   border: 5px solid pink;
+   border-radius: 3px;
+ }
