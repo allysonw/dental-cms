@@ -70,8 +70,7 @@ treatment_plan - DONE
 4) Set up simple custom CSS template[DONE]
 
 BUGS
-- fix bug where you can't delete appts
-- write tests for deletion for all models
+- fix bug where you can't delete appts[DONE]
 
 
 CSS
