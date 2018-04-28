@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def dashboard
     @user = current_user
     @appointments = current_user.appointments
-    @patients = current_user.patients
+    @patients = current_user.patients.uniq
   end
 
   def index

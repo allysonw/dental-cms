@@ -66,7 +66,7 @@ treatment_plan - DONE
 - [X] build address model
 - [X] nested form for creation of address at same time as patient
 - [ ] watch rest of TODOmvc vids
-- [ ] Blog post
+- [X] Blog post
 - [ ] README
 - [ ] Create Giphy for demo video
 
@@ -78,9 +78,11 @@ Fix flash messages[DONE]
 
 ## AFTER GRADUATION
 ### POLISH AND ADD SMALL FEATURES
+- Treatment - Tooth # / location - create limited list
 - Treatments - still need to build edit
-- Phone number Validations
-- Create location model and populate with defaults
+- Phone number & zip code Validations
+- State select for Addresses
+- Create appt location model and populate with defaults
 - Change color of flash message based on content
 
 ### Add filters to patients page
