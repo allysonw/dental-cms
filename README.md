@@ -7,10 +7,7 @@
 
 Dental Office Manager is an app that creates an easy way for dentists to manage patient health records, create treatment plans, and schedule patient appointments.
 
-## Demo
 ![demo](https://media.giphy.com/media/9rjU0XID0jjXumbcpN/giphy.gif)
-
-[Walkthrough Video](https://www.youtube.com/watch?v=mvVnchPt5rE)
 
 ## Installation
 Clone this repository and run `bundle install` to install the needed gems. From the main directory, run `thin start --ssl` and navigate to http://localhost:3000/ to launch the site.
