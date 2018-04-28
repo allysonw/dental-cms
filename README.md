@@ -10,7 +10,7 @@ Dental Office Manager is an app that creates an easy way for dentists to manage 
 ![demo](https://media.giphy.com/media/9rjU0XID0jjXumbcpN/giphy.gif)
 
 ## Installation
-Clone this repository and run `bundle install` to install the needed gems. From the main directory, run `thin start --ssl` and navigate to http://localhost:3000/ to launch the site.
+Fork and clone this repository and run `bundle install` to install the needed gems. Migrate the db with `rake db:migrate`. From the main directory, run `thin start --ssl` and navigate to http://localhost:3000/ to launch the site.
 
 * Ruby version: ruby-2.5.0
 * Run the test suite with `rspec`
