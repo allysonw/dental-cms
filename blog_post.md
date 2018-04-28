@@ -2,7 +2,7 @@
 
 While developing Dental Office Manager I came across a problem when deleting records from models whose primary key was used as a foreign key for another model. For example, in my domain a Patient `has_many` appointments.
 
-![ERD](https://imgur.com/a/488etVD)
+![ERD](https://imgur.com/cW6Z15j)
 
 When a site visitor decided to delete a Patient from the app, all went smoothly on the surface. But then, when they then went to display the Appointments index page, which included a table listing each Appointment in the DB and the associated Patient, my app threw a no method error. For each Appointment whose associated Patient had been deleted, the app was unable to print the Patient's name who had previously been associated to that appointment. That made sense because, well, the Patient had been deleted from the DB!
 
