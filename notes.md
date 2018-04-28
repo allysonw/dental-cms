@@ -68,7 +68,7 @@ treatment_plan - DONE
 - [X] Blog post
 - [X] README
 - [ ] watch rest of TODOmvc vids
-- [ ] Create demo video
+- [X] Create demo video
 - [ ] Create Giphy for demo video
 
 ## DONE:
@@ -79,6 +79,7 @@ Fix flash messages[DONE]
 
 ## AFTER GRADUATION
 ### POLISH AND ADD SMALL FEATURES
+- Think of a way to limit user access to features until admin gives permission to an account
 - Treatment - Tooth # / location - create limited list
 - Treatments - still need to build edit
 - Phone number & zip code Validations
