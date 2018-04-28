@@ -8,13 +8,8 @@ class User < ApplicationRecord
 
   has_many :appointments
   has_many :patients, through: :appointments, dependent: :destroy
-  # TODO currently all appointments for a user are detroyed if the user is deleted
-  # Fix so a user can be deleted but we can maintain their appointment records
 
   validates :name, presence: true
-
-  # TO DO // enable support for Identities for users to enable authentication
-  # with multiple providers for the same user
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
