@@ -2,7 +2,7 @@
 
 ![](http://forthebadge.com/images/badges/made-with-ruby.svg)
 
-![](https://img.shields.io/badge/Released-Mar--2018-ff69b4.svg?style=flat-square)
+![](https://img.shields.io/badge/Released-Apr--2018-ff69b4.svg?style=flat-square)
 [![GitHub last commit](https://img.shields.io/github/last-commit/allysonw/snippet-manager.svg?style=flat-square)]()
 
 Dental Office Manager is an app that creates an easy way for dentists to manage patient health records, create treatment plans, and schedule patient appointments.
@@ -10,7 +10,7 @@ Dental Office Manager is an app that creates an easy way for dentists to manage 
 ## Demo
 
 ## Installation
-Clone this repository and run `bundle install` to install the needed gems. From the main directory, run thin start --ssl and navigate to http://localhost:3000/ to launch the site.
+Clone this repository and run `bundle install` to install the needed gems. From the main directory, run `thin start --ssl` and navigate to http://localhost:3000/ to launch the site.
 
 * Ruby version: ruby-2.5.0
 * Run the test suite with `rspec`
