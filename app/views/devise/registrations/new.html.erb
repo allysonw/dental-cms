@@ -22,13 +22,12 @@
 
     <div class="actions">
       <%= f.submit "Sign Up", class: "w3-button w3-pink w3-medium w3-round-large w3-margin-top w3-hover-blue w3-margin-top w3-margin-right" %>
-
-      <%= link_to "Sign In", new_user_session_path, class: "w3-button w3-pink w3-hover-blue w3-medium w3-round-large w3-margin-top" %>
-
     </div>
 
   <% end %><br>
 
+  <%= link_to "Sign In", new_user_session_path %><br>
   <%= link_to "Sign in with Facebook", omniauth_authorize_path(resource_name, :facebook) %><br>
   <%= link_to "Sign in with Google", omniauth_authorize_path(resource_name, :google_oauth2) %>
+
 </div>
