@@ -17,9 +17,21 @@
     dob Time.new(1964, 12, 24, 0, 0)
     phone_number "415-344-4034"
 
+    factory :patient_with_appointments do
+      after(:create) do |patient|
+        create_list :appointment, 3, patient: patient
+      end
+    end
+
     factory :patient_with_treatment_plans do
       after(:create) do |patient|
         create_list :treatment_plan, 3, patient: patient
+      end
+    end
+
+    factory :patient_with_address do
+      after(:create) do |patient|
+        create :address, patient: patient
       end
     end
   end
@@ -48,9 +60,13 @@
     location "Operatory 9"
     patient
     user
+
+    factory :appointment_with_notes do
+      after(:create) do |appointment|
+        create_list :appointment_note, 3, appointment: appointment
+      end
+    end
   end
-
-
 
   factory :appointment_note do
     content "This appointment went well."
