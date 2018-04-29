@@ -2,22 +2,17 @@ require 'rails_helper'
 
 RSpec.feature "Patients", type: :feature do
 
-  let (:carol) { FactoryBot.create(:patient) }
-  let (:drandrew) { FactoryBot.create(:user) }
-  let (:carol_appt_andrew) { Appointment.create(
-    :time => Time.new(2018, 7, 24, 11, 00),
-    :location => "Operatory 2",
-    :patient_id => carol.id,
-    :user_id => drandrew.id
-  )}
-
   before do
-    signin(drandrew.email, drandrew.password)
+    Patient.destroy_all
+    user = FactoryBot.create(:user)
+    signin(user.email, user.password)
   end
 
   scenario "show page displays patient's info" do
-    visit patient_path(carol)
-    expect(page).to have_text("Carol Jones")
+    patient = FactoryBot.create(:patient)
+    
+    visit patient_path(patient)
+    expect(page).to have_text("Jim")
   end
 
   scenario "redirects with message if patient not found" do
@@ -31,7 +26,11 @@ RSpec.feature "Patients", type: :feature do
     select('2018', from: 'patient[dob(1i)]')
     select('June', from: 'patient[dob(2i)]')
     select('25', from: 'patient[dob(3i)]')
-    fill_in "patient_address", with: "1932 Mott Street"
+    fill_in "patient_address_attributes_street_1", with: "1932 Mott Street"
+    fill_in "patient_address_attributes_street_2", with: "Unit C"
+    fill_in "patient_address_attributes_city", with: "New York"
+    fill_in "patient_address_attributes_state", with: "NY"
+    fill_in "patient_address_attributes_zip_code", with: "10030"
     fill_in "patient_phone_number", with: "123-456-7899"
     click_button('Create Patient')
 
@@ -57,7 +56,11 @@ RSpec.feature "Patients", type: :feature do
     select('2018', from: 'patient[dob(1i)]')
     select('June', from: 'patient[dob(2i)]')
     select('25', from: 'patient[dob(3i)]')
-    fill_in "patient_address", with: "1932 Mott Street"
+    fill_in "patient_address_attributes_street_1", with: "1932 Mott Street"
+    fill_in "patient_address_attributes_street_2", with: "Unit C"
+    fill_in "patient_address_attributes_city", with: "New York"
+    fill_in "patient_address_attributes_state", with: "NY"
+    fill_in "patient_address_attributes_zip_code", with: "10030"
     fill_in "patient_phone_number", with: "123-456-7899"
     click_button('Create Patient')
 
@@ -65,7 +68,9 @@ RSpec.feature "Patients", type: :feature do
   end
 
   scenario "redirects to patient show page upon successful edit" do
-    visit(edit_patient_path(carol))
+    patient = FactoryBot.create(:patient)
+
+    visit(edit_patient_path(patient))
     select('1965', from: 'patient[dob(1i)]')
     click_button('Update Patient')
 
@@ -73,7 +78,9 @@ RSpec.feature "Patients", type: :feature do
   end
 
   scenario "deletes a patient successfully" do
-    visit(patient_path(carol))
+    patient = FactoryBot.create(:patient)
+
+    visit(patient_path(patient))
     click_on(class: 'delete-patient')
     expect(Patient.count).to eq(0)
     expect(page).to have_text("Patient successfully deleted!")

@@ -13,7 +13,6 @@ RSpec.describe Treatment, type: :model do
 
   it "belongs to a treatment plan" do
     filling = FactoryBot.create(:treatment)
-    binding.pry
     expect(filling.treatment_plan).to_not be_nil
   end
 end
