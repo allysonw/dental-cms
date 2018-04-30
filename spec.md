@@ -36,11 +36,11 @@ Specs:
   * Devise
 
 - [X] Include login (how e.g. Devise)
-
   * Devise
+
 - [X] Include logout (how e.g. Devise)
-
   * Devise
+
 - [X] Include third party signup/login (how e.g. Devise/OmniAuth)
   * Devise/Omniauth
 

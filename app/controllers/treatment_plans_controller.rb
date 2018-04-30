@@ -1,21 +1,15 @@
 class TreatmentPlansController < ApplicationController
   before_action :authenticate_user!
+  before_action :validate_patient_param
   before_action :set_treatment_plan, only: [:edit, :show, :update, :destroy]
 
   def index
-    if invalid_or_no_patient_param_in_url
-      redirect_to patients_path, alert: "Patient not found."
-    elsif params[:patient_id]
-      @treatment_plans = TreatmentPlan.for_patient(params[:patient_id])
-      @patient = Patient.find_by(id: params[:patient_id])
-    end
-
+    @treatment_plans = TreatmentPlan.for_patient(params[:patient_id])
+    @patient = Patient.find_by(id: params[:patient_id])
   end
 
   def show
-    if invalid_or_no_patient_param_in_url
-      redirect_to patients_path, alert: "Patient not found."
-    elsif @treatment_plan.nil?
+    if @treatment_plan.nil?
       treatment_plan_not_found
     else
       @patient = @treatment_plan.patient
@@ -25,11 +19,7 @@ class TreatmentPlansController < ApplicationController
   end
 
   def new
-    if invalid_or_no_patient_param_in_url
-      redirect_to patients_path, alert: "Patient not found."
-    elsif params[:patient_id]
-      @treatment_plan = TreatmentPlan.new(patient_id: params[:patient_id])
-    end
+    @treatment_plan = TreatmentPlan.new(patient_id: params[:patient_id])
   end
 
   def create
@@ -44,9 +34,7 @@ class TreatmentPlansController < ApplicationController
   end
 
   def edit
-    if invalid_or_no_patient_param_in_url
-      redirect_to patients_path, alert: "Patient not found."
-    elsif @treatment_plan.nil?
+    if @treatment_plan.nil?
       treatment_plan_not_found
     end
   end
@@ -85,8 +73,16 @@ class TreatmentPlansController < ApplicationController
       redirect_to patients_path
     end
 
+    def validate_patient_param
+      if invalid_or_no_patient_param_in_url
+        redirect_to patients_path, alert: "Patient not found."
+      end
+    end
+
     def invalid_or_no_patient_param_in_url
       # returns true if patient= is not in the URL, or if the patient doesn't exist
+      # TODO move this logic to routes.rb so no top-level treatment_plan urls exist
       (params[:patient_id] && !Patient.exists?(params[:patient_id])) || params[:patient_id].blank?
     end
+
 end
