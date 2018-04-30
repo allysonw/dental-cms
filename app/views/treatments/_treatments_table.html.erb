@@ -10,6 +10,7 @@
         <th>Actions</th>
       </tr>
     </thead>
+
     <tbody>
       <% treatments.each do |treatment| %>
         <tr>
@@ -24,11 +25,17 @@
           <td><%= display_price(treatment.price) %></td>
           <td><%= complete?(treatment) %></td>
 
-          <td><%= link_to "Delete", treatment_plan_treatment_path(treatment.treatment_plan, treatment), method: :delete, data: { confirm: "Are you sure you would like to delete this treatment?" }, class: "right-margin-btn btn btn-primary btn-sm" %>
+          <td><%= link_to "Delete", treatment_plan_treatment_path(@treatment_plan, treatment), method: :delete, data: { confirm: "Are you sure you would like to delete this treatment?" }, class: "right-margin-btn btn btn-primary btn-sm" %>
 
           <%= link_to "Complete", "/treatments/#{treatment.id}/complete", method: :post, class: "right-margin-btn btn btn-primary btn-sm" %></td>
         </tr>
       <% end %>
     </tbody>
+
   </table>
+
+  <div class="w3-container w3-pale-red w3-quarter w3-margin-top">
+    <h5>Total Cost: <%= display_price(@treatment_plan.total_cost) %></h5>
+  </div>
+
 </div>

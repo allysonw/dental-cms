@@ -3,11 +3,9 @@
 </header>
 <div class="w3-panel">
   <h5>Upcoming Appointments</h5>
-  <% if @appointments.blank? %>
-    <h6>No appointments have been created.</h6>
-  <% else %>
-    <%= render partial: 'appointments/appointments_table', locals: { appointments: @appointments } %>
-  <% end %>
+
+  <%= display_appointments_list(@appointments) %>
+
   <div class="new-button-div">
     <%= link_to "New Appointment", new_appointment_path, class: "w3-button w3-medium w3-black w3-hover-pink w3-round-large w3-padding-medium" %>
   </div>
@@ -16,13 +14,9 @@
 
 <div class="w3-panel">
 
-
   <h5>Your Patients</h5>
-  <% if @patients.blank? %>
-    You don't have any patients.
-  <% else %>
-    <%= render partial: 'patients/patients_table', locals: { patients: @patients } %>
-  <% end %>
+  <%= display_patients_list(@patients) %>
+
   <div class="new-button-div">
     <%= link_to "New Patient", new_patient_path, class: "w3-button w3-medium w3-black w3-hover-pink w3-round-large w3-padding-medium" %>
   </div>

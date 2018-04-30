@@ -12,11 +12,7 @@
     <td>Address</td>
     <td>
       <%= patient.address.street_1 %><br>
-
-      <% if !patient.address.street_2.blank? %>
-        <%= patient.address.street_2 %><br>
-      <% end %>
-
+      <%= display_street_2_address(patient) %><br>
       <%= patient.address.city %>,
       <%= patient.address.state %><br>
       <%= patient.address.zip_code %>

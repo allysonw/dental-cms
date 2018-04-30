@@ -20,7 +20,6 @@ class TreatmentPlansController < ApplicationController
     else
       @patient = @treatment_plan.patient
       @treatments = @treatment_plan.treatments
-      @total_cost = @treatment_plan.total_cost
       @treatment = Treatment.new
     end
   end

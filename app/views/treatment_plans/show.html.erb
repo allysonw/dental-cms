@@ -3,24 +3,20 @@
 
   <h4>Plan Name: <%= @treatment_plan.name %></h4>
 
-  <% if @treatments.blank? %>
-    <h6>No treatments have been added.</h6>
-  <% else %>
-    <%= render partial: "treatments/treatments_table", locals: { treatments: @treatments } %>
+  <%= display_treatments_list(@treatment_plan, @treatments) %>
 
-    <div class="w3-container w3-pale-red w3-quarter w3-margin-top w3-margin-left">
-      <h5>Total Cost: <%= display_price(@total_cost) %></h5>
-    </div>
-
-  <% end %>
 
   <div class="w3-panel">
     <h3>Add a new treatment</h3>
     <%= form_for @treatment, url: treatment_plan_treatments_path(@treatment_plan.id) do |f| %>
       <%= f.text_field :name, class: 'w3-input w3-quarter w3-margin-right w3-margin-top', placeholder: "Name", required: true %>
+
       <%= f.text_field :location, class: 'w3-input w3-quarter w3-margin-right w3-margin-top', placeholder: "Tooth Number", required: true  %>
+
       <%= f.text_field :price, class: 'w3-input w3-quarter w3-margin-top', placeholder: "Price", required: true  %>
+
       <%= f.hidden_field :treatment_plan_id, value: @treatment_plan.id %>
+
       <%= f.submit "Add Treatment", class: "w3-margin-left  w3-margin-top w3-button w3-medium w3-black w3-hover-pink w3-round-large w3-padding-medium"%>
     <% end %><br><br>
 

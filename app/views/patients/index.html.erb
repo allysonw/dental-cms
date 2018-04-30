@@ -1,11 +1,7 @@
 <div class="w3-container">
   <h2>Patients</h2>
 
-  <% if @patients.blank? %>
-    No patients have been created.
-  <% else %>
-    <%= render partial: 'patients_table', locals: { patients: @patients } %>
-  <% end %>
+  <%= display_patients_list(@patients) %>
 
   <div class="new-button-div">
     <%= link_to "New Patient", new_patient_path, class: "w3-button w3-medium w3-black w3-hover-pink w3-round-large w3-padding-medium" %>

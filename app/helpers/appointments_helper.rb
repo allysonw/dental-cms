@@ -15,10 +15,10 @@ module AppointmentsHelper
 
   def display_appointments_list(appointments)
     if appointments.blank?
-     "No appointments have been created."
+     "<h6>No appointments have been created.</h6>".html_safe
     else
-      render partial: 'appointments_table', locals: { appointments: appointments }
+      render partial: 'appointments/appointments_table', locals: { appointments: appointments }
     end
   end
-   
+
 end
