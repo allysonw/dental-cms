@@ -30,7 +30,7 @@ Specs:
   * Validations also in views by marking fields required
 
 - [X] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
-  * Appointments.for_user URL: /appointments
+  * Appointment.for_user URL: /appointments
 
 - [X] Include signup (how e.g. Devise)
   * Devise
