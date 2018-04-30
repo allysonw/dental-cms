@@ -19,11 +19,7 @@
 
 <div class="w3-container w3-responsive">
 
-  <% if @appointments.blank? %>
-    No appointments have been created.
-  <% else %>
-    <%= render partial: 'appointments_table', locals: { appointments: @appointments } %>
-  <% end %>
+  <%= display_appointments_list(@appointments) %>
 
   <div class="new-button-div">
     <%= link_to "New Appointment", new_appointment_path, class: "w3-button w3-medium w3-black w3-hover-pink w3-round-large w3-padding-medium" %>

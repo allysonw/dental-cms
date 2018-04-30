@@ -13,4 +13,12 @@ module AppointmentsHelper
     end
   end
 
+  def display_appointments_list(appointments)
+    if appointments.blank?
+     "No appointments have been created."
+    else
+      render partial: 'appointments_table', locals: { appointments: appointments }
+    end
+  end
+   
 end
