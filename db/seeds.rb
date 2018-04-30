@@ -21,15 +21,30 @@ drallyson = User.create(
 jim = Patient.create(
   :name => "Jim Jones",
   :dob => Time.new(1954, 10, 12, 00, 00),
-  :address => "Nowhere, MD",
   :phone_number => "415-533-4034"
+)
+
+address2 = Address.create(
+  :street_1 => "309 Miracle Street",
+  :city => "Santa Monica",
+  :state => "CA",
+  :zip_code => "90404",
+  :patient_id => jim.id
 )
 
 carol = Patient.create(
   :name => "Carol Jones",
   :dob => Time.new(1977, 11, 13, 00, 00),
-  :address => "Sandwich, AL",
   :phone_number => "342-433-3345"
+)
+
+address1 = Address.create(
+  :street_1 => "23 Jump Street",
+  :street_2 => "Unit D",
+  :city => "Santa Monica",
+  :state => "CA",
+  :zip_code => "90404",
+  :patient_id => carol.id
 )
 
 carol_appt_andrew = Appointment.create(
@@ -61,7 +76,7 @@ jim_appt1 = Appointment.create(
 )
 
 jim_appt2 = Appointment.create(
-  :time => Time.new(2019, 5, 1, 17, 15),
+  :time => Time.new(2019, 5, 1, 16, 15),
   :location => "Operatory 8",
   :patient_id => jim.id,
   :user_id => drandrew.id
