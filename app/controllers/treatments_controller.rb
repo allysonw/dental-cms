@@ -16,22 +16,6 @@ class TreatmentsController < ApplicationController
     end
   end
 
-  # def edit
-  #   if @treatment_plan.nil?
-  #     treatment_plan_not_found
-  #   end
-  # end
-  #
-  # def update
-  #   @treatment_plan.update(treatment_plan_params)
-  #   if @treatment_plan.save
-  #     flash[:success] = "Treatment plan successfully updated!"
-  #     redirect_to patient_treatment_plan_path(@treatment_plan.patient, @treatment_plan)
-  #   else
-  #     render :edit
-  #   end
-  # end
-
   def complete
     if @treatment.nil?
       treatment_not_found
