@@ -1,6 +1,8 @@
 <%= form_for appointment_note, url: appointment_appointment_notes_path(appointment.id) do |f| %>
   <%= f.text_field :content, class: "w3-input w3-margin-top w3-margin-bottom w3-threequarter", placeholder: "Note Content" %>
+
   <%= f.hidden_field :appointment_id, value: appointment.id %>
+
   <div class="w3-quarter">
       <%= f.submit "Create Note", class: "w3-margin-left w3-margin-top w3-margin-bottom w3-button w3-medium w3-black w3-hover-pink w3-round-large w3-padding-medium" %>
   </div>

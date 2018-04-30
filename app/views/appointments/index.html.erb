@@ -1,17 +1,24 @@
 <div class="w3-container">
     <%= form_tag(appointments_path, method: "get") do %>
-      <h6>Doctor: <%= select_tag "user", options_from_collection_for_select(@users, "id", "name", @user_id), include_blank: true %>
 
-      Patient: <%= select_tag "patient", options_from_collection_for_select(@patients, "id", "name", @patient_id), include_blank: true%>
+      <h6>
+        Doctor: <%= select_tag "user", options_from_collection_for_select(@users, "id", "name", @user_id), include_blank: true %>
 
-      <%= submit_tag "Filter" %></h6>
-      <h6>Filtered for:
-      <%= @user? @user.name : "all doctors" %> -
-      <%= @patient? @patient.name : "all patients" %></h6>
+        Patient: <%= select_tag "patient", options_from_collection_for_select(@patients, "id", "name", @patient_id), include_blank: true%>
+
+        <%= submit_tag "Filter" %>
+      </h6>
+
+        <h6> Filtered for:
+          <%= @user? @user.name : "all doctors" %> -
+          <%= @patient? @patient.name : "all patients" %>
+        </h6>
+
     <% end %>
 </div>
 
 <div class="w3-container w3-responsive">
+
   <% if @appointments.blank? %>
     No appointments have been created.
   <% else %>
