@@ -107,7 +107,7 @@ class AppointmentsController < ApplicationController
     def set_appointments_user
       @user = User.find_by(id: params[:user])
       if @user
-        @user_id = @user.id
+        @user_id = @user.id # provide the default value for the user filter select to the view
       else
         @user_id = nil
       end
@@ -117,7 +117,7 @@ class AppointmentsController < ApplicationController
     def set_appointments_patient
       @patient = Patient.find_by(id: params[:patient])
       if @patient
-        @patient_id = @patient.id
+        @patient_id = @patient.id # provide the default value for the patient filter select to the view
       else
         @patient_id = nil
       end

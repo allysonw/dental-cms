@@ -17,12 +17,16 @@ Specs:
 
 - [X] The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity)
   * The appointments table includes 3 user submittable attributes: date, time, and location
+  * These attributes are submitted via a form at /appointments/new and appointments/:id/edit
 
 - [X] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
-  * User -validates :name, presence: true
+  * User - validates :name, presence: true
       - Devise validates the presence of the email and password
-  * Patient - validates :name, :dob, :address, :phone_number, presence: true
+  * Patient - validates :name, :dob, :phone_number, presence: true
   * Appointment - validates :time, :location, :user_id, :patient_id, presence: true
+  * Appointment Note - validates :content, :appointment_id, presence: true
+  * Treatment Plan - validates :name, presence: true
+  * Treatment - validates :street_1, :city, :state, :zip_code, presence: true
   * Validations also in views by marking fields required
 
 - [X] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
