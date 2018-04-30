@@ -41,6 +41,7 @@ class TreatmentPlansController < ApplicationController
 
   def update
     @treatment_plan.update(treatment_plan_params)
+
     if @treatment_plan.save
       flash[:success] = "Treatment plan successfully updated!"
       redirect_to patient_treatment_plan_path(@treatment_plan.patient, @treatment_plan)
