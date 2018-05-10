@@ -1,7 +1,7 @@
 <div class="w3-container w3-twothird">
   <%= form_for @patient do |f| %>
     <div class="w3-row w3-section">
-      <div class="w3-col icon-column"><i class="material-icons">account_circle</i></div>
+      <div class="w3-col icon-column"><i class="material-icons form-icon">account_circle</i></div>
       <div class="w3-rest">
         <%= f.text_field :name, class: "w3-input", placeholder: "Name", required: true %>
       </div>
@@ -9,7 +9,7 @@
 
     <div class="w3-row w3-section">
       <div class="w3-col icon-column">
-        <i class="material-icons">date_range</i></div>
+        <i class="material-icons form-icon">date_range</i></div>
       <div class="w3-rest">
         <%= f.label "Date of Birth" %><br>
         <%= f.date_select :dob, start_year: Time.now.year - 100, end_year: Time.now.year, class: "w3-input w3-select", include_blank: true %>
@@ -17,14 +17,14 @@
     </div>
 
     <div class="w3-row w3-section">
-      <div class="w3-col icon-column"><i class="material-icons">phone</i></div>
+      <div class="w3-col icon-column"><i class="material-icons form-icon">phone</i></div>
       <div class="w3-rest">
         <%= f.text_field :phone_number, class: "w3-input", placeholder: "Phone Number", required: true %>
       </div>
     </div>
 
     <div class="w3-row w3-section">
-      <div class="w3-col icon-column"><i class="material-icons">location_on</i></div>
+      <div class="w3-col icon-column"><i class="material-icons form-icon">location_on</i></div>
       <div class="w3-rest">
         <%= f.fields_for :address do |a| %>
           <%= a.text_field :street_1, class: "w3-input", placeholder: "Street Address Line 1", required: true %>
