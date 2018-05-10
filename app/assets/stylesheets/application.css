@@ -14,6 +14,16 @@
  *= require_self
  */
 
+/* FORMS */
+.icon-column {
+  width: 50px;
+}
+
+.material-icons {
+  font-size: 30px;
+}
+
+/* BUTTONS */
  .signin-btn {
    background-color: rgb(235,89,82);
    border-color: rgb(235,89,82);
@@ -35,6 +45,12 @@
    margin-left: 10px;
  }
 
+ .new-button-div {
+  padding-top: 10px;
+  padding-left: 10px;
+ }
+
+/* EVERYTHING ELSE */
  .grey-box {
    background-color: rgb(230,230,230);
    border-width: thick;
@@ -47,11 +63,6 @@
 
  .table-no-padding td {
    padding: 0px;
- }
-
- .new-button-div {
-  padding-top: 10px;
-  padding-left: 10px;
  }
 
  .field_with_errors {

@@ -2,21 +2,21 @@
   <%= form_for @appointment do |f| %>
 
   <div class="w3-row w3-section">
-    <div class="w3-col" style="width:50px"><i class="material-icons" style="font-size: 30px">access_time</i></div>
+    <div class="w3-col icon-column"><i class="material-icons">access_time</i></div>
     <div class="w3-rest">
       <%= f.datetime_select :time, class: "w3-input w3-select", start_year: Time.now.year, minute_step: 15, start_hour: 7, end_hour: 17, include_blank: true, required: true %>
     </div>
   </div>
 
   <div class="w3-row w3-section">
-    <div class="w3-col" style="width:50px"><i class="material-icons" style="font-size: 30px">location_on</i></div>
+    <div class="w3-col icon-column"><i class="material-icons">location_on</i></div>
     <div class="w3-rest">
       <%= f.text_field :location, placeholder: "Location", required: true %>
     </div>
   </div>
 
   <div class="w3-row w3-section">
-    <div class="w3-col" style="width:50px"><i class="material-icons" style="font-size: 30px">healing</i></div>
+    <div class="w3-col icon-column"><i class="material-icons">healing</i></div>
     <div class="w3-rest">
       <%= f.collection_select(:user_id, User.all, :id, :name) %>
     </div>
@@ -24,7 +24,7 @@
 
 
   <div class="w3-row w3-section">
-    <div class="w3-col" style="width:50px"><i class="material-icons" style="font-size: 30px">person</i></div>
+    <div class="w3-col icon-column"><i class="material-icons">person</i></div>
     <div class="w3-rest">
     <%= f.collection_select(:patient_id, Patient.all, :id, :name) %>
     </div>
