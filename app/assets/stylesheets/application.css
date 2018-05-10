@@ -23,6 +23,11 @@
   font-size: 30px;
 }
 
+/* WELCOME PAGE */
+.registration-box {
+  background: rgba(255,255,255,0.85);
+}
+
 /* BUTTONS */
  .signin-btn {
    background-color: rgb(235,89,82);

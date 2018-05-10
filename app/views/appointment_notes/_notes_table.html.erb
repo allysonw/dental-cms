@@ -7,7 +7,7 @@
   <tbody>
   <% appointment.appointment_notes.each do |note| %>
     <tr>
-      <td><i class="material-icons" style="font-size: 24px;">description</i></td>
+      <td><i class="material-icons">description</i></td>
       <td><%= note.content %></td>
       <td><%= created_at(note) %></td>
     </tr>
