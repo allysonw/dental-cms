@@ -1,6 +1,5 @@
 class TreatmentPlansController < ApplicationController
   before_action :authenticate_user!
-  before_action :validate_patient_param
   before_action :set_treatment_plan, only: [:edit, :show, :update, :destroy]
 
   def index
@@ -73,17 +72,4 @@ class TreatmentPlansController < ApplicationController
       flash[:alert] = "Treatment Plan not found"
       redirect_to patients_path
     end
-
-    def validate_patient_param
-      if invalid_or_no_patient_param_in_url
-        redirect_to patients_path, alert: "Patient not found."
-      end
-    end
-
-    def invalid_or_no_patient_param_in_url
-      # returns true if patient= is not in the URL, or if the patient doesn't exist
-      # TODO move this logic to routes.rb so no top-level treatment_plan urls exist
-      (params[:patient_id] && !Patient.exists?(params[:patient_id])) || params[:patient_id].blank?
-    end
-
 end

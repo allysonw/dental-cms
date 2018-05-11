@@ -16,11 +16,10 @@ Rails.application.routes.draw do
     resources :appointment_notes, :path => 'notes', only: [:create]
   end
 
-  # TODO refactor route nesting to get rid of top-level /treatment_plans routes
-  resources :treatment_plans do
-    resources :treatments, only: [:create, :edit, :update, :destroy]
-  end
-
+  # routes for treatments
+  post '/treatment_plans/:treatment_plan_id/treatments', to: 'treatments#create', as: 'treatment_plan_treatments'
+  delete '/treatment_plans/:treatment_plan_id/treatments/:id', to: 'treatments#destroy', as: 'treatment_plan_treatment'
   post '/treatments/:id/complete', to: 'treatments#complete'
+
 
 end

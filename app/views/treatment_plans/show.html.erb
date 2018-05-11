@@ -5,7 +5,6 @@
 
   <%= display_treatments_list(@treatment_plan, @treatments) %>
 
-
   <div class="w3-panel">
     <h3>Add a new treatment</h3>
     <%= form_for @treatment, url: treatment_plan_treatments_path(@treatment_plan.id) do |f| %>
