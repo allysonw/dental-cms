@@ -8,4 +8,7 @@ class Patient < ApplicationRecord
   validates :name, :dob, :phone_number, presence: true
 
   accepts_nested_attributes_for :address
+
+  #TODO add a scope method!
+  #scope :carol_name, -> { where(name: 'Carol Jones') }
 end

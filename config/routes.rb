@@ -21,5 +21,4 @@ Rails.application.routes.draw do
   delete '/treatment_plans/:treatment_plan_id/treatments/:id', to: 'treatments#destroy', as: 'treatment_plan_treatment'
   post '/treatments/:id/complete', to: 'treatments#complete'
 
-
 end
