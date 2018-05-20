@@ -73,7 +73,7 @@
 
 
       <!-- !PAGE CONTENT! -->
-      <div class="w3-main" style="margin-left:200px;margin-top:43px;">
+      <div class="w3-main main-page-content" style="margin-left:200px;margin-top:43px;">
         <%= yield %>
       </div>
 
@@ -113,6 +113,26 @@
           mySidebar.style.display = "none";
           overlayBg.style.display = "none";
       }
+    </script>
+
+    <!-- HANDLEBARS TEMPLATES -->
+
+    <!--  Patient Row Template -->
+    <script id="patient-row-template" type="text/x-handlebars-template">
+      <tr>
+        <td><i class="fa fa-user w3-text-blue w3-large"></i>
+        </td><td><a href="{{url}}">{{name}}</a></td>
+        <td>{{dob}}</td>
+        <td>{{phone_number}}</td>
+        <td>
+          doctors
+        </td>
+        <td>
+          <a class="right-margin-btn btn btn-primary btn-sm" href="{{url}}/edit">Edit</a>
+
+          <a data-confirm="Are you sure you would like to delete this patient? This will also delete the patient's appointments, appointment notes, treatment plans, and treatments!" class="right-margin-btn btn btn-primary btn-sm" rel="nofollow" data-method="delete" href="{{url}}">Delete</a>
+        </td>
+      </tr>
     </script>
   </body>
 </html>
