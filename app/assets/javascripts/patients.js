@@ -3,10 +3,13 @@ class Patient {
   constructor(attributes) {
     this.id = attributes.id;
     this.name = attributes.name;
-    this.dob = attributes.dob;
+    this.dob =  moment(attributes.dob).format('MM/DD/YY');
     this.phone_number = attributes.phone_number;
+
+    let $users = $.unique(attributes.users.map(user => user.name))
+    this.users = $users.join(", ");
+
     this.url = "/patients/" + this.id
-    console.log('new patient created')
   }
 
   renderPatientRow() {
@@ -45,6 +48,6 @@ function bindClickHandlers() {
       mainDiv.empty();
       mainDiv.append(patientTable);
     })
-    .error(function() {});
+    .error(function() {console.log("Something went wrong")});
   });
 }
