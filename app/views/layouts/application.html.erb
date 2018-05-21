@@ -118,8 +118,20 @@
 
     <!-- HANDLEBARS TEMPLATES -->
 
-    <!--  Patient Table Template -->
-    <script id="patient-table-template" type="text/x-handlebars-template">
+    <!-- Empty Patients Table Template -->
+    <script id="empty-patients-table-template" type="text/x-handlebars-template">
+      <div class="w3-container">
+        <h2>Patients</h2>
+        <h6>No patients have been created</h6>
+
+        <div class="new-button-div">
+          <a class="w3-button w3-medium w3-black w3-hover-pink w3-round-large w3-padding-medium" href="/patients/new">New Patient</a>
+        </div>
+      </div>
+    </script>
+
+    <!--  Patients Table Template -->
+    <script id="patients-table-template" type="text/x-handlebars-template">
       <div class="w3-container">
         <h2>Patients</h2>
 

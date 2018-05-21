@@ -15,15 +15,23 @@ class Patient {
   }
 
   static renderPatientsTable(patients) {
-    return Patient.patientsTableTemplate(patients);
+    if (patients.length > 0) {
+      return Patient.patientsTableTemplate(patients);
+    }
+    else {
+      return Patient.emptyPatientsTableTemplate();
+    }
   }
 }
 
 function patientsSetUp() {
   bindPatientClickHandlers();
 
-  Patient.patientsTableSource = $("#patient-table-template").html();
+  Patient.patientsTableSource = $("#patients-table-template").html();
   Patient.patientsTableTemplate = Handlebars.compile(Patient.patientsTableSource);
+
+  Patient.emptyPatientsTableSource = $("#empty-patients-table-template").html();
+  Patient.emptyPatientsTableTemplate = Handlebars.compile(Patient.emptyPatientsTableSource);
 }
 
 function bindPatientClickHandlers() {
