@@ -17,4 +17,6 @@
 
 //= require moment
 //= require handlebars-v4.0.11
+//= require base
 //= require patients
+//= require appointment_notes

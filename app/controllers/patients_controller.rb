@@ -5,10 +5,11 @@ class PatientsController < ApplicationController
   def index
     @patients = Patient.all
     
-    respond_to do |f|
-      f.html { }
-      f.json { render json: @patients, status: 200 }
-    end
+    render json: @patients, status: 200
+    # respond_to do |f|
+    #   f.html { }
+    #   f.json { render json: @patients, status: 200 }
+    # end
   end
 
   def show

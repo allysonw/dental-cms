@@ -12,23 +12,21 @@ class Patient {
     this.url = "/patients/" + this.id
   }
 
-  renderPatientRow() {
-    return Patient.patientRowTemplate(this);
+  static renderPatientsTable(patients) {
+    return Patient.patientTableTemplate(patients);
   }
 }
 
-// Set up
-$(function() {
-  bindClickHandlers();
-  Patient.patientRowSource = $("#patient-row-template").html();
-  Patient.patientRowTemplate = Handlebars.compile(Patient.patientRowSource);
-});
+function patientsSetUp() {
+  bindPatientClickHandlers();
+  Patient.patientTableSource = $("#patient-table-template").html();
+  Patient.patientTableTemplate = Handlebars.compile(Patient.patientTableSource);
+}
 
-
-function bindClickHandlers() {
+function bindPatientClickHandlers() {
   $("a.patient-index-link").on("click", function(e) {
     e.preventDefault();
-    history.pushState(null, null, '/patients')
+    //history.pushState(null, null, '/patients')
     $.ajax({
         method: "GET",
         url: "/patients",
@@ -36,15 +34,13 @@ function bindClickHandlers() {
     })
     .done(function(json) {
       let mainDiv = $("div.main-page-content")
-      let patientTable = "<table>";
+      let patients = [];
 
       json.forEach(function(patient_attributes) {
-        patient = new Patient(patient_attributes);
-        patientRow = patient.renderPatientRow();
-        patientTable += patientRow;
+        patients.push(new Patient(patient_attributes));
       })
 
-      patientTable += "</table>";
+      patientTable = Patient.renderPatientsTable(patients);
       mainDiv.empty();
       mainDiv.append(patientTable);
     })

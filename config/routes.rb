@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :appointments do
     # nested resources for appointment_notes
-    resources :appointment_notes, :path => 'notes', only: [:create]
+    resources :appointment_notes, :path => 'notes', only: [:create, :index]
   end
 
   # routes for treatments

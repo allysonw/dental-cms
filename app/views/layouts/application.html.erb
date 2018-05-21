@@ -24,7 +24,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class = 'w3-light-grey'>
+  <body class = 'w3-light-grey <%= controller_name %> <%= action_name %>'>
 
   <div class="w3-bar w3-top w3-blue w3-large w3-mobile" style="z-index:5">
     <% flash.each do |name, msg| %>
@@ -117,20 +117,72 @@
 
     <!-- HANDLEBARS TEMPLATES -->
 
-    <!--  Patient Row Template -->
-    <script id="patient-row-template" type="text/x-handlebars-template">
-      <tr>
-        <td><i class="fa fa-user w3-text-blue w3-large"></i>
-        </td><td><a href="{{url}}">{{name}}</a></td>
-        <td>{{dob}}</td>
-        <td>{{phone_number}}</td>
-        <td>{{users}}</td>
-        <td>
-          <a class="right-margin-btn btn btn-primary btn-sm" href="{{url}}/edit">Edit</a>
+    <!--  Patient Table Template -->
+    <script id="patient-table-template" type="text/x-handlebars-template">
+      <div class="w3-container">
+        <h2>Patients</h2>
 
-          <a data-confirm="Are you sure you would like to delete this patient? This will also delete the patient's appointments, appointment notes, treatment plans, and treatments!" class="right-margin-btn btn btn-primary btn-sm" rel="nofollow" data-method="delete" href="{{url}}">Delete</a>
-        </td>
-      </tr>
+        <div class="w3-responsive">
+          <div>
+            <table class="w3-table w3-striped w3-white">
+              <thead class="w3-grey w3-text-white">
+                <tr>
+                  <th></th>
+                  <th>Name</th>
+                  <th>Date of Birth</th>
+                  <th>Phone Number</th>
+                  <th>Doctors</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {{#each this}}
+                <tr>
+                  <td><i class="fa fa-user w3-text-blue w3-large"></i>
+                  </td><td><a href="{{url}}">{{name}}</a></td>
+                  <td>{{dob}}</td>
+                  <td>{{phone_number}}</td>
+                  <td>{{users}}</td>
+                  <td>
+                    <a class="right-margin-btn btn btn-primary btn-sm" href="{{url}}/edit">Edit</a>
+
+                    <a data-confirm="Are you sure you would like to delete this patient? This will also delete the patient's appointments, appointment notes, treatment plans, and treatments!" class="right-margin-btn btn btn-primary btn-sm" rel="nofollow" data-method="delete" href="{{url}}">Delete</a>
+                  </td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="new-button-div">
+          <a class="w3-button w3-medium w3-black w3-hover-pink w3-round-large w3-padding-medium" href="/patients/new">New Patient</a>
+        </div>
+      </div>
+
     </script>
+
+    <!--  Notes Table Template -->
+    <script id="note-table-template" type="text/x-handlebars-template">
+      <table class="w3-table w3-striped w3-white">
+        <thead class="w3-grey w3-text-white">
+          <tr><th></th>
+          <th>Note</th>
+          <th>Created At</th>
+        </tr></thead>
+        <tbody>
+          {{#each this}}
+          <tr>
+            <td><i class="material-icons">description</i></td>
+            <td>{{content}}</td>
+            <td>{{created_at}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </script>
+    <!-- END HANDLEBARS TEMPLATES -->
+
   </body>
 </html>
