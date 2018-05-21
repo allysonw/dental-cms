@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :announcements
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }, :path => 'accounts'
 
   root 'welcome#index'
