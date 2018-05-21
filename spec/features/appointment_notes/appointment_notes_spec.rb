@@ -31,7 +31,7 @@ RSpec.feature "Appointment_Notes", type: :feature do
   end
 
   scenario "creates a new appointment note with valid attributes" do
-    fill_in "appointment_note_content", with: "Note content goes here"
+    fill_in "note-content-field", with: "Note content goes here"
     click_button('Create Note')
     expect(carol_appt_allyson.appointment_notes.count).to eq(2)
   end
@@ -42,7 +42,7 @@ RSpec.feature "Appointment_Notes", type: :feature do
   end
 
   scenario "redirects to appointment show page upon successful creation of note" do
-    fill_in "appointment_note_content", with: "Note content goes here"
+    fill_in "note-content-field", with: "Note content goes here"
     click_button('Create Note')
     expect(page).to have_current_path(appointment_path(Appointment.last))
   end
