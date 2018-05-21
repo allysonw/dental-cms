@@ -13,7 +13,7 @@ Specs:
 - [ ] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
   * A Treatment Plan has_many Treatments. When a Treatment Plan is rendered on the Treatment Plan show page via AJAX, it also renders associated Treatments.
 
-- [ ] Use your Rails API and a form to create a resource and render the response without a page refresh.
+- [X] Use your Rails API and a form to create a resource and render the response without a page refresh.
   * Creating a Note on an Appointment Show page renders the new Note without refreshing the page.
 
 - [ ] Translate JSON responses into js model objects.
