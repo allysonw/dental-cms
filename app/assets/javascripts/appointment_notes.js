@@ -3,7 +3,7 @@ class Note {
   constructor(attributes) {
     this.id = attributes.id;
     this.content = attributes.content;
-    this.created_at = moment(attributes.created_at).format('MMM DD, YYYY - h:mm a');
+    this.created_at = moment(attributes.created_at).format('MMM DD, YYYY - h:mm A');
   }
 
   static renderNotesTable(notes) {
