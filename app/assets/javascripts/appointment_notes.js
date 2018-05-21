@@ -3,11 +3,7 @@ class Note {
   constructor(attributes) {
     this.id = attributes.id;
     this.content = attributes.content;
-    this.created_at = moment(attributes.created_at).format('MMM DD, YYYY - HH:MM');
-  }
-
-  formatNoteDate(date) {
-    return moment(date).format('MM/DD/YY');
+    this.created_at = moment(attributes.created_at).format('MMM DD, YYYY - h:mm a');
   }
 
   static renderNotesTable(notes) {
@@ -35,7 +31,7 @@ function bindNoteClickHandlers() {
         dataType: "json"
     })
     .done(function(json) {
-      
+
       $("#note-submit-button").blur();
       $("#note-content-field")[0].value = '';
       $("#note-content-field").blur();
@@ -54,7 +50,7 @@ function bindNoteClickHandlers() {
         json.forEach(function(note_attributes) {
           notes.push(new Note(note_attributes));
         })
-
+        debugger
         noteTable = Note.renderNotesTable(notes);
         noteDiv.empty();
         noteDiv.append(noteTable);
