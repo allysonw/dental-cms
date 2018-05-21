@@ -35,7 +35,10 @@ function bindNoteClickHandlers() {
         dataType: "json"
     })
     .done(function(json) {
-      console.log('created the note')
+      
+      $("#note-submit-button").blur();
+      $("#note-content-field")[0].value = '';
+      $("#note-content-field").blur();
 
       let appointment_id = $(".appointment-detail").data("id")
       // get all of the appointment's notes with ajax
