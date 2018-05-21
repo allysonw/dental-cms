@@ -6,38 +6,70 @@ class Announcement {
     this.created_at = moment(attributes.created_at).format('MM/DD/YY - h:mm A');
   }
 
-  static renderAnnouncement(announcement) {
-    return Announcement.announcementTemplate(announcement)
+  // static renderAnnouncement(announcement) {
+  //   return Announcement.announcementTemplate(announcement)
+  // }
+
+  formatAnnouncement() {
+    let formattedAnnouncement = `<div id="announcement" data-id=${this.id}>`;
+    formattedAnnouncement += this.content + " - created @ " + this.created_at;
+    formattedAnnouncement += "</div>";
+
+    return formattedAnnouncement;
   }
 }
 
 function announcementsSetUp() {
+  loadFirstAnnouncement();
   bindAnnouncementClickHandlers();
 
-  Announcement.announcementDiv = $(".announcement-div");
-  Announcement.announcementSource = $("#announcement-template").html();
-  Announcement.announcementTemplate = Handlebars.compile(Announcement.announcementSource);
+  Announcement.announcementDiv = $(".announcement-content-div");
+  //
+  // Announcement.announcementSource = $("#announcement-template").html();
+  // Announcement.announcementTemplate = Handlebars.compile(Announcement.announcementSource);
+}
+
+function loadFirstAnnouncement() {
+  $.ajax({
+      method: "GET",
+      url: "/announcements",
+      dataType: "json"
+  })
+  .done(getFirstAnnouncement)
+  .error(function() {console.log("Something went wrong in getting the first announcement.")});
+}
+
+function getFirstAnnouncement(json) {
+  let firstAnnouncement = createAnnouncement(json[0]);
+  printAnnouncement(firstAnnouncement);
 }
 
 function bindAnnouncementClickHandlers() {
-
   $("#announcement-next-link").on("click", function(e) {
     e.preventDefault();
 
+    let announcement_id = $("#announcement").data("id")
 
     $.ajax({
         method: "GET",
-        url: "/announcements/1" ,
+        url: `announcements/${announcement_id}/next` ,
         dataType: "json"
     })
-    .done(printAnnouncement)
-    .error(function() {console.log("Something went wrong")});
+    .done(function (json) {
+      let announcement = createAnnouncement(json)
+      printAnnouncement(announcement);
+    })
+    .error(function() {console.log("Something went wrong in binding click handlers.")});
   });
 }
 
-function printAnnouncement(json) {
-  let announcement = Announcement.renderAnnouncement(json);
-  Announcement.announcementDiv.empty();
+function createAnnouncement(attributes) {
+  return new Announcement(attributes);
+}
 
-  Announcement.announcementDiv.append(announcement);
+function printAnnouncement(announcement) {
+  //let announcement = Announcement.renderAnnouncement(json);'
+  debugger;
+  Announcement.announcementDiv.empty();
+  Announcement.announcementDiv.append(announcement.formatAnnouncement());
 }

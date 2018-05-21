@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :announcements, only: [:show]
+  resources :announcements, only: [:show, :index]
+  get 'announcements/:id/next', to: 'announcements#next'
+
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }, :path => 'accounts'
 
   root 'welcome#index'
