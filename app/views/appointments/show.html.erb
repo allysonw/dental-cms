@@ -15,7 +15,8 @@
       <%= render partial: 'appointment_notes/note_form', locals: { appointment: @appointment, appointment_note: @appointment_note } %>
 
     <div class="notes-table-div">
-      <%= show_appointment_notes(@appointment) %>
+      <!-- With AJAX, don't need this! -->
+      <!-- <%= show_appointment_notes(@appointment) %> -->
     </div>
 
 </div>

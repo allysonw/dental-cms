@@ -14,8 +14,12 @@ class Note {
 function notesSetUp() {
   bindNoteClickHandlers();
 
+  // Handlebars set up
   Note.notesTableSource = $("#note-table-template").html();
   Note.notesTableTemplate = Handlebars.compile(Note.notesTableSource);
+
+  // Initialize the DOM on page load
+  getAppointmentNotes();
 }
 
 function bindNoteClickHandlers() {
@@ -38,7 +42,7 @@ function submitNoteForm (e) {
   .error(function() {console.log("Something went wrong")});
 }
 
-function getAppointmentNotes(json) {
+function getAppointmentNotes() {
   $("#note-submit-button").blur();
   $("#note-content-field")[0].value = '';
   $("#note-content-field").blur();
