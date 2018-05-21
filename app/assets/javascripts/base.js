@@ -3,4 +3,5 @@ $(function() {
 
   patientsSetUp();
   notesSetUp();
+  announcementsSetUp();
 });

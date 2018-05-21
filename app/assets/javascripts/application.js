@@ -19,3 +19,4 @@
 //= require base
 //= require patients
 //= require appointment_notes
+//= require announcements
