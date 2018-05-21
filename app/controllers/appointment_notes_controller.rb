@@ -22,6 +22,13 @@ class AppointmentNotesController < ApplicationController
     end
   end
 
+  def index
+    @appointment = Appointment.find_by(id: params[:appointment_id])
+    @appointment_notes = @appointment.appointment_notes
+
+    render json: @appointment_notes
+  end
+
   private
     def appointment_note_params
       params.require(:appointment_note).permit(:content, :appointment_id)

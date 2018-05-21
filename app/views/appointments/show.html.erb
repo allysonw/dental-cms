@@ -1,7 +1,7 @@
 <header class="w3-container" style="padding-top:22px">
   <div class="w3-margin-bottom">
     <div class="w3-third">
-      <div class="w3-container w3-red w3-padding-16">
+      <div class="appointment-detail w3-container w3-red w3-padding-16" data-id="<%= @appointment.id %>">
         <h3>Appointment Detail</h3>
         <%= render partial: 'appointments/appointment', locals: { appointment: @appointment } %>
       </div>
@@ -11,9 +11,10 @@
 
 <div class="w3-panel w3-twothird" style="margin-top: 0px;">
   <h3 style="margin-bottom: 0px;">Notes</h3>
-    <div class="notes-table-div">
+
       <%= render partial: 'appointment_notes/note_form', locals: { appointment: @appointment, appointment_note: @appointment_note } %>
 
+    <div class="notes-table-div">
       <%= show_appointment_notes(@appointment) %>
     </div>
 

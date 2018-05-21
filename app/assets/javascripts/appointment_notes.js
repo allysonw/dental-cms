@@ -2,23 +2,23 @@
 class Note {
   constructor(attributes) {
     this.id = attributes.id;
-    this.content = attribtes.content;
-    this.created_at = attributes.created_at;
+    this.content = attributes.content;
+    this.created_at = moment(attributes.created_at).format('MMM DD, YYYY - HH:MM');
   }
 
   formatNoteDate(date) {
     return moment(date).format('MM/DD/YY');
   }
 
-  static renderNotesTable(patients) {
-    return Patient.patientTableTemplate(patients);
+  static renderNotesTable(notes) {
+    return Note.notesTableTemplate(notes);
   }
 }
 
 function notesSetUp() {
   bindNoteClickHandlers();
-  Note.noteTableSource = $("#note-table-template").html();
-  Note.noteTableTemplate = Handlebars.compile(Note.noteTableSource);
+  Note.notesTableSource = $("#note-table-template").html();
+  Note.notesTableTemplate = Handlebars.compile(Note.notesTableSource);
 }
 
 function bindNoteClickHandlers() {
@@ -35,24 +35,27 @@ function bindNoteClickHandlers() {
         dataType: "json"
     })
     .done(function(json) {
-      let noteDiv = $("div.notes-table-div")
-      let notes = [];
+      console.log('created the note')
 
-
-      // get all of the appointments notes with ajax
+      let appointment_id = $(".appointment-detail").data("id")
+      // get all of the appointment's notes with ajax
       $.ajax({
           method: "GET",
-          url: "/appointments/:appointment_id/notes",
+          url: "/appointments/" + appointment_id + "/notes",
           dataType: "json"
-      })
+      }).done (function(json) {
+        console.log('got all of the notes')
+        let noteDiv = $("div.notes-table-div")
+        let notes = [];
 
-      json.forEach(function(note_attributes) {
-        notes.push(new Note(note_attributes));
-      })
+        json.forEach(function(note_attributes) {
+          notes.push(new Note(note_attributes));
+        })
 
-      noteTable = Note.renderNoteTable(notes);
-      noteDiv.empty();
-      ntoeDiv.append(noteTable);
+        noteTable = Note.renderNotesTable(notes);
+        noteDiv.empty();
+        noteDiv.append(noteTable);
+      })
     })
     .error(function() {console.log("Something went wrong")});
   });

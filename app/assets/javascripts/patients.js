@@ -13,14 +13,14 @@ class Patient {
   }
 
   static renderPatientsTable(patients) {
-    return Patient.patientTableTemplate(patients);
+    return Patient.patientsTableTemplate(patients);
   }
 }
 
 function patientsSetUp() {
   bindPatientClickHandlers();
-  Patient.patientTableSource = $("#patient-table-template").html();
-  Patient.patientTableTemplate = Handlebars.compile(Patient.patientTableSource);
+  Patient.patientsTableSource = $("#patient-table-template").html();
+  Patient.patientsTableTemplate = Handlebars.compile(Patient.patientsTableSource);
 }
 
 function bindPatientClickHandlers() {
