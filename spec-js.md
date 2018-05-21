@@ -4,10 +4,12 @@ Specs:
 - [X] Use jQuery for implementing new requirements
 
 - [ ] Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
-  * Show page for Treatment Plans is rendered with jQuery and ASM. The user can sift through a patient's Treatment Plans by clicking a 'Next' button on the Treatment Plan show page, with the next Treatment Plan being fetched and rendered via JQuery/AJAX.
+  * On the user dashboard, an Announcement is rendered at the top of the page with jQuery jQuery and an Active Model Serialization JSON backend. A user can sift through the current announcements by clicking the "Next" button.
+  * URL: /dashboard
 
 - [X] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
-  * When clicking on the "Patients" link, the Patients index page is rendered using jQuery and an Active Model Serialization JSON backend. URL: /patients
+  * When clicking on the "Patients" link, the Patients index page is rendered using jQuery and an Active Model Serialization JSON backend.
+  * URL: /patients
 
 - [X] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
   * A Patient has many Users (doctors). When a Patient is rendered at /patients, all of their Users are printed to the page by the AJAX code.
@@ -19,7 +21,7 @@ Specs:
   * On the Appointment show page, when a new Note is created, it is created as a JS model object from the Rails API JSON response.
 
 - [ ] At least one of the js model objects must have at least one method added by your code to the prototype.
-  * ???
+  * The Announcement JS object has a prototype method formatAnnouncement(), which concatenates the Announcement's content and created_at date and returns the formatted string.
 
 Confirm
 - [X] You have a large number of small Git commits

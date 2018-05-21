@@ -26,7 +26,10 @@ class Patient {
 
 function patientsSetUp() {
   bindPatientClickHandlers();
+  patientHandlebarsSetUp();
+}
 
+function patientHandlebarsSetUp() {
   Patient.patientsTableSource = $("#patients-table-template").html();
   Patient.patientsTableTemplate = Handlebars.compile(Patient.patientsTableSource);
 
