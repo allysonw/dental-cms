@@ -3,16 +3,13 @@ class Announcement {
   constructor(attributes) {
     this.id = attributes.id;
     this.content = attributes.content;
-    this.created_at = moment(attributes.created_at).format('MM/DD/YY - h:mm A');
+    this.created_at = moment(attributes.created_at).format('MMM DD, YYYY - h:mm A');
   }
-
-  // static renderAnnouncement(announcement) {
-  //   return Announcement.announcementTemplate(announcement)
-  // }
 
   formatAnnouncement() {
     let formattedAnnouncement = `<div id="announcement" data-id=${this.id}>`;
-    formattedAnnouncement += this.content + " - created @ " + this.created_at;
+    formattedAnnouncement += '<p style="color: red;">' + this.content + "<p>"
+    formattedAnnouncement += "<i>Posted @ " + this.created_at + "<i>";
     formattedAnnouncement += "</div>";
 
     return formattedAnnouncement;
@@ -24,9 +21,6 @@ function announcementsSetUp() {
   bindAnnouncementClickHandlers();
 
   Announcement.announcementDiv = $(".announcement-content-div");
-  //
-  // Announcement.announcementSource = $("#announcement-template").html();
-  // Announcement.announcementTemplate = Handlebars.compile(Announcement.announcementSource);
 }
 
 function loadFirstAnnouncement() {
@@ -68,8 +62,7 @@ function createAnnouncement(attributes) {
 }
 
 function printAnnouncement(announcement) {
-  //let announcement = Announcement.renderAnnouncement(json);'
-  debugger;
+
   Announcement.announcementDiv.empty();
   Announcement.announcementDiv.append(announcement.formatAnnouncement());
 }
