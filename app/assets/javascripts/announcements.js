@@ -29,13 +29,11 @@ function loadFirstAnnouncement() {
       url: "/announcements",
       dataType: "json"
   })
-  .done(getFirstAnnouncement)
+  .done(function(json) {
+    let firstAnnouncement = createAnnouncement(json[0])
+    printAnnouncement(firstAnnouncement);
+  })
   .error(function() {console.log("Something went wrong in getting the first announcement.")});
-}
-
-function getFirstAnnouncement(json) {
-  let firstAnnouncement = createAnnouncement(json[0]);
-  printAnnouncement(firstAnnouncement);
 }
 
 function bindAnnouncementClickHandlers() {
@@ -62,7 +60,6 @@ function createAnnouncement(attributes) {
 }
 
 function printAnnouncement(announcement) {
-
   Announcement.announcementDiv.empty();
   Announcement.announcementDiv.append(announcement.formatAnnouncement());
 }

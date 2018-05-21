@@ -9,7 +9,7 @@ module PatientsHelper
 
   def display_street_2_address(patient)
     if !patient.address.street_2.blank?
-      patient.address.street_2
+      ", " + patient.address.street_2
     end
   end
 
