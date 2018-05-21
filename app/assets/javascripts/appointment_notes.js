@@ -37,7 +37,7 @@ function submitNoteForm (e) {
       dataType: "json"
   })
   .done(getAppointmentNotes)
-  .error(function() {console.log("Something went wrong")});
+  .error(() => console.log("Something went wrong"));
 }
 
 function getAppointmentNotes() {
@@ -52,7 +52,9 @@ function getAppointmentNotes() {
       method: "GET",
       url: "/appointments/" + appointment_id + "/notes",
       dataType: "json"
-  }).done(printNotesTable)
+  })
+  .done(printNotesTable)
+  .error(() => console.log("Something went wrong"));
 }
 
 function printNotesTable(json) {

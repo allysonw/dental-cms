@@ -7,20 +7,19 @@ Specs:
   * Show page for Treatment Plans is rendered with jQuery and ASM. The user can sift through a patient's Treatment Plans by clicking a 'Next' button on the Treatment Plan show page, with the next Treatment Plan being fetched and rendered via JQuery/AJAX.
 
 - [X] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
-  * When clicking on the "Patients" link, the Patients index page is rendered using jQuery and an Active Model Serialization JSON backend.
-  * URL: /patients
+  * When clicking on the "Patients" link, the Patients index page is rendered using jQuery and an Active Model Serialization JSON backend. URL: /patients
 
-- [ ] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
-  * A Treatment Plan has_many Treatments. When a Treatment Plan is rendered on the Treatment Plan show page via AJAX, it also renders associated Treatments.
+- [X] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
+  * A Patient has many Users (doctors). When a Patient is rendered at /patients, all of their Users are printed to the page by the AJAX code.
 
 - [X] Use your Rails API and a form to create a resource and render the response without a page refresh.
   * Creating a Note on an Appointment Show page renders the new Note without refreshing the page.
 
-- [ ] Translate JSON responses into js model objects.
+- [X] Translate JSON responses into js model objects.
   * On the Appointment show page, when a new Note is created, it is created as a JS model object from the Rails API JSON response.
 
 - [ ] At least one of the js model objects must have at least one method added by your code to the prototype.
-  * The Note JS object has the formatNote() method
+  * ???
 
 Confirm
 - [X] You have a large number of small Git commits
