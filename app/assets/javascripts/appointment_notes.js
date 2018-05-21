@@ -18,8 +18,6 @@ function notesSetUp() {
   Note.notesTableSource = $("#note-table-template").html();
   Note.notesTableTemplate = Handlebars.compile(Note.notesTableSource);
 
-  // Initialize the DOM on page load
-  getAppointmentNotes();
 }
 
 function bindNoteClickHandlers() {
