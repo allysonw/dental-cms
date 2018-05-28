@@ -10,7 +10,9 @@ class AnnouncementsController < ApplicationController
 
 
   def index
-    @announcements = Announcement.all
+    @announcements = Announcement.all.sort do |a,b|
+      a.created_at > b.created_at ? -1 : 1
+    end
 
     respond_to do |f|
       f.html { redirect_to dashboard_path}
