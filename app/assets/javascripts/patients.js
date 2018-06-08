@@ -4,7 +4,7 @@ class Patient {
     this.id = attributes.id;
     this.name = attributes.name;
     this.dob =  moment(attributes.dob).format('MM/DD/YY');
-    this.phone_number = attributes.phone_number;
+    this.phoneNumber = attributes.phone_number;
     this.users = Patient.formatUserNames(attributes.users)
 
     // set a URL attribute to use in the Handlebars template
@@ -39,8 +39,9 @@ class Patient {
 // Set up to load the first announcement on page load
 // Called from base.js on document.ready
 function patientsSetUp() {
-  bindPatientClickHandlers();
   patientHandlebarsSetUp();
+  bindPatientClickHandlers();
+
 }
 
 // Create Handlebars templates for the Patients div
@@ -72,12 +73,12 @@ function bindPatientClickHandlers() {
 // request, render an array of patients with Handlebars, and
 // use it to inject the patient table into the DOM
 function printPatientsTable(json) {
-  let mainDiv = $("div.main-page-content")
-  let patients = [];
+  const mainDiv = $("div.main-page-content")
+  const patients = [];
 
   // json is an array JSON objects representing patients
-  json.forEach(function(patient_attributes) {
-    patients.push(new Patient(patient_attributes));
+  json.forEach(function(patientAttributes) {
+    patients.push(new Patient(patientAttributes));
   })
 
   patientTable = Patient.renderPatientsTable(patients);

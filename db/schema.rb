@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 2018_05_21_174737) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "addresses", force: :cascade do |t|
     t.string "street_1"
     t.string "street_2"
     t.string "city"
     t.string "state"
     t.string "zip_code"
-    t.integer "patient_id"
+    t.bigint "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["patient_id"], name: "index_addresses_on_patient_id"
@@ -32,7 +35,7 @@ ActiveRecord::Schema.define(version: 2018_05_21_174737) do
 
   create_table "appointment_notes", force: :cascade do |t|
     t.string "content"
-    t.integer "appointment_id"
+    t.bigint "appointment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["appointment_id"], name: "index_appointment_notes_on_appointment_id"
@@ -58,7 +61,7 @@ ActiveRecord::Schema.define(version: 2018_05_21_174737) do
 
   create_table "treatment_plans", force: :cascade do |t|
     t.string "name"
-    t.integer "patient_id"
+    t.bigint "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["patient_id"], name: "index_treatment_plans_on_patient_id"
@@ -68,7 +71,7 @@ ActiveRecord::Schema.define(version: 2018_05_21_174737) do
     t.string "name"
     t.integer "location"
     t.decimal "price"
-    t.integer "treatment_plan_id"
+    t.bigint "treatment_plan_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "complete", default: false
@@ -97,4 +100,8 @@ ActiveRecord::Schema.define(version: 2018_05_21_174737) do
     t.index ["uid"], name: "index_users_on_uid"
   end
 
+  add_foreign_key "addresses", "patients"
+  add_foreign_key "appointment_notes", "appointments"
+  add_foreign_key "treatment_plans", "patients"
+  add_foreign_key "treatments", "treatment_plans"
 end

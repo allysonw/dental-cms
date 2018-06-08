@@ -3,7 +3,7 @@ class Note {
   constructor(attributes) {
     this.id = attributes.id;
     this.content = attributes.content;
-    this.created_at = moment(attributes.created_at).format('MMM DD, YYYY - h:mm A');
+    this.createdAt = moment(attributes.createdAt).format('MMM DD, YYYY - h:mm A');
   }
 }
 
@@ -27,8 +27,8 @@ function bindNoteClickHandlers() {
 function submitNoteForm (e) {
   e.preventDefault();
   let $form = $(this);
-  let action = $form.attr("action");
-  let params = $form.serialize();
+  const action = $form.attr("action");
+  const params = $form.serialize();
 
   $.ajax({
       method: "POST",
@@ -50,12 +50,12 @@ function getAppointmentNotes() {
   $("#note-content-field")[0].value = '';
   $("#note-content-field").blur();
 
-  let appointment_id = $(".appointment-detail").data("id")
+  let appointmentId = $(".appointment-detail").data("id")
 
   // get all of the notes for the appointment
   $.ajax({
       method: "GET",
-      url: "/appointments/" + appointment_id + "/notes",
+      url: "/appointments/" + appointmentId + "/notes",
       dataType: "json"
   })
   .done(printNotesTable)
@@ -69,8 +69,8 @@ function printNotesTable(json) {
   let noteDiv = $("div.notes-table-div")
   let notes = [];
 
-  json.forEach(function(note_attributes) {
-    notes.push(new Note(note_attributes));
+  json.forEach(function(noteAttributes) {
+    notes.push(new Note(noteAttributes));
   })
 
   noteTable = Note.notesTableTemplate(notes);

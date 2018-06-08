@@ -3,7 +3,7 @@
 ![](http://forthebadge.com/images/badges/made-with-ruby.svg)
 
 ![](https://img.shields.io/badge/Released-Apr--2018-ff69b4.svg?style=flat-square)
-[![GitHub last commit](https://img.shields.io/github/last-commit/allysonw/snippet-manager.svg?style=flat-square)]()
+[![GitHub last commit](https://img.shields.io/github/last-commit/allysonw/dental-cms.svg?style=flat-square)]()
 
 Dental Office Manager is an app that creates an easy way for dentists to manage patient health records, create treatment plans, and schedule patient appointments.
 
