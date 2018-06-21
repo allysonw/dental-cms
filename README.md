@@ -7,6 +7,8 @@
 
 Dental Office Manager is an app that creates an easy way for dentists to manage patient health records, create treatment plans, and schedule patient appointments.
 
+Visit the live app [here](https://dental-cms.herokuapp.com/dashboard).
+
 ![demo](https://media.giphy.com/media/9rjU0XID0jjXumbcpN/giphy.gif)
 
 ## Installation
