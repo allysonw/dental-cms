@@ -27,14 +27,6 @@
 
   <body class = 'w3-light-grey <%= controller_name %> <%= action_name %>'>
 
-  <div class="w3-mobile" style="z-index:5">
-    <% flash.each do |name, msg| %>
-      <% if name == 'notice' then color = 'pale-green' end %>
-      <% if name == 'alert' then color = 'pale-red' end %>
-      <p class="w3-center" style="margin: 8px;"><%= msg %></p>
-    <% end %>
-  </div>
-
   <% if user_signed_in? %>
     <!-- Top container -->
     <div class="w3-bar w3-top w3-black w3-large w3-mobile" style="z-index:4">
@@ -75,13 +67,30 @@
 
       <!-- !PAGE CONTENT! -->
       <div class="w3-main main-page-content" style="margin-left:200px;margin-top:43px;">
+
+        <div class="w3-bar w3-large w3-mobile w3-blue" style="z-index:5; color: white; margin-bottom: 0px;">
+          <% flash.each do |name, msg| %>
+            <p class="w3-center" style="margin: 8px;"><%= msg %></p>
+          <% end %>
+        </div>
+
         <%= yield %>
       </div>
 
     <% else %>
       <div class="w3-main w3-display-container">
         <img src="/girl-smiling.jpg" style="width:100%;min-width:1000px;">
+
+
+        <div class="w3-bar w3-large w3-top w3-mobile w3-blue" style="z-index:5; color: white; margin-bottom: 0px;">
+          <% flash.each do |name, msg| %>
+            <p class="w3-center" style="margin: 8px;"><%= msg %></p>
+          <% end %>
+        </div>
+
         <div class="w3-display-middle w3-third" style="margin-top: -100px;">
+
+
           <%= yield %>
         </div>
         <footer class="w3-container w3-padding-16 w3-light-grey">
