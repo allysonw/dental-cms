@@ -68,7 +68,7 @@ function getAppointmentNotes() {
 function printNotesTable(json) {
   let noteDiv = $("div.notes-table-div")
   let notes = [];
-
+  
   json.forEach(function(noteAttributes) {
     notes.push(new Note(noteAttributes));
   })
