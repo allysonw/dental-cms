@@ -1,18 +1,20 @@
 <div class="w3-container">
     <%= form_tag(appointments_path, method: "get") do %>
 
-      <h6>
-        Doctor: <%= select_tag "user", options_from_collection_for_select(@users, "id", "name", @user_id), include_blank: true %>
+      <div style="margin-top: 10px;">
+        <%= select_tag "user", options_from_collection_for_select(@users, "id", "name", @user_id), :prompt => "All Doctors", :style => "width: 200px; margin-right: 10px;" %>
 
-        Patient: <%= select_tag "patient", options_from_collection_for_select(@patients, "id", "name", @patient_id), include_blank: true%>
+        <%= select_tag "patient", options_from_collection_for_select(@patients, "id", "name", @patient_id), :prompt => "All Patients", :style => "width: 200px; margin-right: 10px; margin-bottom: 10px;" %>
 
-        <%= submit_tag "Filter" %>
-      </h6>
+        <%= submit_tag "Filter", :style => "margin-top: -3px;", :class => "w3-button w3-small w3-black w3-hover-pink w3-round-large w3-padding-small" %>
+      </div>
 
-        <h6> Filtered for:
-          <%= @user? @user.name : "all doctors" %> -
-          <%= @patient? @patient.name : "all patients" %>
-        </h6>
+
+    <div style="margin-bottom: 10px">
+      Filtered for:
+        <%= @user? @user.name : "all doctors" %> -
+        <%= @patient? @patient.name : "all patients" %>
+    </div>
 
     <% end %>
 </div>
