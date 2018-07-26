@@ -12,7 +12,7 @@ class Appointment {
 // Called from base.js on document.ready
 function appointmentsSetUp() {
   console.log("appt")
-  $("#datepicker-div").append("test")
+  $("#datetime").datepicker()
   bindAppointmentClickHandlers();
 
   // Handlebars set up

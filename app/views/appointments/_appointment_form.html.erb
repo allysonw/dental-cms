@@ -6,7 +6,9 @@
     <div class="w3-row w3-section">
       <div class="w3-col icon-column"><i class="material-icons form-icon">access_time</i></div>
       <div class="w3-rest">
-        <%= f.datetime_select :time, class: "w3-input w3-select", start_year: Time.now.year, minute_step: 15, start_hour: 7, end_hour: 17, include_blank: true, required: true %>
+        <%= f.text_field :time, placeholder: "Date", class: "w3-input", required: true, id: "datetime" %>
+        <!-- <%= f.datetime_select :time, class: "w3-input w3-select", start_year: Time.now.year, minute_step: 15, start_hour: 7, end_hour: 17, include_blank: true, required: true %> -->
+        <%= select_tag(:date, options_for_select(['9:00 AM', '10:00 AM'])) %>
       </div>
     </div>
 
