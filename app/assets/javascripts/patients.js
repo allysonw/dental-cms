@@ -41,7 +41,6 @@ class Patient {
 function patientsSetUp() {
   patientHandlebarsSetUp();
   bindPatientClickHandlers();
-
 }
 
 // Create Handlebars templates for the Patients div

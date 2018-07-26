@@ -20,3 +20,4 @@
 //= require patients
 //= require appointment_notes
 //= require announcements
+//= require appointments
