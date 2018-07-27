@@ -21,4 +21,8 @@ module AppointmentsHelper
     end
   end
 
+  def todays_date
+    Time.now.strftime("%m/%d/%Y")
+  end
+
 end

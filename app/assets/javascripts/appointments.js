@@ -12,7 +12,7 @@ class Appointment {
 // Called from base.js on document.ready
 function appointmentsSetUp() {
   console.log("appt")
-  $("#datetime").datepicker()
+  $("#datepicker").datepicker()
   bindAppointmentClickHandlers();
 
   // Handlebars set up
@@ -28,7 +28,7 @@ function bindAppointmentClickHandlers() {
 
 // POST a request to the backend to create a new appointment
 function submitAppointmentForm (e) {
-  e.preventDefault();
+  //e.preventDefault();
   let $form = $(this);
   const action = $form.attr("action");
   const params = $form.serialize();

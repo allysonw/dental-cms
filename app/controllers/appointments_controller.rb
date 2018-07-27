@@ -46,6 +46,9 @@ class AppointmentsController < ApplicationController
   end
 
   def create
+    binding.pry
+    date = params[:date]
+    #appointment_params[:time]= 
     @appointment = Appointment.new(appointment_params)
 
     if @appointment.save
