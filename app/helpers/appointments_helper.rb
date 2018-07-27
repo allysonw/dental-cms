@@ -25,4 +25,11 @@ module AppointmentsHelper
     Time.now.strftime("%m/%d/%Y")
   end
 
+  def time_to_date(time)
+    date = time.to_s.split(" ")[0]
+    date_components = date.split("-")
+
+    "#{date_components[1]}/#{date_components[2]}/#{date_components[0]}"
+  end
+
 end

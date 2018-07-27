@@ -68,7 +68,9 @@ class AppointmentsController < ApplicationController
   end
 
   def update
-    @appointment.update(appointment_params)
+    computed_time = compute_appointment_date_time(params, appointment_params)
+    
+    @appointment.update(location: appointment_params[:location], user_id: appointment_params[:user_id], patient_id: appointment_params[:patient_id], time: computed_time)
     if @appointment.save
       flash[:success] = "Appointment successfully updated!"
       redirect_to appointment_path(@appointment)

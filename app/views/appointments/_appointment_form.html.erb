@@ -7,7 +7,7 @@
       <div class="w3-col icon-column"><i class="material-icons form-icon">access_time</i></div>
       <div class="w3-rest">
         <span class="w3-col w3-half">
-          <%= text_field_tag :date, todays_date, class: "w3-input", required: true, id: "datepicker" %>
+          <%= text_field_tag :date, time_to_date(@appointment.time), class: "w3-input", required: true, id: "datepicker", autocomplete: "off" %>
         </span>
         <!-- <%= f.datetime_select :time, class: "w3-input w3-select", start_year: Time.now.year, minute_step: 15, start_hour: 7, end_hour: 17, include_blank: true, required: true %> -->
         <span class="w3-col w3-half time-select">
