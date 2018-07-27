@@ -11,7 +11,7 @@
         </span>
         <!-- <%= f.datetime_select :time, class: "w3-input w3-select", start_year: Time.now.year, minute_step: 15, start_hour: 7, end_hour: 17, include_blank: true, required: true %> -->
         <span class="w3-col w3-half time-select">
-          <%= f.time_select :time, { start_hour: 8, end_hour: 16, ampm: true, :minute_step => 15, :time_separator => ":" } %>
+          <%= f.time_select :time, { start_hour: 8, end_hour: 16, ampm: true, :minute_step => 15, :time_separator => ":", :ignore_date => true } %>
           <!-- <%= select_tag :hour, options_for_select([7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5]) %>
           :
           <%= select_tag :minute, options_for_select([00, 15, 30, 45]) %> -->

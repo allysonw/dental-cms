@@ -46,10 +46,11 @@ class AppointmentsController < ApplicationController
   end
 
   def create
+    computed_time = compute_appointment_date_time(params, appointment_params)
+
+    @appointment = Appointment.new(location: appointment_params[:location], user_id: appointment_params[:user_id], patient_id: appointment_params[:patient_id], time: computed_time)
+
     binding.pry
-    date = params[:date]
-    #appointment_params[:time]= 
-    @appointment = Appointment.new(appointment_params)
 
     if @appointment.save
       flash[:success] = "Appointment successfully created!"
@@ -124,5 +125,16 @@ class AppointmentsController < ApplicationController
       else
         @patient_id = nil
       end
+    end
+
+    def compute_appointment_date_time(params, appointment_params)
+      date_values = params[:date].split('/')
+      month = date_values[0].to_i
+      day = date_values[1].to_i
+      year = date_values[2].to_i
+      hour = appointment_params['time(4i)'].to_i
+      minute = appointment_params['time(5i)'].to_i
+
+      DateTime.new(year, month, day, hour, minute, 00, Rational(-7,24))
     end
 end
