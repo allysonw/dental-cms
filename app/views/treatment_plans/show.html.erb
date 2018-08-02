@@ -8,15 +8,15 @@
   <div class="w3-panel">
     <h3>Add a new treatment</h3>
     <%= form_for @treatment, url: treatment_plan_treatments_path(@treatment_plan.id) do |f| %>
-      <%= f.text_field :name, class: 'w3-input w3-quarter w3-margin-right w3-margin-top', placeholder: "Name", required: true %>
+      <%= f.text_field :name, class: 'w3-input w3-quarter w3-margin-right', placeholder: "Name", required: true %>
 
-      <%= f.select(:location, options_for_select(tooth_numbers), {}, { class: 'w3-input w3-quarter w3-margin-right w3-margin-top treatment-location', required: true } )  %>
+      <%= f.select(:location, options_for_select(tooth_numbers), {}, { class: 'w3-input w3-quarter w3-margin-right treatment-location', required: true } )  %>
 
-      <%= f.text_field :price, class: 'w3-input w3-quarter w3-margin-top', placeholder: "Price", required: true  %>
+      <%= f.text_field :price, class: 'w3-input w3-quarter', placeholder: "Price", required: true  %>
 
       <%= f.hidden_field :treatment_plan_id, value: @treatment_plan.id %>
 
-      <%= f.submit "Add Treatment", class: "w3-margin-left  w3-margin-top w3-button w3-medium w3-black w3-hover-pink w3-round-large w3-padding-medium"%>
+      <%= f.submit "Add Treatment", class: "w3-margin-left w3-button w3-medium w3-black w3-hover-pink w3-round-large w3-padding-medium"%>
     <% end %><br><br>
 
     <%= link_to "Back to patient info", patient_path(@patient) %>
