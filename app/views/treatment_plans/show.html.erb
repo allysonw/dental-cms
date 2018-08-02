@@ -10,7 +10,7 @@
     <%= form_for @treatment, url: treatment_plan_treatments_path(@treatment_plan.id) do |f| %>
       <%= f.text_field :name, class: 'w3-input w3-quarter w3-margin-right', placeholder: "Name", required: true %>
 
-      <%= f.select(:location, options_for_select(tooth_numbers), {}, { class: 'w3-input w3-quarter w3-margin-right treatment-location', required: true } )  %>
+      <%= f.select(:location, options_for_select(tooth_numbers), {:include_blank => "Tooth Number"}, { class: 'w3-input w3-quarter w3-margin-right treatment-location', required: true } )  %>
 
       <%= f.text_field :price, class: 'w3-input w3-quarter', placeholder: "Price", required: true  %>
 
