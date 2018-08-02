@@ -36,12 +36,13 @@ class AppointmentsController < ApplicationController
   end
 
   def new
+    appt_time = date_time_to_calender_day(DateTime.now)
     if params[:patient_id] && !Patient.exists?(params[:patient_id])
       redirect_to patients_path, alert: "Patient not found."
     elsif params[:patient_id]
-      @appointment = Appointment.new(patient_id: params[:patient_id])
+      @appointment = Appointment.new(patient_id: params[:patient_id], time: appt_time)
     else
-      @appointment = Appointment.new
+      @appointment = Appointment.new(time: appt_time)
     end
   end
 
@@ -49,8 +50,6 @@ class AppointmentsController < ApplicationController
     computed_time = compute_appointment_date_time(params, appointment_params)
 
     @appointment = Appointment.new(location: appointment_params[:location], user_id: appointment_params[:user_id], patient_id: appointment_params[:patient_id], time: computed_time)
-
-    binding.pry
 
     if @appointment.save
       flash[:success] = "Appointment successfully created!"
@@ -69,7 +68,7 @@ class AppointmentsController < ApplicationController
 
   def update
     computed_time = compute_appointment_date_time(params, appointment_params)
-    
+
     @appointment.update(location: appointment_params[:location], user_id: appointment_params[:user_id], patient_id: appointment_params[:patient_id], time: computed_time)
     if @appointment.save
       flash[:success] = "Appointment successfully updated!"
@@ -138,5 +137,9 @@ class AppointmentsController < ApplicationController
       minute = appointment_params['time(5i)'].to_i
 
       DateTime.new(year, month, day, hour, minute, 00, Rational(-7,24))
+    end
+
+    def date_time_to_calender_day(date_time)
+      date_time.strftime('%d-%m-%Y')
     end
 end
